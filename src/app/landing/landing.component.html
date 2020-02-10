@@ -19,7 +19,8 @@
   <div class="divider"></div>
 </section>
 <section id="recipes-and-articles">
-  <app-recipes
+  <app-recipe-section
     *ngFor="let recipeSection of recipeSections"
-    [recipeSection]="recipeSection"></app-recipes>
+    [recipeSection]="recipeSection">
+  </app-recipe-section>
 </section>
