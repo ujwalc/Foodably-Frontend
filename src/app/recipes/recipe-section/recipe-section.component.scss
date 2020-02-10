@@ -1,11 +1,4 @@
 /* recipe section */
-.recipe-section {
-  margin-top: 2rem;
-}
-
-.section-title {
-  margin-bottom: 2rem;
-}
 
 .recipe__cards {
   list-style: none;
@@ -13,6 +6,6 @@
   grid-template-columns: repeat(4, minmax(10%, 1fr));
   grid-template-rows: minmax(23.125rem, 25rem);
   padding: 0;
-  margin: 0;
+  margin: 2rem 0 0 0;
   grid-column-gap: 1.75rem;
 }

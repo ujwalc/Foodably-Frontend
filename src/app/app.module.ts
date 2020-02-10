@@ -7,11 +7,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
 import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component';
+import { RecipeItemComponent } from './recipes/recipe-section/recipe-item/recipe-item.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogSectionComponent } from './blogs/blog-section/blog-section.component';
-import { BlogItemComponent } from './blogs/blog-item/blog-item.component';
+import { BlogItemComponent } from './blogs/blog-section/blog-item/blog-item.component';
 import { RecipeSectionComponent } from './recipes/recipe-section/recipe-section.component';
+import { AuthorItemComponent } from './shared/author-item/author-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RecipeSectionComponent } from './recipes/recipe-section/recipe-section.
     BlogsComponent,
     BlogSectionComponent,
     BlogItemComponent,
-    RecipeSectionComponent
+    RecipeSectionComponent,
+    AuthorItemComponent
   ],
   imports: [
     BrowserModule,

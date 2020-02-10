@@ -35,6 +35,11 @@ body {
   width: 100%;
 }
 
+/* section */
+.section {
+  margin-top: 2rem;
+}
+
 /* button */
 .button {
   height: 3.125rem;
