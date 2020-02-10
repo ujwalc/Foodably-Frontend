@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component';
+import { BlogsComponent } from './blogs/blogs.component';
+import { BlogSectionComponent } from './blogs/blog-section/blog-section.component';
+import { BlogItemComponent } from './blogs/blog-item/blog-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { RecipeItemComponent } from './recipes/recipe-item/recipe-item.component
     FooterComponent,
     LandingComponent,
     RecipesComponent,
-    RecipeItemComponent
+    RecipeItemComponent,
+    BlogsComponent,
+    BlogSectionComponent,
+    BlogItemComponent
   ],
   imports: [
     BrowserModule,
