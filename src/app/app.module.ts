@@ -13,6 +13,8 @@ import { BlogSectionComponent } from './blogs/blog-section/blog-section.componen
 import { BlogItemComponent } from './blogs/blog-section/blog-item/blog-item.component';
 import { RecipeSectionComponent } from './recipes/recipe-section/recipe-section.component';
 import { AuthorItemComponent } from './shared/author-item/author-item.component';
+import { BlogItemFeaturedComponent } from './blogs/blog-section/blog-item-featured/blog-item-featured.component';
+import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-item-top.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AuthorItemComponent } from './shared/author-item/author-item.component'
     BlogSectionComponent,
     BlogItemComponent,
     RecipeSectionComponent,
-    AuthorItemComponent
+    AuthorItemComponent,
+    BlogItemFeaturedComponent,
+    BlogItemTopComponent
   ],
   imports: [
     BrowserModule,

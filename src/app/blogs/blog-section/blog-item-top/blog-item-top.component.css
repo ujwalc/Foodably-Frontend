@@ -1,0 +1,49 @@
+/* top article card */
+.top-blog__post {
+  background-color: white;
+  box-shadow: 4px 10px 25px -16px #4C4054;
+  overflow: hidden;
+}
+
+.top-blog__post > a,
+.blog__post > a,
+.main-articles-blog__post--featured > a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.top-blog__image {
+  height: 14rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.top-blog__caption {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.375rem 1.5rem 0.875rem 1rem;
+}
+
+.blog__comment {
+  display: inline-flex;
+  align-items: center;
+}
+
+.blog__comment > h6 {
+  color: #212121;
+  margin: 0 auto 0 0.5rem;
+}
+
+/* configure card content spacing */
+.top-blog__post .header-4 {
+  margin: 1rem 1rem 0.625rem 1rem;
+}
+
+.top-blog__post .paragraph {
+  margin: 0 1rem 0.8rem 1rem;
+}
+
+/*# sourceMappingURL=blog-item-top.component.css.map */
