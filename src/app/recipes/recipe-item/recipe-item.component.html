@@ -1,9 +1,9 @@
 <li class="recipe__card">
-  <a href="#">
-    <div class="recipe__image"></div>
-    <h6 class="caption">40 min</h6>
-    <h4 class="header-4">Petit beurre dessert</h4>
+  <a>
+    <img [src]='recipeItem.imagePath' class="recipe__image">
+    <h6 class="caption">{{ recipeItem.duration }}</h6>
+    <h4 class="header-4">{{ recipeItem.name }}</h4>
     <div class="divider-tiled__small"></div>
-    <h6 class="backquote__small">Made by Seth Carson</h6>
+    <h6 class="backquote__small">{{ recipeItem.author }}</h6>
   </a>
 </li>

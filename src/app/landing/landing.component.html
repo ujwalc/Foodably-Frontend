@@ -13,8 +13,13 @@
       <input type="text" name="recipe" placeholder="What do you want to try today?">
     </div>
     <div>
-      <a id="advanced-search" class="backquote" href="customers/index.html">Advanced search</a>
+      <a id="advanced-search" class="backquote" href="#">Advanced search</a>
     </div>
   </div>
   <div class="divider"></div>
+</section>
+<section id="recipes-and-articles">
+  <app-recipes
+    *ngFor="let recipeSection of recipeSections"
+    [recipeSection]="recipeSection"></app-recipes>
 </section>
