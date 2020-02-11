@@ -16,7 +16,7 @@
 .blog__image--featured {
   // background: url("../images/rachel-park-hrlvr2ZlUNk-unsplash.jpg") center/cover no-repeat border-box;
   width: 100%;
-  height: 15rem;
+  min-height: 15rem;
   object-fit: cover;
 }
 

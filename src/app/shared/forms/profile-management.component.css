@@ -12,14 +12,13 @@
 .profile-management__form {
   background: white;
   width: 55vw;
-  min-width: 36rem;
+  min-width: 45rem;
   height: 70vh;
   min-height: 42rem;
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-left: -27.5vw;
-  margin-top: -35vh;
+  transform: translate(-50%, -50%);
 }
 
 .profile-management__logo {
