@@ -16,6 +16,8 @@ import { AuthorItemComponent } from './shared/author-item/author-item.component'
 import { BlogItemFeaturedComponent } from './blogs/blog-section/blog-item-featured/blog-item-featured.component';
 import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-item-top.component';
 import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-section-landing.component';
+import { LoginComponent } from './shared/login/login.component';
+import { SignUpComponent } from './shared/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-s
     AuthorItemComponent,
     BlogItemFeaturedComponent,
     BlogItemTopComponent,
-    BlogSectionLandingComponent
+    BlogSectionLandingComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
