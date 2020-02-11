@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isLoginOpened = false;
+  isSignUpOpened = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onLogin() {
+    this.isLoginOpened = !this.isLoginOpened;
+  }
+
+  onSignUp() {
+    this.isSignUpOpened = !this.isSignUpOpened;
+  }
 }

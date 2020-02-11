@@ -37,3 +37,7 @@
 .main-nav__item--login {
   border-left: 1px solid #CDBEA7;
 }
+
+.main-nav__item > a {
+  cursor: pointer;
+}

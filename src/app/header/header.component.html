@@ -1,4 +1,6 @@
 <header>
+  <app-login *ngIf="isLoginOpened"></app-login>
+  <app-sign-up *ngIf="isSignUpOpened"></app-sign-up>
   <div class="main-header">
     <div>
       <a routerLink="/" class="main-header__brand">
@@ -8,7 +10,7 @@
     <nav class="main-nav header-4">
       <ul class="main-nav__items">
         <li class="main-nav__item">
-          <a href="#">Recipes</a>
+          <a>Recipes</a>
         </li>
         <li class="main-nav__item">
           <a routerLink="/blogs">Blogs</a>
@@ -16,10 +18,10 @@
       </ul>
       <ul class="main-nav__items">
         <li class="main-nav__item ">
-          <a href="#">Sign-up</a>
+          <a (click)="onSignUp()">Sign-up</a>
         </li>
         <li class="main-nav__item main-nav__item--login">
-          <a href="#">Login</a>
+          <a (click)="onLogin()">Login</a>
         </li>
       </ul>
     </nav>
