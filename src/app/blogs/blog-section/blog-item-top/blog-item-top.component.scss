@@ -6,9 +6,7 @@
   overflow: hidden;
 }
 
-.top-blog__post > a,
-.blog__post > a,
-.main-articles-blog__post--featured > a {
+.top-blog__post > a {
   text-decoration: none;
   display: flex;
   flex-direction: column;

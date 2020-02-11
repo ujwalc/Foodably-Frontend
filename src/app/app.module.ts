@@ -15,6 +15,7 @@ import { RecipeSectionComponent } from './recipes/recipe-section/recipe-section.
 import { AuthorItemComponent } from './shared/author-item/author-item.component';
 import { BlogItemFeaturedComponent } from './blogs/blog-section/blog-item-featured/blog-item-featured.component';
 import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-item-top.component';
+import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-section-landing.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-it
     RecipeSectionComponent,
     AuthorItemComponent,
     BlogItemFeaturedComponent,
-    BlogItemTopComponent
+    BlogItemTopComponent,
+    BlogSectionLandingComponent
   ],
   imports: [
     BrowserModule,

@@ -26,4 +26,10 @@
   grid-gap: 1.875rem;
 }
 
+/* main content */
+#main-articles--content {
+  width: 80%;
+  margin: 3rem auto 5rem auto;
+}
+
 /*# sourceMappingURL=blogs.component.css.map */
