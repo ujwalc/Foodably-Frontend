@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
+  @Output()
+  close = new EventEmitter<void>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClose() {
+    this.close.emit();
+  }
 }

@@ -36,6 +36,7 @@
   position: absolute;
   top: 2.625rem;
   right: 3rem;
+  cursor: pointer;
 }
 
 .profile-management__illustration {

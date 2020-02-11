@@ -1,6 +1,6 @@
 <header>
-  <app-login *ngIf="isLoginOpened"></app-login>
-  <app-sign-up *ngIf="isSignUpOpened"></app-sign-up>
+  <app-login *ngIf="isLoginOpened" (close)="onLogin()"></app-login>
+  <app-sign-up *ngIf="isSignUpOpened" (close)="onSignUp()"></app-sign-up>
   <div class="main-header">
     <div>
       <a routerLink="/" class="main-header__brand">
