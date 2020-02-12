@@ -1,30 +1,30 @@
 <header>
-  <app-login *ngIf="isLoginOpened" (close)="onLogin()"></app-login>
-  <app-sign-up *ngIf="isSignUpOpened" (close)="onSignUp()"></app-sign-up>
-  <div class="main-header">
-    <div>
-      <a routerLink="/" class="main-header__brand">
-        <img src="assets/img/logo_nav.svg" alt="Foodably - probably the best cooking website on the earth">
-      </a>
+    <app-login *ngIf="isLoginOpened" (close)="onLogin()"></app-login>
+    <app-sign-up *ngIf="isSignUpOpened" (close)="onSignUp()"></app-sign-up>
+    <div class="main-header">
+        <div>
+            <a routerLink="/" class="main-header__brand">
+                <img src="assets/img/logo_nav.svg" alt="Foodably - probably the best cooking website on the earth">
+            </a>
+        </div>
+        <nav class="main-nav header-4">
+            <ul class="main-nav__items">
+                <li class="main-nav__item">
+                    <a routerLink="/recipes">Recipes</a>
+                </li>
+                <li class="main-nav__item">
+                    <a routerLink="/blogs">Blogs</a>
+                </li>
+            </ul>
+            <ul class="main-nav__items">
+                <li class="main-nav__item ">
+                    <a (click)="onSignUp()">Sign-up</a>
+                </li>
+                <li class="main-nav__item main-nav__item--login">
+                    <a (click)="onLogin()">Login</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <nav class="main-nav header-4">
-      <ul class="main-nav__items">
-        <li class="main-nav__item">
-          <a>Recipes</a>
-        </li>
-        <li class="main-nav__item">
-          <a routerLink="/blogs">Blogs</a>
-        </li>
-      </ul>
-      <ul class="main-nav__items">
-        <li class="main-nav__item ">
-          <a (click)="onSignUp()">Sign-up</a>
-        </li>
-        <li class="main-nav__item main-nav__item--login">
-          <a (click)="onLogin()">Login</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="divider"></div>
+    <div class="divider"></div>
 </header>
