@@ -18,6 +18,7 @@ import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-it
 import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-section-landing.component';
 import { LoginComponent } from './shared/forms/login/login.component';
 import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
+import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
     BlogItemTopComponent,
     BlogSectionLandingComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    BlogArticleComponent
   ],
   imports: [
     BrowserModule,
