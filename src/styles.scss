@@ -12,9 +12,12 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
+  height: 100%;
+}
+
+app-root {
   display: grid;
   grid-template-rows: 4rem auto fit-content(69rem);
-  height: 100%;
 }
 
 /* divider */
