@@ -6,10 +6,10 @@
       *ngIf="i === 0 || i % 6 === 0; then featuredArticle; else regularArticle">
     </ng-container>
     <ng-template #featuredArticle>
-      <app-blog-item-featured [blogItem]="blog"></app-blog-item-featured>
+      <app-blog-item-featured [blogItem]="blog" (click)="onBlogSelected(i)"></app-blog-item-featured>
     </ng-template>
     <ng-template #regularArticle>
-      <app-blog-item [blogItem]="blog"></app-blog-item>
+      <app-blog-item [blogItem]="blog" (click)="onBlogSelected(i)"></app-blog-item>
     </ng-template>
   </div>
 </ul>
