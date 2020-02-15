@@ -41,3 +41,9 @@
 .main-nav__item > a {
   cursor: pointer;
 }
+
+.main-nav__divider {
+  z-index: 100;
+  position: fixed;
+  margin-top: 4rem;
+}
