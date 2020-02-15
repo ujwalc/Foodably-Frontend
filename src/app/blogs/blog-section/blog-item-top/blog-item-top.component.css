@@ -4,6 +4,12 @@
   box-shadow: 4px 10px 25px -16px #4C4054;
   overflow: hidden;
 }
+.top-blog__post .header-4 {
+  margin: 1rem 1rem 0.625rem 1rem;
+}
+.top-blog__post .paragraph {
+  margin: 0 1rem 0.8rem 1rem;
+}
 
 .top-blog__post > a {
   text-decoration: none;
@@ -37,15 +43,6 @@
 .blog__comment > h6 {
   color: #212121;
   margin: 0 auto 0 0.5rem;
-}
-
-/* configure card content spacing */
-.top-blog__post .header-4 {
-  margin: 1rem 1rem 0.625rem 1rem;
-}
-
-.top-blog__post .paragraph {
-  margin: 0 1rem 0.8rem 1rem;
 }
 
 /*# sourceMappingURL=blog-item-top.component.css.map */
