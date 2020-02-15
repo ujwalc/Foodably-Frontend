@@ -156,6 +156,7 @@ app-root {
   font-size: 1rem;
   font-weight: 400;
   color: #C29544;
+  text-decoration: underline;
 }
 
 .paragraph {

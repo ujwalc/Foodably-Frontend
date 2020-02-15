@@ -22,6 +22,7 @@ import { BlogArticleComponent } from './blogs/blog-article/blog-article.componen
 import { AuthorComponent } from './shared/articles/author/author.component';
 import { DatePipe } from '@angular/common';
 import { ArticleImageComponent } from './shared/articles/article-image/article-image.component';
+import { RandomBackgroundDirective } from './shared/directives/random-background.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ArticleImageComponent } from './shared/articles/article-image/article-i
     SignUpComponent,
     BlogArticleComponent,
     AuthorComponent,
-    ArticleImageComponent
+    ArticleImageComponent,
+    RandomBackgroundDirective
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,9 @@
   display: inline-flex;
   align-items: center;
 }
+.blog__comment .backquote__small {
+  text-decoration: none;
+}
 
 .blog__comment > h6 {
   color: #212121;

@@ -30,6 +30,10 @@
 .blog__comment {
   display: inline-flex;
   align-items: center;
+
+  .backquote__small {
+    text-decoration: none;
+  }
 }
 
 .blog__comment > h6 {
