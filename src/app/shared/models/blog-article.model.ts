@@ -1,25 +1,24 @@
 import {BlogItem} from './blog-item.model';
 import {BlogParagraph} from './blog-paragraph.model';
-import {RecipeItem} from './recipe-item.model';
+import {RecipeSection} from './recipe-section.model';
 
 export class BlogArticle extends BlogItem {
 
-  public article: [BlogParagraph];
-  public relatedRecipes: [RecipeItem];
+  public paragraphs: BlogParagraph[];
+  public relatedRecipes: RecipeSection;
   public createDate: Date = new Date();
 
   constructor(imagePath: string,
               title: string,
               author: string,
-              preview: string,
               comments: number,
-              article: [BlogParagraph],
-              relatedRecipes: [RecipeItem],
+              paragraphs: BlogParagraph[],
+              relatedRecipes: RecipeSection,
               createDate: Date) {
 
-    super(imagePath, title, author, preview, comments);
+    super(imagePath, title, author, '', comments);
 
-    this.article = article;
+    this.paragraphs = paragraphs;
     this.relatedRecipes = relatedRecipes;
     this.createDate = createDate;
   }
