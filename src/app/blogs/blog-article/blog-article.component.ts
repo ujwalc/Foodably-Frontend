@@ -33,9 +33,9 @@ export class BlogArticleComponent implements OnInit {
     const paragraphs: BlogParagraph[] = [paragraphOne, paragraphTwo, paragraphThree];
 
     const recipeSection = new RecipeSection('Related recipes', [
-      new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Made by Alice Norris'),
+      new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Alice Norris'),
       // tslint:disable-next-line:max-line-length
-      new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Made by Randall Fisher')
+      new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Randall Fisher')
     ]);
 
     // @ts-ignore
