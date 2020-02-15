@@ -6,6 +6,7 @@ export class BlogArticle extends BlogItem {
 
   public article: [BlogParagraph];
   public relatedRecipes: [RecipeItem];
+  public createDate: Date = new Date();
 
   constructor(imagePath: string,
               title: string,
@@ -13,11 +14,13 @@ export class BlogArticle extends BlogItem {
               preview: string,
               comments: number,
               article: [BlogParagraph],
-              relatedRecipes: [RecipeItem]) {
+              relatedRecipes: [RecipeItem],
+              createDate: Date) {
 
     super(imagePath, title, author, preview, comments);
 
     this.article = article;
     this.relatedRecipes = relatedRecipes;
+    this.createDate = createDate;
   }
 }

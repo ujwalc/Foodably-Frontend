@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { RecipeItem } from '../shared/recipe-item.model';
-import {BlogItem} from '../shared/blog-item.model';
+import { RecipeItem } from '../shared/models/recipe-item.model';
+import {BlogItem} from '../shared/models/blog-item.model';
 
 @Component({
   selector: 'app-landing',
