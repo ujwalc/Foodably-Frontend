@@ -20,6 +20,10 @@ import { LoginComponent } from './shared/forms/login/login.component';
 import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
 import { RecipePageSectionComponent } from './recipes/recipe-page-section/recipe-page-section.component';
 import { RecipePageItemComponent } from './recipes/recipe-page-section/recipe-page-item/recipe-page-item.component';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { MoreRecipeSectionComponent } from './view-recipe/more-recipe-section/more-recipe-section.component';
+import { MoreRecipeItemComponent } from './view-recipe/more-recipe-section/more-recipe-item/more-recipe-item.component';
+import { CommentSectionComponent } from './view-recipe/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { RecipePageItemComponent } from './recipes/recipe-page-section/recipe-pa
     LoginComponent,
     SignUpComponent,
     RecipePageSectionComponent,
-    RecipePageItemComponent
+    RecipePageItemComponent,
+    ViewRecipeComponent,
+    MoreRecipeSectionComponent,
+    MoreRecipeItemComponent,
+    CommentSectionComponent
   ],
   imports: [
     BrowserModule,
