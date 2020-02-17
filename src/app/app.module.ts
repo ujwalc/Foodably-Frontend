@@ -12,12 +12,17 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { BlogSectionComponent } from './blogs/blog-section/blog-section.component';
 import { BlogItemComponent } from './blogs/blog-section/blog-item/blog-item.component';
 import { RecipeSectionComponent } from './recipes/recipe-section/recipe-section.component';
-import { AuthorItemComponent } from './shared/author-item/author-item.component';
+import { AuthorItemComponent } from './shared/articles/author-item/author-item.component';
 import { BlogItemFeaturedComponent } from './blogs/blog-section/blog-item-featured/blog-item-featured.component';
 import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-item-top.component';
 import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-section-landing.component';
 import { LoginComponent } from './shared/forms/login/login.component';
 import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
+import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
+import { AuthorComponent } from './shared/articles/author/author.component';
+import { DatePipe } from '@angular/common';
+import { ArticleImageComponent } from './shared/articles/article-image/article-image.component';
+import { RandomBackgroundDirective } from './shared/directives/random-background.directive';
 
 @NgModule({
   declarations: [
@@ -36,13 +41,17 @@ import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
     BlogItemTopComponent,
     BlogSectionLandingComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    BlogArticleComponent,
+    AuthorComponent,
+    ArticleImageComponent,
+    RandomBackgroundDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
