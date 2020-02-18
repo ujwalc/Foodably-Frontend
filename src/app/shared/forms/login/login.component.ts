@@ -9,6 +9,8 @@ export class LoginComponent implements OnInit {
 
   @Output()
   close = new EventEmitter<void>();
+  @Output()
+  login = new EventEmitter<void>();
 
   constructor() { }
 
@@ -17,5 +19,9 @@ export class LoginComponent implements OnInit {
 
   onClose() {
     this.close.emit();
+  }
+
+  onUserLogin() {
+    this.login.emit();
   }
 }

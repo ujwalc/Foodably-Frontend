@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  isUserLoggedIn = false;
+
   isLoginOpened = false;
   isSignUpOpened = false;
 
@@ -21,5 +23,10 @@ export class HeaderComponent implements OnInit {
 
   onSignUp() {
     this.isSignUpOpened = !this.isSignUpOpened;
+  }
+
+  onUserSubmit() {
+    this.isLoginOpened = false;
+    this.isUserLoggedIn = true;
   }
 }
