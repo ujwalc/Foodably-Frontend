@@ -6,12 +6,12 @@
 #section-one {
     /*background: url("~/assets/img/stock-img/dan-gold-4_jhDO54BYg-unsplash.jpg") center/cover no-repeat border-box;*/
     background-position: left 0% bottom 30%;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
-    position: relative;
-    margin-top: 4rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 4rem;
+    // padding-left: 2rem;
+    // padding-right: 2rem;
+    // margin: 4rem auto;
 }
 
 .video {
@@ -33,8 +33,10 @@ section {
 
 section#section-one .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 4fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(6, fit-content(1fr));
+    grid-gap: 2rem;
+    grid-auto-flow: row dense;
 }
 
 .box {
@@ -49,37 +51,18 @@ section#section-one .grid {
 }
 
 .s1-a {
-    grid-column: 1 / span 5;
-    grid-row: 1 / span 1;
+    grid-column: span 2;
 }
 
 .s1-b {
-    grid-column: 4 / span 2;
-    grid-row: 2/ span 4;
+    grid-column: 2 / 3;
+    grid-row: span 4;
     padding-top: 0rem;
-    padding-right: 1rem;
-}
-
-.s1-c {
-    grid-column: 1 / span 3;
-    grid-row: 2/ span 1;
-    padding-top: 0rem;
-    padding-left: 2rem;
     padding-right: 1rem;
 }
 
 .s1-d {
-    grid-column: 1 / span 3;
-    grid-row: 3/ span 1;
     padding-left: 1rem;
     padding-top: 0rem;
-    justify-content: flex-start;
-}
-
-.s1-e {
-    grid-column: 1 / span 3;
-    grid-row: 4/ span 1;
-    padding-top: 0rem;
-    padding-left: 1rem;
     justify-content: flex-start;
 }
