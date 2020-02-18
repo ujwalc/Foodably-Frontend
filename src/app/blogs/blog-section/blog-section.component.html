@@ -1,23 +1,15 @@
 <h2 class="header-2">{{ blogSection.header }}</h2>
 <ul class="main-articles-blog__posts">
-
-<!--  Should be rebuild to be dynamic-->
-<!--  <li-->
-<!--    *ngFor="let blog of blogSection.blogs; let i = index"-->
-<!--    [ngSwitch]="i">-->
-<!--    <ng-template ngSwitchCase="0">-->
-<!--      <app-blog-item-featured [blogItem]="blog"></app-blog-item-featured>-->
-<!--    </ng-template>-->
-<!--    <ng-template ngSwitchDefault>-->
-<!--      <app-blog-item [blogItem]="blog"></app-blog-item>-->
-<!--    </ng-template>-->
-<!--  </li>-->
-
-  <app-blog-item-featured [blogItem]="blogSection.blogs[0]"></app-blog-item-featured>
-  <app-blog-item
-    *ngFor="let blog of blogSection.blogs.slice(1,6)"
-    [blogItem]="blog">
-  </app-blog-item>
-  <app-blog-item-featured [blogItem]="blogSection.blogs[6]"></app-blog-item-featured>
-  <app-blog-item [blogItem]="blogSection.blogs[7]"></app-blog-item>
+  <div [class.blog__post--featured]="i === 0 || i % 6 === 0"
+    *ngFor="let blog of blogSection.blogArticles; let i = index">
+    <ng-container
+      *ngIf="i === 0 || i % 6 === 0; then featuredArticle; else regularArticle">
+    </ng-container>
+    <ng-template #featuredArticle>
+      <app-blog-item-featured [blogItem]="blog" (click)="onBlogSelected(i)"></app-blog-item-featured>
+    </ng-template>
+    <ng-template #regularArticle>
+      <app-blog-item [blogItem]="blog" (click)="onBlogSelected(i)"></app-blog-item>
+    </ng-template>
+  </div>
 </ul>

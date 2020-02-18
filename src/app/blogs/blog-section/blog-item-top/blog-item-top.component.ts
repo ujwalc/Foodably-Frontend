@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BlogItem} from '../../../shared/blog-item.model';
+import {BlogItem} from '../../../shared/models/blog-item.model';
 
 @Component({
   selector: 'app-blog-item-top',

@@ -1,8 +1,13 @@
 /* blog article */
 .blog__post > a {
   text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100%;
   cursor: pointer;
 }
@@ -15,5 +20,4 @@
   margin: 0;
   margin-top: 0.625rem;
 }
-
 /*# sourceMappingURL=blog-item.component.css.map */

@@ -6,8 +6,6 @@
 #top-articles--content {
   width: 80%;
   padding: 4rem 0;
-  margin-top: 4rem;
-  /* temporary solution */
   margin-left: auto;
   margin-right: auto;
 }
@@ -19,10 +17,13 @@
 
 .top-blog__posts {
   list-style: none;
+  display: -ms-grid;
   display: grid;
   padding: 0;
-  grid-template-columns: repeat(3, minmax(10%, 1fr));
-  grid-template-rows: fit-content(35rem);
+  -ms-grid-columns: (minmax(10%, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(10%, 1fr));
+  -ms-grid-rows: fit-content(35rem);
+      grid-template-rows: fit-content(35rem);
   grid-gap: 1.875rem;
 }
 
@@ -31,5 +32,4 @@
   width: 80%;
   margin: 3rem auto 5rem auto;
 }
-
 /*# sourceMappingURL=blogs.component.css.map */
