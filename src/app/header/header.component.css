@@ -41,4 +41,10 @@
   cursor: pointer;
 }
 
+.main-nav__divider {
+  z-index: 100;
+  position: fixed;
+  margin-top: 4rem;
+}
+
 /*# sourceMappingURL=header.component.css.map */

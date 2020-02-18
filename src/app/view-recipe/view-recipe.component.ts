@@ -1,9 +1,7 @@
-import { RecipeItem } from './../shared/recipe-item.model';
+import { RecipeItem } from './../shared/models/recipe-item.model';
 
 import { Component,Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
-
 
 @Component({
   selector: 'app-view-recipe',
