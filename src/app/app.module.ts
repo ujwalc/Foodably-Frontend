@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule,NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -75,6 +76,7 @@ import { SidebarModule } from 'ng-sidebar';
     NoopAnimationsModule,
     MatMenuModule,
     SidebarModule,
+    FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
