@@ -18,6 +18,12 @@ import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-it
 import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-section-landing.component';
 import { LoginComponent } from './shared/forms/login/login.component';
 import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
+import { RecipePageSectionComponent } from './recipes/recipe-page-section/recipe-page-section.component';
+import { RecipePageItemComponent } from './recipes/recipe-page-section/recipe-page-item/recipe-page-item.component';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { MoreRecipeSectionComponent } from './view-recipe/more-recipe-section/more-recipe-section.component';
+import { MoreRecipeItemComponent } from './view-recipe/more-recipe-section/more-recipe-item/more-recipe-item.component';
+import { CommentSectionComponent } from './view-recipe/comment-section/comment-section.component';
 import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 import { AuthorComponent } from './shared/articles/author/author.component';
 import { DatePipe } from '@angular/common';
@@ -42,6 +48,12 @@ import { RandomBackgroundDirective } from './shared/directives/random-background
     BlogSectionLandingComponent,
     LoginComponent,
     SignUpComponent,
+    RecipePageSectionComponent,
+    RecipePageItemComponent,
+    ViewRecipeComponent,
+    MoreRecipeSectionComponent,
+    MoreRecipeItemComponent,
+    CommentSectionComponent,
     BlogArticleComponent,
     AuthorComponent,
     ArticleImageComponent,
