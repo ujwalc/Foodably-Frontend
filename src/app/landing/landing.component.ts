@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { RecipeItem } from '../shared/recipe-item.model';
 import {BlogItem} from '../shared/blog-item.model';
+import { AdvSearchComponent } from '../shared/forms/adv-search/adv-search.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-landing',
@@ -52,9 +54,21 @@ export class LandingComponent implements OnInit {
     ]
   };
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  onSearch(){
+    const dialogRef = this.dialog.open(AdvSearchComponent, {
+      width: '250px',
+      height: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
   }
 
 }

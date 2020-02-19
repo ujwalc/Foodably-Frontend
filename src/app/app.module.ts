@@ -18,6 +18,14 @@ import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-it
 import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-section-landing.component';
 import { LoginComponent } from './shared/forms/login/login.component';
 import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
+import { SearchComponent } from './search/search.component';
+import { AdvSearchComponent } from './shared/forms/adv-search/adv-search.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule,NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule} from '@angular/material/menu';
+import { SidebarModule } from 'ng-sidebar';
+
+
 
 @NgModule({
   declarations: [
@@ -36,11 +44,18 @@ import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
     BlogItemTopComponent,
     BlogSectionLandingComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    SearchComponent,
+    AdvSearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatMenuModule,
+    SidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

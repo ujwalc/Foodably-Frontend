@@ -1,57 +1,13 @@
-/* top section with banner and label */
-
-#welcome-banner {
-    background: url("~/assets/img/stock-img/dan-gold-4_jhDO54BYg-unsplash.jpg") center/cover no-repeat border-box;
-    background-position: left 0% bottom 30%;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 50vh;
-    position: relative;
-    margin-top: 4rem;
-}
-
-#label-container {
-    margin-left: auto;
-    margin-right: auto;
-    height: 10.125rem;
-    width: 40.625rem;
-    position: relative;
-    top: 12rem;
-}
-
-#label-container .header-1 {
-    position: absolute;
-    bottom: 0.375rem;
-    right: 0.65rem;
-    margin: 0;
-}
-
-#label-dark {
-    position: absolute;
-    height: 8.125rem;
-    width: 38.375rem;
-    right: 0;
-    bottom: 0;
-    z-index: 10;
-    background-color: #F2BF58;
-}
-
-#label-light {
-    position: absolute;
-    height: 8.125rem;
-    width: 38.375rem;
-    left: 0;
-    top: 0;
-    z-index: 20;
-    background-color: #FEF2E3;
-}
-
-
 /* search section */
 
 #search {
+    padding: 4rem 0;
+    margin-top: 4rem;
     padding-top: 3.5rem;
+    background: rgba(194, 149, 68, 0.25);
+    /* temporary solution */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #search>div:first-of-type {
@@ -96,14 +52,50 @@
 
 #advanced-search {
     padding-right: 1rem;
-    border: hidden;
-    background-color: transparent;
 }
-
-
-/* recipes */
 
 #recipes-and-articles {
     width: 80%;
     margin: 3rem auto 4.625rem auto;
+}
+
+.dropdown-sort a:hover {
+    background-color: #ddd;
+}
+
+.sort:hover .dropdown-sort {
+    display: block;
+}
+
+.main-sort {
+    background-color: rgba(194, 149, 68, 0.25);
+    color: white;
+    font-size: 1rem;
+    border: none;
+}
+
+.sort {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-sort {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 12rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-sort a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#advanced-search {
+    border: hidden;
+    background-color: transparent;
 }
