@@ -8,7 +8,7 @@ import {NgForm} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('loginForm', { static: false }) loginForm: NgForm;
+  @ViewChild('loginForm') loginForm: NgForm;
 
   @Output()
   close = new EventEmitter<void>();
