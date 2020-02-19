@@ -1,5 +1,4 @@
 import { RecipeItem } from './../shared/models/recipe-item.model';
-
 import { Component,Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 

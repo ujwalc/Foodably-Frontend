@@ -10,7 +10,7 @@ import { Component, OnInit,Input } from '@angular/core';
 export class MoreRecipeSectionComponent implements OnInit {
   @Input()
   moreRecipeSection: {
-    
+    header: 'More Delicious Dishes',
     recipes: RecipeItem[]
   };
   constructor() { }

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -29,6 +28,14 @@ import { AuthorComponent } from './shared/articles/author/author.component';
 import { DatePipe } from '@angular/common';
 import { ArticleImageComponent } from './shared/articles/article-image/article-image.component';
 import { RandomBackgroundDirective } from './shared/directives/random-background.directive';
+import { SearchComponent } from './search/search.component';
+import { AdvSearchComponent } from './shared/forms/adv-search/adv-search.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule,NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule} from '@angular/material/menu';
+import { SidebarModule } from 'ng-sidebar';
+
+
 
 @NgModule({
   declarations: [
@@ -57,11 +64,17 @@ import { RandomBackgroundDirective } from './shared/directives/random-background
     BlogArticleComponent,
     AuthorComponent,
     ArticleImageComponent,
-    RandomBackgroundDirective
+    RandomBackgroundDirective,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatMenuModule,
+    SidebarModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { LandingComponent } from './landing/landing.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'blogs', component: BlogsComponent },
   {path:'recipes',component:RecipesComponent},
   {path:'viewRecipe',component:ViewRecipeComponent},
-  { path: 'blogs/:id', component: BlogArticleComponent }
+  { path: 'blogs/:id', component: BlogArticleComponent },
+  { path: 'search', component: SearchComponent }
 ];
 
 @NgModule({
