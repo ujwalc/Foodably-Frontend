@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'blogs', component: BlogsComponent },
   {path:'recipes',component:RecipesComponent},
   {path:'viewRecipe',component:ViewRecipeComponent},
-  { path: 'blogs/:id', component: BlogArticleComponent }
+  { path: 'blogs/:id', component: BlogArticleComponent },
+  { path: 'search', component: SearchComponent }
 ];
 
 @NgModule({
