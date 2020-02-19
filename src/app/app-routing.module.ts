@@ -8,6 +8,7 @@ import { BlogArticleComponent } from './blogs/blog-article/blog-article.componen
 
 import { SearchComponent } from './search/search.component';
 
+
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
   { path: 'blogs', component: BlogsComponent },

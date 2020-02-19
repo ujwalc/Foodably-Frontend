@@ -65,8 +65,7 @@ import { SidebarModule } from 'ng-sidebar';
     AuthorComponent,
     ArticleImageComponent,
     RandomBackgroundDirective,
-    SearchComponent,
-    AdvSearchComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
