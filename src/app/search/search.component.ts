@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, } from '@angular/core';
-import { RecipeItem } from '../shared/recipe-item.model';
+import { RecipeItem } from '../shared/models/recipe-item.model';
 import { AdvSearchComponent } from '../shared/forms/adv-search/adv-search.component';
 import {MatDialog} from '@angular/material/dialog';
 

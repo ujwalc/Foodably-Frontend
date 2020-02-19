@@ -5,9 +5,8 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 50vh;
+  height: 31rem;
   position: relative;
-  margin-top: 4rem;
 }
 
 #label-container {
@@ -18,7 +17,6 @@
   position: relative;
   top: 12rem;
 }
-
 #label-container .header-1 {
   position: absolute;
   bottom: 0.375rem;

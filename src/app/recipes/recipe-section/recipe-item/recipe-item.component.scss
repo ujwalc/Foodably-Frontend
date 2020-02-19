@@ -1,7 +1,20 @@
 .recipe__card {
+
   background-color: white;
   box-shadow: 4px 10px 25px -16px #4C4054;
   overflow: hidden;
+
+  /* configure card content spacing */
+
+  .caption {
+    margin: 1rem 1rem 0 1rem;
+    height: 6%;
+  }
+
+  .header-4 {
+    margin: 0.75rem 1rem 0.625rem 1rem;
+    height: 15%;
+  }
 }
 
 .recipe__card > a, .blog__post > a {
@@ -21,19 +34,7 @@
   object-fit: cover;
 }
 
-/* configure card content spacing */
-
-.recipe__card .caption {
-  margin: 1rem 1rem 0 1rem;
-  height: 6%;
-}
-
-.recipe__card .header-4 {
-  margin: 0.75rem 1rem 0.625rem 1rem;
-  height: 15%;
-}
-
-.recipe__card .backquote__small {
+.recipe__card--author {
   height: 6%;
   margin: 0.875rem 0 0.875rem 1rem;
 }
