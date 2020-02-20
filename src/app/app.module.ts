@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -24,7 +24,11 @@ import { AuthorComponent } from './shared/articles/author/author.component';
 import { DatePipe } from '@angular/common';
 import { ArticleImageComponent } from './shared/articles/article-image/article-image.component';
 import { RandomBackgroundDirective } from './shared/directives/random-background.directive';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+const appRoutes: Routes = [
 
+  {path:'shoppinglist', component: ShoppingListComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,8 @@ import { RandomBackgroundDirective } from './shared/directives/random-background
     BlogArticleComponent,
     AuthorComponent,
     ArticleImageComponent,
-    RandomBackgroundDirective
+    RandomBackgroundDirective,
+    ShoppingListComponent
   ],
   imports: [
     BrowserModule,
