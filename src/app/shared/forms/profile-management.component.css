@@ -20,6 +20,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.profile-management__form .divider {
+  width: 60%;
+  margin: 0 auto;
+}
 
 .profile-management__logo {
   position: absolute;
@@ -50,7 +54,6 @@
   width: 65%;
   margin: 3rem auto 2.625rem auto;
 }
-
 .profile-management__form--container > h2 {
   text-align: center;
 }
@@ -62,7 +65,6 @@
   justify-items: center;
   margin-bottom: 2rem;
 }
-
 .profile-management__form--content > .paragraph {
   margin: 0;
 }
@@ -72,8 +74,8 @@
   grid-auto-rows: 2.75rem;
   grid-row-gap: 1rem;
   width: 100%;
+  /* validation */
 }
-
 .profile-management__form--fields > input[type=text],
 .profile-management__form--fields > input[type=email],
 .profile-management__form--fields > input[type=password] {
@@ -82,17 +84,10 @@
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   font-weight: 400;
-}
-
-.profile-management__form--fields > input[type=text],
-.profile-management__form--fields > input[type=email],
-.profile-management__form--fields > input[type=password] {
   color: #9E9E9E;
 }
-
-.profile-management__form .divider {
-  width: 60%;
-  margin: 0 auto;
+.profile-management__form--fields .ng-invalid.ng-touched {
+  border: 1px solid red;
 }
 
 #profile-management__form--caption,

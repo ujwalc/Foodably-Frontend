@@ -10,6 +10,9 @@
   border: none;
   margin: 0 auto;
 }
+.button[disabled] {
+  opacity: 0.5;
+}
 
 /* google button */
 #button-google {
