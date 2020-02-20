@@ -10,12 +10,40 @@
           <h4 id="button-google--text">Sign in with Google</h4>
         </button>
         <p class="paragraph">or use your email for registration</p>
-        <form class="profile-management__form--fields">
-          <input type="text" placeholder="Name" name="name">
-          <input type="email" placeholder="Email" name="email">
-          <input type="password" placeholder="Password" name="password">
-          <input type="password" placeholder="Enter password again" name="password">
-          <input class="button button-title red-back" type="submit" value="Submit">
+        <form class="profile-management__form--fields"
+              (ngSubmit)="onSubmit()"
+              #signUpForm="ngForm">
+          <input id="username"
+                 type="text"
+                 placeholder="Name"
+                 name="username"
+                 ngModel
+                 required>
+          <input id="email"
+                 type="email"
+                 placeholder="Email"
+                 name="email"
+                 ngModel
+                 required
+                 email>
+          <input id="password"
+                 type="password"
+                 placeholder="Password"
+                 name="password"
+                 required
+                 ngModel
+                 minlength="8">
+          <input id="confirmPassword"
+                 type="password"
+                 placeholder="Enter password again"
+                 name="confirmPassword"
+                 required
+                 ngModel
+                 minlength="8">
+          <input class="button button-title red-back"
+                 [disabled]="!signUpForm.valid"
+                 type="submit"
+                 value="Submit">
         </form>
       </div>
       <div class="divider"></div>
