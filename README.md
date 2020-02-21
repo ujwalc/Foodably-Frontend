@@ -24,7 +24,10 @@ The web site for creating and searching food recipes. Foodably also offers blog 
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+* build the code using ```ng build``` option
+* build files get created in a ```dist``` folder
+* next created a ```group2``` folder in bluenose
+* files from ```dist``` folder have to be copied into ```group2``` folder in bluenose
 
 ## Sources Used
 
