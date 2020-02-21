@@ -68,7 +68,8 @@ import { FormsModule } from '@angular/forms';
     ArticleImageComponent,
     RandomBackgroundDirective,
     ShoppingListComponent,
-    SearchComponent
+    SearchComponent,
+    AdvSearchComponent
   ],
   imports: [
     BrowserModule,

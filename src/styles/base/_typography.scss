@@ -59,8 +59,10 @@
 }
 
 .backquote {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
+  text-decoration: underline;
   color: map-get($colors, link-yellow);
 }
 
