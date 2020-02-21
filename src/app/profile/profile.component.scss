@@ -17,9 +17,16 @@
   align-items: center;
 }
 
-.profile-name {
+.profile--info {
+  display: block;
   margin-left: 3rem;
+
+  .paragraph {
+    width: 60%;
+  }
 }
+
+/* profile tabls */
 
 .profile__tabs {
   display: flex;
