@@ -1,52 +1,75 @@
-body{
-    margin: 0;
-}
-.profile-section{
-    display: inline-block;
-    margin-left: 20rem;
-    
-    
-}
-#name{
-    margin-left: 35rem;
-    margin-top: 10rem;
-    font-family: 'Montserrat', sans-serif;
-    top:0;
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
 
+.profile__container {
+  @include center-content();
+  width: 60%;
+  margin: {
+    top: 6rem;
+    bottom: 2rem;
+  }
 }
-img{
-    border-radius: 50%;
-    width: 15%;
-    margin-left: 10rem;
-    margin-top: 4rem;
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.profile-name {
+  margin-left: 3rem;
+}
+
+.profile__tabs {
+  display: flex;
+  width: 100%;
+}
+
+.profile__tab {
+
+  cursor: pointer;
+  height: 3.125rem;
+
+  padding: {
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  width: fit-content;
+  border: none;
+  margin: 0;
+  border-right: 1px solid white;
+  opacity: 0.5;
+  background: map-get($colors, purple);
+}
+
+.active {
+  opacity: 1;
+}
+
+/* profile avatar */
+
+.profile-placeholder {
+  font-size: 5rem;
+}
+
+.profile--template {
+  display: inline-flex;
+  align-items: center;
+}
+
+.profile--background {
+
+  position: relative;
+  height: 10rem;
+  width: 10rem;
+
+  h3 {
     position: absolute;
-
-}
-
-.options{
-    margin-left: 20rem;
-    margin-top:5rem;
-}
-
-.options-div > a{
-    margin-left: 2rem;
- 
-}
-
-.options button{
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: medium;
-    cursor: pointer;
-    padding: 5px 5px;
-    font-size: 12px;
-   
-}
-
-.line{
-    position: relative;
-    width: 60%;
-    margin-left: 0;
-    margin-top: 15px;
-
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
 }

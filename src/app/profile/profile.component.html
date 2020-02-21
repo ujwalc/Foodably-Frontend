@@ -1,26 +1,21 @@
-<section class="Profile-section">
-    <div class="profile" >
-        <img class="profile-section" src="img_avatar.png">  
-        <h1 id="name" class="profile-section">Name</h1>
-    </div>
-</section>
-<section class="options">
-    <div class="options-div">
-        <a>
-            <button class="recipe">
-            <i class="fas fa-utensils"></i>
-            Create recipe
-            </button>
-        </a>
-        <a>
-            <button class="blog">
-            <i class="far fa-edit"></i>
-                Post Blog
-            </button>
-        </a>
-        <a>
-            <button class="shopping" routerLink="/shoppinglist" routerLinkActive="active"> <i class="fas fa-clipboard-list"></i>Shopping List</button>
-        </a>
-    </div>
-    <hr class="line">
-</section>
+<div class="profile__container">
+  <section>
+      <div class="profile" >
+        <div class="profile--template">
+          <div appRandomBackground class="profile--background">
+            <h3 class="profile-placeholder author-placeholder">R</h3>
+          </div>
+        </div>
+        <h1 class="header-1 profile-name">Random Name</h1>
+      </div>
+  </section>
+  <section>
+      <div class="profile__tabs">
+        <button class="profile__tab button-title">Create recipe</button>
+        <button class="profile__tab button-title">Post Blog</button>
+        <button class="profile__tab button-title" routerLink="shoppinglist" routerLinkActive="active"> <i class="fas fa-clipboard-list"></i>Shopping List</button>
+      </div>
+      <div class="divider"></div>
+      <router-outlet></router-outlet>
+  </section>
+</div>
