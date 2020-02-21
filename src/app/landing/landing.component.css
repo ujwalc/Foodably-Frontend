@@ -91,6 +91,8 @@
 
 #advanced-search {
   padding-right: 1rem;
+  background: transparent;
+  border: transparent;
 }
 
 /* recipes */

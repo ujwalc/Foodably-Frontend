@@ -17,6 +17,7 @@ import { BlogItemTopComponent } from './blogs/blog-section/blog-item-top/blog-it
 import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-section-landing.component';
 import { LoginComponent } from './shared/forms/login/login.component';
 import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RecipePageSectionComponent } from './recipes/recipe-page-section/recipe-page-section.component';
 import { RecipePageItemComponent } from './recipes/recipe-page-section/recipe-page-item/recipe-page-item.component';
 import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
@@ -28,15 +29,14 @@ import { AuthorComponent } from './shared/articles/author/author.component';
 import { DatePipe } from '@angular/common';
 import { ArticleImageComponent } from './shared/articles/article-image/article-image.component';
 import { RandomBackgroundDirective } from './shared/directives/random-background.directive';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SearchComponent } from './search/search.component';
 import { AdvSearchComponent } from './shared/forms/adv-search/adv-search.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { BrowserAnimationsModule,NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
 import { FormsModule } from '@angular/forms';
-
-
 
 @NgModule({
   declarations: [
@@ -56,6 +56,7 @@ import { FormsModule } from '@angular/forms';
     BlogSectionLandingComponent,
     LoginComponent,
     SignUpComponent,
+    ProfileComponent,
     RecipePageSectionComponent,
     RecipePageItemComponent,
     ViewRecipeComponent,
@@ -66,6 +67,7 @@ import { FormsModule } from '@angular/forms';
     AuthorComponent,
     ArticleImageComponent,
     RandomBackgroundDirective,
+    ShoppingListComponent,
     SearchComponent
   ],
   imports: [
