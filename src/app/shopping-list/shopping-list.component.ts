@@ -6,15 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent implements OnInit {
-  public shoppinglist = [
+
+  public shoppingList = [
     {name:"Chicken",qty:"500gm"},
     {name:"Oil",qty:"100ml"},
     {name:"Chillies",qty:"10g"}
-  ]
+  ];
+
   constructor() { }
 
   ngOnInit() {
 
   }
-
 }

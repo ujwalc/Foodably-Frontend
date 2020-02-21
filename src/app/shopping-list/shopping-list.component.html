@@ -9,10 +9,9 @@
               <th>Ingrediants</th>
               <th>Qunatity</th>
             </tr>
-            <tr *ngFor="let list of shoppinglist; let i=index">
-              <td>{{shoppinglist[i].name}}</td>
-              <td>{{shoppinglist[i].qty}}</td>
-              
+            <tr *ngFor="let list of shoppingList; let i=index">
+              <td>{{ list.name }}</td>
+              <td>{{ list.qty }}</td>
             </tr>
           </table>
     </div>
