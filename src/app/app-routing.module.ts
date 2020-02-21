@@ -12,9 +12,14 @@ import { SearchComponent } from './search/search.component';
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
   { path: 'blogs', component: BlogsComponent },
-  { path: 'profile', component: ProfileComponent },
   { path: 'blogs/:id', component: BlogArticleComponent },
-  { path: 'shoppinglist', component: ShoppingListComponent },
+  { path: 'profile',
+    redirectTo: '/profile/shoppinglist',
+    pathMatch: 'full'
+  },
+  { path: 'profile', component: ProfileComponent, children: [
+      { path: 'shoppinglist', component: ShoppingListComponent }
+    ]},
   { path: 'search', component: SearchComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'viewRecipe', component: ViewRecipeComponent }
