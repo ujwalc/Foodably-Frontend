@@ -37,7 +37,6 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -79,8 +78,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NoopAnimationsModule,
     MatMenuModule,
     SidebarModule,
-    FormsModule,
-    FontAwesomeModule
+    FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
