@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,6 +7,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['../profile-management.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  @ViewChild('loginForm') loginForm: NgForm;
 
   @Output()
   close = new EventEmitter<void>();
@@ -21,7 +24,8 @@ export class LoginComponent implements OnInit {
     this.close.emit();
   }
 
-  onUserLogin() {
+  onSubmit() {
+    console.log(this.loginForm);
     this.login.emit();
   }
 }

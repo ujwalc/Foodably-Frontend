@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "recipes.component.scss"
-    ],
-    "names": [],
-    "file": "recipes.component.css"
-}
+{"version":3,"sourceRoot":"","sources":["recipes.component.scss"],"names":[],"mappings":"AAAA;EACI;EACA","file":"recipes.component.css"}

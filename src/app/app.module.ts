@@ -19,16 +19,27 @@ import { BlogSectionLandingComponent } from './blogs/blog-section-landing/blog-s
 import { LoginComponent } from './shared/forms/login/login.component';
 import { SignUpComponent } from './shared/forms/sign-up/sign-up.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RecipePageSectionComponent } from './recipes/recipe-page-section/recipe-page-section.component';
+import { RecipePageItemComponent } from './recipes/recipe-page-section/recipe-page-item/recipe-page-item.component';
+import { ViewRecipeComponent } from './view-recipe/view-recipe.component';
+import { MoreRecipeSectionComponent } from './view-recipe/more-recipe-section/more-recipe-section.component';
+import { MoreRecipeItemComponent } from './view-recipe/more-recipe-section/more-recipe-item/more-recipe-item.component';
+import { CommentSectionComponent } from './view-recipe/comment-section/comment-section.component';
 import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 import { AuthorComponent } from './shared/articles/author/author.component';
 import { DatePipe } from '@angular/common';
 import { ArticleImageComponent } from './shared/articles/article-image/article-image.component';
 import { RandomBackgroundDirective } from './shared/directives/random-background.directive';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-const appRoutes: Routes = [
+import { SearchComponent } from './search/search.component';
+import { AdvSearchComponent } from './shared/forms/adv-search/adv-search.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule,NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule} from '@angular/material/menu';
+import { SidebarModule } from 'ng-sidebar';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-  {path:'shoppinglist', component: ShoppingListComponent}
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,15 +59,29 @@ const appRoutes: Routes = [
     LoginComponent,
     SignUpComponent,
     ProfileComponent,
+    RecipePageSectionComponent,
+    RecipePageItemComponent,
+    ViewRecipeComponent,
+    MoreRecipeSectionComponent,
+    MoreRecipeItemComponent,
+    CommentSectionComponent,
     BlogArticleComponent,
     AuthorComponent,
     ArticleImageComponent,
     RandomBackgroundDirective,
-    ShoppingListComponent
+    ShoppingListComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatMenuModule,
+    SidebarModule,
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

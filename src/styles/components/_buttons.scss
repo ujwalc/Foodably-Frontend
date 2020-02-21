@@ -8,6 +8,10 @@
   min-width: 10.35rem;
   border: none;
   margin: 0 auto;
+
+  &[disabled] {
+    opacity: 0.5;
+  }
 }
 
 /* google button */
