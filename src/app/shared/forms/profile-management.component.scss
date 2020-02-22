@@ -21,10 +21,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     .divider {
-       width: 60%;
-       margin: 0 auto;
+        width: 60%;
+        margin: 0 auto;
     }
 }
 
@@ -36,7 +35,7 @@
 }
 
 .close-button {
-    background: url("~/assets/img/close.svg") center/cover repeat border-box;
+    background: url("../../../assets/img/close.svg") center/cover repeat border-box;
     height: 2rem;
     width: 2rem;
     position: absolute;
@@ -56,9 +55,8 @@
 .profile-management__form--container {
     width: 65%;
     margin: 3rem auto 2.625rem auto;
-
-    > h2 {
-      text-align: center;
+    >h2 {
+        text-align: center;
     }
 }
 
@@ -68,9 +66,8 @@
     margin-top: 2rem;
     justify-items: center;
     margin-bottom: 2rem;
-
-    > .paragraph {
-      margin: 0;
+    >.paragraph {
+        margin: 0;
     }
 }
 
@@ -79,24 +76,19 @@
     grid-auto-rows: 2.75rem;
     grid-row-gap: 1rem;
     width: 100%;
-
-    > input[type="text"],
-    > input[type="email"],
-    > input[type="password"] {
-
-      border: 0.5px solid #CDBEA7;
-      padding: 0.875rem 1rem 0.75rem 1.5rem;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-      font-weight: 400;
-      color: #9E9E9E;
+    >input[type="text"],
+    >input[type="email"],
+    >input[type="password"] {
+        border: 0.5px solid #CDBEA7;
+        padding: 0.875rem 1rem 0.75rem 1.5rem;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #9E9E9E;
     }
-
     /* validation */
-
     .ng-invalid.ng-touched {
-
-      border: 1px solid red;
+        border: 1px solid red;
     }
 }
 
@@ -110,4 +102,3 @@
     display: inline-block;
     width: 100%;
 }
-
