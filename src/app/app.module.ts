@@ -36,7 +36,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import {AuthInterceptor} from './shared/authconfig.interceptor';
+import { EmailValidatorDirective } from './shared/email-validator.directive';
+
 
 @NgModule({
   declarations: [
@@ -69,7 +73,8 @@ import { FormsModule } from '@angular/forms';
     RandomBackgroundDirective,
     ShoppingListComponent,
     SearchComponent,
-    AdvSearchComponent
+    AdvSearchComponent,
+    EmailValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -79,9 +84,16 @@ import { FormsModule } from '@angular/forms';
     NoopAnimationsModule,
     MatMenuModule,
     SidebarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+  {
+    provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
