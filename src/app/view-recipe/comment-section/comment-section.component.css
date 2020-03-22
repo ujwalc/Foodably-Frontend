@@ -58,11 +58,14 @@
 
 .comment-like-unlike span i:hover {
   color: #547ef8;
+  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
 .comment-post,
 .comment-post-reply {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 25px;
 }
@@ -86,16 +89,13 @@
   box-shadow: 0 3px 32px rgba(85, 126, 248, 0.54);
   background-color: #557ef8;
   padding: 0 40px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   height: 50px;
   line-height: 50px;
   color: #fff;
-  display: inline-block;
+  float: right;
   border: none;
   text-decoration: none;
   margin-top: 10px;
-  float: inherit;
 }
-
 /*# sourceMappingURL=comment-section.component.css.map */

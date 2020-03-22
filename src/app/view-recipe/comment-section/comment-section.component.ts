@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import {CommentService} from './comment.service';
+// import {CommentInterface} from './commentInterface';
 
 @Component({
   selector: 'app-comment-section',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comment-section.component.scss']
 })
 export class CommentSectionComponent implements OnInit {
-
-  constructor() { }
+  public comments = [] ;
+  commentDesc = '';
+  constructor(private commentService: CommentService) {}
 
   ngOnInit() {
+    this.commentService.getComments()
+      .subscribe(responseData => {
+        console.log(responseData);
+        this.comments = responseData;
+      }, error => {
+        console.log(error);
+        });
   }
-
+  onComment(form: NgForm) {
+    this.commentService.onComment(form);
+    this.ngOnInit();
+  }
 }

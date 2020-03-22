@@ -37,6 +37,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {CommentService} from './view-recipe/comment-section/comment.service';
 
 @NgModule({
   declarations: [
@@ -79,9 +81,10 @@ import { FormsModule } from '@angular/forms';
     NoopAnimationsModule,
     MatMenuModule,
     SidebarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

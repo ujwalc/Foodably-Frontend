@@ -80,7 +80,9 @@
     padding-top: 40px;
     border-top: 1px solid #cccccc8a;
 }
-
+.comment-add{
+  padding-left: 15px;
+}
 .comments-section .btn--blue {
     -webkit-box-shadow: 0 3px 32px rgba(85, 126, 248, .54);
     box-shadow: 0 3px 32px rgba(85, 126, 248, .54);
@@ -91,9 +93,9 @@
     height: 50px;
     line-height: 50px;
     color: #fff;
-    display: inline-block;
+    float: right;
     border: none;
     text-decoration: none;
     margin-top: 10px;
-    float: inherit;
+
 }

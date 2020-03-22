@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SearchComponent } from './search/search.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -26,7 +27,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), HttpClientModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
