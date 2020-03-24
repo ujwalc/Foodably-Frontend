@@ -37,6 +37,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
 import { FormsModule } from '@angular/forms';
+import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { FormsModule } from '@angular/forms';
     RandomBackgroundDirective,
     ShoppingListComponent,
     SearchComponent,
-    AdvSearchComponent
+    AdvSearchComponent,
+    PreparationStepComponent
   ],
   imports: [
     BrowserModule,
