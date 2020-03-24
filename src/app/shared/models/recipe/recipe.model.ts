@@ -1,4 +1,6 @@
-import { RecipeSection } from './recipe-section.model';
+import { RecipeSection } from '../recipe-section.model';
+import {PreparationStep} from './preparation-step.model';
+import {Ingredient} from './ingredient.model';
 
 export class Recipe {
 
@@ -7,6 +9,8 @@ export class Recipe {
               public author: string,
               public createDate: string,
               public relatedRecipes: RecipeSection,
+              public ingredients: Ingredient[],
+              public instruction: PreparationStep[],
               public comments: number) {
   }
 }

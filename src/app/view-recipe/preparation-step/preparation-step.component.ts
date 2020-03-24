@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { PreparationStep } from '../../shared/models/recipe/preparation-step.model';
 
 @Component({
   selector: 'app-preparation-step',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreparationStepComponent implements OnInit {
 
+  @Input()
+  step: PreparationStep;
+  @Input()
+  currentIndex: number;
+  @Input()
+  total: number;
+
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

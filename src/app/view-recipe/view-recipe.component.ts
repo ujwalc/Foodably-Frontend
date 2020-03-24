@@ -1,8 +1,10 @@
 import { RecipeItem } from './../shared/models/recipe-item.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import {Recipe} from '../shared/models/recipe.model';
+import {Recipe} from '../shared/models/recipe/recipe.model';
 import {RecipeSection} from '../shared/models/recipe-section.model';
+import {Ingredient} from '../shared/models/recipe/ingredient.model';
+import {PreparationStep} from '../shared/models/recipe/preparation-step.model';
 
 @Component({
   selector: 'app-view-recipe',
@@ -36,11 +38,19 @@ export class ViewRecipeComponent implements OnInit {
       new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Randall Fisher')
     ]);
 
-    this.recipe = new Recipe('', 'Yellow birthday cake with chocolate frosting', 'Trevor Parker', 'Jan 16, 2020', recipeSection, 234);
+    const ingredients = [new Ingredient('honey', 50, 'g'),
+                         new Ingredient('olive oil', 25, 'ml'),
+                         new Ingredient('lime', 4, 'it.'),
+                         new Ingredient('mint', 10, 'g'),
+                         new Ingredient('potato', 500, 'g')];
+
+    const step = new PreparationStep('Most of its text is made up from sections 1.10.32–3 of Cicero\'s De finibus bonorum et malorum (On the Boundaries of Goods and Evils; finibus may also be translated as purposes). Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit is the first known version.', ingredients);
+
+    this.recipe = new Recipe('', 'Yellow birthday cake with chocolate frosting', 'Trevor Parker', 'Jan 16, 2020', recipeSection, ingredients, [step, step, step], 234);
   }
 
   title = 'Delicious Puertiito Buertto';
-  overView = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
   ingredients = ['Egg','Chicken','Soya','Tofu','cheese','Mayo','Capsicum'];
 
   ngOnInit() {
