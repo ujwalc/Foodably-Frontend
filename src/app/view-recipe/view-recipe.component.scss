@@ -51,6 +51,21 @@
 
 .recipe__author {
   margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > .button {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > .button-title {
+      margin: 0 0 0 0.75rem;
+    }
+  }
 }
 
 .recipe__annotations {

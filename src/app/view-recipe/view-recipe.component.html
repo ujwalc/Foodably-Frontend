@@ -2,7 +2,11 @@
   <section class="recipe__section">
     <h1 class="header-1">{{ recipe.title }}</h1>
     <div class="recipe__author">
-      <app-author [author]="recipe.author" [date]="recipe.createDate"></app-author>
+        <app-author [author]="recipe.author" [date]="recipe.createDate"></app-author>
+        <div class="button red-back">
+          <img src="assets/img/bell.svg" alt="Bell">
+          <h4 class="button-title">Subscribe</h4>
+        </div>
     </div>
   </section>
   <section class="recipe__section">
@@ -48,56 +52,3 @@
     </div>
   </div>
 </div>
-
-<!--<section id=section-one>-->
-
-<!--    <div class="grid">-->
-<!--        <div class="box s1-a">-->
-<!--            <div class="video">-->
-<!--                <iframe [class.thumbnail]="" [src]="safeSrc" width="1200" height="550" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="box s1-b">-->
-<!--            <app-more-recipe-section *ngFor="let moreRecipeSection of moreRecipeSections" [moreRecipeSection]="moreRecipeSection"></app-more-recipe-section>-->
-<!--        </div>-->
-<!--        <div class="box s1-c">-->
-<!--            <div class="container-fluid">-->
-<!--                <div class="row">-->
-<!--                    <h4>{{title}}</h4>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <p>{{overView}}</p>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--        <div class="box s1-d">-->
-<!--            <div class="container-fluid">-->
-<!--                <div class="row">-->
-
-<!--                    <h4>Ingredients</h4>-->
-<!--                    <ul>-->
-<!--                        <li *ngFor="let item of ingredients">{{item}}</li>-->
-
-<!--                    </ul>-->
-
-<!--                </div>-->
-<!--                <div class="row">-->
-
-<!--                    <h4>Steps</h4>-->
-<!--                    <ul>-->
-<!--                        <li *ngFor="let item of ingredients">{{item}}</li>-->
-
-<!--                    </ul>-->
-
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="box s1-e">-->
-<!--            <app-comment-section></app-comment-section>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</section>-->
