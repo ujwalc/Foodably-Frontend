@@ -64,7 +64,7 @@
   margin: 0;
 }
 
-.text-normal, .paragraph, .backquote__small {
+.text-normal, .annotation, .paragraph, .backquote__small {
   font-size: 1rem;
   font-weight: 400;
 }
@@ -140,6 +140,11 @@
   font-size: 1rem;
   font-weight: 500;
   color: #4C3F54;
+}
+
+.annotation {
+  color: #646260;
+  margin: 0;
 }
 
 * {

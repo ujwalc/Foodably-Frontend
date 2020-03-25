@@ -89,3 +89,9 @@
   font-weight: 500;
   color: #4C3F54;
 }
+
+.annotation {
+  @extend .text-normal;
+  color: map-get($colors, gray);
+  margin: 0;
+}

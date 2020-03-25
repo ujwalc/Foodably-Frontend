@@ -14,6 +14,14 @@ import {PreparationStep} from '../shared/models/recipe/preparation-step.model';
 export class ViewRecipeComponent implements OnInit {
 
   recipe: Recipe;
+
+  get recipeInfo(): Array<{ image: string, text: string }> {
+    return [
+      { image: 'assets/img/like.svg', text: '46' },
+      { image: 'assets/img/veg.svg', text: 'Veg' }
+    ];
+  }
+
   safeSrc: SafeResourceUrl;
 
   constructor(private sanitizer: DomSanitizer) {

@@ -39,6 +39,7 @@ import { SidebarModule } from 'ng-sidebar';
 import { FormsModule } from '@angular/forms';
 import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
 import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
+import { RankingComponent } from './shared/utilities/ranking/ranking.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recip
     SearchComponent,
     AdvSearchComponent,
     PreparationStepComponent,
-    RecipeAnnotationComponent
+    RecipeAnnotationComponent,
+    RankingComponent
   ],
   imports: [
     BrowserModule,
