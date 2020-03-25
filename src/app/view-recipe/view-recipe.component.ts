@@ -15,6 +15,11 @@ export class ViewRecipeComponent implements OnInit {
 
   recipe: Recipe;
 
+  get ranking(): number {
+    const value = this.recipe.totalRanking / this.recipe.numberOfResponses;
+    return parseFloat((value).toFixed(1));
+  }
+
   get recipeInfo(): Array<{ image: string, text: string }> {
     return [
       { image: 'assets/img/like.svg', text: '46' },
@@ -50,7 +55,12 @@ export class ViewRecipeComponent implements OnInit {
                                         description,
                                 'Italian cuisine',
                                 'Desert',
-                                'Breakfast',
+                                   'Breakfast',
+                                   45,
+                                   true,
+                          '40 min.',
+                              6738,
+                        1567,
                                 'Trevor Parker',
                               'Jan 16, 2020',
                                         recipeSection,

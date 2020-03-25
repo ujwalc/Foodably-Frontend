@@ -1,8 +1,8 @@
 <div class="recipe__properties-container">
   <div class="recipe__properties-content">
     <div class="ranking__info">
-      <p class="annotation">4.5 based on 1351 ratings</p>
-      <app-ranking [ranking]="2.2"></app-ranking>
+      <p class="annotation">{{ ranking }} based on {{ recipe.numberOfResponses }} ratings</p>
+      <app-ranking [ranking]="ranking"></app-ranking>
     </div>
     <div class="recipe__labels">
       <div class="recipe__label" *ngFor="let info of recipeInfo; let isLast = last" [class.no-border]="isLast">
@@ -12,7 +12,7 @@
     </div>
     <div>
       <p class="annotation">Preparation time</p>
-      <h3 class="header-3">40 min.</h3>
+      <h3 class="header-3">{{ recipe.preparationTime }}</h3>
     </div>
   </div>
 </div>
