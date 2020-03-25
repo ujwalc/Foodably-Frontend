@@ -11,7 +11,9 @@
     </div>
   </section>
   <section class="recipe__section">
-    <app-recipe-annotation></app-recipe-annotation>
+    <div class="recipe__annotations">
+      <app-recipe-annotation [annotation]="annotation" [hasBorder]="!isLast" *ngFor="let annotation of recipe.annotations; let isLast = last"></app-recipe-annotation>
+    </div>
     <p class="paragraph">{{ recipe.description }}</p>
   </section>
   <section class="recipe__section">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-recipe-annotation',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeAnnotationComponent implements OnInit {
 
+  @Input()
+  hasBorder = true;
+
+  @Input()
+  annotation: string;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
