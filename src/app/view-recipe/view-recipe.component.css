@@ -6,19 +6,17 @@
   margin: 0 auto;
 }
 
-.recipe__section-container {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-}
-
-.recipe__ingredients-container {
+.items-container, .recipe__ingredients-container, .recipe__instructions-container {
   display: grid;
+  margin-top: 1.5rem;
 }
 
 .recipe__instructions-container {
-  display: grid;
   grid-row-gap: 1.5rem;
-  margin-top: 1.5rem;
+}
+
+.recipe__ingredients-container {
+  grid-row-gap: 1rem;
 }
 
 .recipe__section {
@@ -42,6 +40,10 @@
 }
 
 /* spacing and sizing of items */
+.recipe__author {
+  margin-top: 2rem;
+}
+
 .recipe-ingredient {
   display: flex;
 }
@@ -49,8 +51,13 @@
   min-width: 7rem;
 }
 
-.recipe__author {
+.ingredient__section-container {
   margin-top: 2rem;
+}
+
+.step__section-container {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .recipe__comment--section {

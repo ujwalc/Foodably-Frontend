@@ -11,16 +11,22 @@
     </div>
   </section>
   <section class="recipe__section">
-    <h2 class="header-2">Ingredients for one serving</h2>
-    <div class="recipe__ingredients-container">
-<!--      <div class="recipe-ingredient" *ngFor="let ingredient of recipe.ingredients">-->
-<!--        <h4 class="header-4">{{ ingredient.describeValue() }}</h4>-->
-<!--        <h4 class="header-4">{{ ingredient.name }}</h4>-->
-<!--      </div>-->
+    <app-recipe-annotation></app-recipe-annotation>
+    <p class="paragraph">{{ recipe.description }}</p>
+  </section>
+  <section class="recipe__section">
+    <div class="ingredient__section-container">
+      <h2 class="header-2">Ingredients for one serving</h2>
+      <div class="recipe__ingredients-container">
+        <div class="recipe-ingredient" *ngFor="let ingrid of recipe.ingredients">
+          <h4 class="header-4">{{ ingrid.describeValue() }}</h4>
+          <h4 class="header-4">{{ ingrid.name }}</h4>
+        </div>
+      </div>
     </div>
   </section>
   <section class="recipe__section">
-    <div class="recipe__section-container">
+    <div class="step__section-container">
       <h2 class="header-2">Preparation steps</h2>
       <div class="recipe__instructions-container">
         <app-preparation-step [step]="step" [currentIndex]="i + 1" [total]="recipe.instruction.length" *ngFor="let step of recipe.instruction; let i = index"></app-preparation-step>

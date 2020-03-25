@@ -38,6 +38,7 @@ import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
 import { FormsModule } from '@angular/forms';
 import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
+import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { PreparationStepComponent } from './view-recipe/preparation-step/prepara
     ShoppingListComponent,
     SearchComponent,
     AdvSearchComponent,
-    PreparationStepComponent
+    PreparationStepComponent,
+    RecipeAnnotationComponent
   ],
   imports: [
     BrowserModule,
