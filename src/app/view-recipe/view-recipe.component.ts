@@ -21,11 +21,10 @@ export class ViewRecipeComponent implements OnInit {
   }
 
   get recipeInfo(): Array<{ image: string, text: string }> {
-    return [
-      { image: 'assets/img/like.svg', text: '46' },
-      { image: 'assets/img/veg.svg', text: 'Veg' }
-    ];
+    const veg = this.recipe.isVeg ? [{ image: 'assets/img/veg.svg', text: 'Veg'}] : [];
+    return [{image: 'assets/img/like.svg', text: this.recipe.likes.toString()}].concat(veg);
   }
+
 
   safeSrc: SafeResourceUrl;
 
@@ -59,7 +58,7 @@ export class ViewRecipeComponent implements OnInit {
                                    45,
                                    true,
                           '40 min.',
-                              6738,
+                              6000,
                         1567,
                                 'Trevor Parker',
                               'Jan 16, 2020',
