@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {catchError, map } from 'rxjs/operators';
 import {throwError} from 'rxjs';
+import { plainToClass } from 'class-transformer';
+import {Recipe} from '../models/recipe/recipe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +19,7 @@ export class RecipeService {
         map(responseData => {
           const key = 'data';
           if (responseData.hasOwnProperty(key)) {
-             return responseData[key];
+             return plainToClass(Recipe, responseData[key]);
           }
         }),
         catchError(errorRes => {

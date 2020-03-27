@@ -1,12 +1,28 @@
 import { RecipeSection } from '../recipe-section.model';
 import { PreparationStep } from './preparation-step.model';
 import { Ingredient } from './ingredient.model';
-import {Ranking} from '../ranking.model';
+import { Ranking } from '../ranking.model';
+import { Type } from 'class-transformer';
 
 export class Recipe {
 
+  // @Type(() => RecipeSection)
+  // public relatedRecipes: RecipeSection;
+  @Type(() => Ranking)
+  public ranking: Ranking;
+
+  @Type(() => Ingredient)
+  public ingredients: Ingredient[];
+
+  @Type(() => PreparationStep)
+  public instruction: PreparationStep[];
+
   get annotations(): string[] {
     return [this.type, this.cuisine, this.category];
+  }
+
+  get cookingTime(): string {
+      return `${this.preparationTime} min.`;
   }
 
   // TOOD: Remove comments and load with comments request
@@ -18,14 +34,18 @@ export class Recipe {
               public type: string,
               public likes: number,
               public isVeg: boolean,
-              public preparationTime: string,
-              public ranking: Ranking,
+              public preparationTime: number,
+              ranking: Ranking,
               public author: string,
               public createdAt: string,
               public relatedRecipes: RecipeSection,
-              public ingredients: Ingredient[],
-              public instruction: PreparationStep[],
+              ingredients: Ingredient[],
+              instruction: PreparationStep[],
               public comments: number,
               public id?: string) {
+
+    this.ranking = ranking;
+    this.ingredients = ingredients;
+    this.instruction = instruction;
   }
 }

@@ -28,10 +28,10 @@ export class ViewRecipeComponent implements OnInit {
   safeSrc: SafeResourceUrl;
 
   constructor(private sanitizer: DomSanitizer, private http: HttpClient, private recipeService: RecipeService) {
-    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/mvSNjWDQCAE');
+    this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/mvSNjWDQCAE');
 
     // tslint:disable-next-line:max-line-length
-    const description = "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.";
+    const description = 'Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It\'s also called placeholder (or filler) text. It\'s a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it\'s not genuine, correct, or comprehensible Latin anymore. While lorem ipsum\'s still resembles classical Latin, it actually has no meaning whatsoever. As Cicero\'s text doesn\'t contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.';
 
     const recipeSection = new RecipeSection('More delicious dishes', [
       new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Alice Norris'),
@@ -58,7 +58,7 @@ export class ViewRecipeComponent implements OnInit {
                                    'Breakfast',
                                    123,
                                    true,
-                          '40 min.',
+                          40,
                                          ranking,
                                 'Trevor Parker',
                               'Jan 16, 2020',
@@ -70,10 +70,18 @@ export class ViewRecipeComponent implements OnInit {
 
   ngOnInit() {
     // Send Http request
-    this.recipeService.fetchRecipe('5e7d7f9c05446b36117544f7').subscribe(
+    this.recipeService.fetchRecipe('5e7d91ef80e20638e4a4c02b').subscribe(
       recipe => {
-        console.log(recipe);
-        // this.loadedPosts = posts;
+        this.recipe = recipe;
+
+        const recipeSection = new RecipeSection('More delicious dishes', [
+          new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Alice Norris'),
+          // tslint:disable-next-line:max-line-length
+          new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Randall Fisher')
+        ]);
+
+        this.recipe.relatedRecipes = recipeSection;
+        this.recipe.comments = 234;
       },
       error => {
         this.error = error.message;
