@@ -21,7 +21,7 @@
   <section class="recipe__section">
     <h1 class="header-1">{{ recipe.title }}</h1>
     <div class="recipe__author">
-        <app-author [author]="recipe.author" [date]="recipe.createdAt"></app-author>
+        <app-author [author]="recipe.author.name" [date]="recipe.createdAt"></app-author>
         <div class="button red-back">
           <img src="assets/img/bell.svg" alt="Bell">
           <h4 class="button-title">Subscribe</h4>

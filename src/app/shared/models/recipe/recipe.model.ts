@@ -36,7 +36,7 @@ export class Recipe {
               public isVeg: boolean,
               public preparationTime: number,
               ranking: Ranking,
-              public author: string,
+              public author: { name: string },
               public createdAt: string,
               public relatedRecipes: RecipeSection,
               ingredients: Ingredient[],
