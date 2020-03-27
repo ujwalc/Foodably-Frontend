@@ -40,6 +40,7 @@ import { FormsModule } from '@angular/forms';
 import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
 import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
 import { RankingComponent } from './shared/utilities/ranking/ranking.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { RankingComponent } from './shared/utilities/ranking/ranking.component';
     NoopAnimationsModule,
     MatMenuModule,
     SidebarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

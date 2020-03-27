@@ -1,10 +1,10 @@
 <div class="recipe__properties-container">
   <div class="recipe__properties-content">
     <div class="ranking__info">
-      <p class="annotation">{{ ranking }} based on {{ recipe.numberOfResponses }} ratings</p>
-      <app-ranking [ranking]="ranking"></app-ranking>
+      <p class="annotation">{{ recipe.ranking.value }} based on {{ recipe.ranking.submissions }} ratings</p>
+      <app-ranking [ranking]="recipe.ranking.value"></app-ranking>
     </div>
-    <div class="recipe__labels">
+    <div class="recipe__labels" *ngIf="recipeInfo.length > 0">
       <div class="recipe__label" *ngFor="let info of recipeInfo; let isLast = last" [class.no-border]="isLast">
         <img [src]="info.image" alt="Icons">
         <p class="annotation">{{ info.text }}</p>
@@ -12,7 +12,7 @@
     </div>
     <div>
       <p class="annotation">Preparation time</p>
-      <h3 class="header-3">{{ recipe.preparationTime }}</h3>
+      <h3 class="header-3">{{ recipe.cookingTime }}</h3>
     </div>
   </div>
 </div>
@@ -21,7 +21,7 @@
   <section class="recipe__section">
     <h1 class="header-1">{{ recipe.title }}</h1>
     <div class="recipe__author">
-        <app-author [author]="recipe.author" [date]="recipe.createDate"></app-author>
+        <app-author [author]="recipe.author.name" [date]="recipe.createdAt"></app-author>
         <div class="button red-back">
           <img src="assets/img/bell.svg" alt="Bell">
           <h4 class="button-title">Subscribe</h4>
