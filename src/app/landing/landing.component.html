@@ -9,14 +9,12 @@
 <section id="search">
     <div>
         <div id="search-field">
-            <a routerLink="/search">
+            <a (click)="onSearch()">
                 <img src="assets/img/loop.svg" alt="Loop icon">
             </a>
-            <input type="text" name="recipe" placeholder="What do you want to try today?">
+            <input [(ngModel)]="searchKey" type="text" name="recipe" placeholder="What do you want to try today?">
         </div>
-        <div>
-            <button id="advanced-search" class="backquote" (click)="onSearch()">Advanced search</button>
-        </div>
+
     </div>
     <div class="divider"></div>
 </section>
