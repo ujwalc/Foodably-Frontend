@@ -21,8 +21,13 @@
           *ngIf="isUserLoggedIn; then profile; else profileManagement">
         </ng-container>
         <ng-template #profile>
-          <li class="main-nav__item ">
-            <a routerLink="/profile">Profile</a>
+          <li routerLink="/profile" class="main-nav__item main-nav__item--profile">
+            <div class="profile--template">
+              <div appRandomBackground class="profile--background">
+                <h3 class="author-placeholder">R</h3>
+              </div>
+            </div>
+            <a>Profile</a>
           </li>
         </ng-template>
         <ng-template #profileManagement>
