@@ -1,6 +1,7 @@
 import { RecipeSection } from '../recipe-section.model';
 import { PreparationStep } from './preparation-step.model';
 import { Ingredient } from './ingredient.model';
+import {Ranking} from '../ranking.model';
 
 export class Recipe {
 
@@ -8,7 +9,8 @@ export class Recipe {
     return [this.type, this.cuisine, this.category];
   }
 
-  constructor(public imagePath: string,
+  // TOOD: Remove comments and load with comments request
+  constructor(public videoURL: string,
               public title: string,
               public description: string,
               public cuisine: string,
@@ -17,8 +19,7 @@ export class Recipe {
               public likes: number,
               public isVeg: boolean,
               public preparationTime: string,
-              public totalRanking: number,
-              public numberOfResponses: number,
+              public ranking: Ranking,
               public author: string,
               public createDate: string,
               public relatedRecipes: RecipeSection,

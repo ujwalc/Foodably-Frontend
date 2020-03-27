@@ -5,6 +5,7 @@ import {Recipe} from '../shared/models/recipe/recipe.model';
 import {RecipeSection} from '../shared/models/recipe-section.model';
 import {Ingredient} from '../shared/models/recipe/ingredient.model';
 import {PreparationStep} from '../shared/models/recipe/preparation-step.model';
+import {Ranking} from '../shared/models/ranking.model';
 
 @Component({
   selector: 'app-view-recipe',
@@ -15,16 +16,11 @@ export class ViewRecipeComponent implements OnInit {
 
   recipe: Recipe;
 
-  get ranking(): number {
-    const value = this.recipe.totalRanking / this.recipe.numberOfResponses;
-    return parseFloat((value).toFixed(1));
-  }
-
   get recipeInfo(): Array<{ image: string, text: string }> {
     const veg = this.recipe.isVeg ? [{ image: 'assets/img/veg.svg', text: 'Veg'}] : [];
-    return [{image: 'assets/img/like.svg', text: this.recipe.likes.toString()}].concat(veg);
+    const like = this.recipe.likes > 0 ? [{image: 'assets/img/like.svg', text: this.recipe.likes.toString()}] : [];
+    return like.concat(veg);
   }
-
 
   safeSrc: SafeResourceUrl;
 
@@ -39,6 +35,8 @@ export class ViewRecipeComponent implements OnInit {
       // tslint:disable-next-line:max-line-length
       new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Randall Fisher')
     ]);
+
+    const ranking = new Ranking(7500, 1567);
 
     const ingredients = [new Ingredient('honey', 50, 'g'),
                          new Ingredient('olive oil', 25, 'ml'),
@@ -55,11 +53,10 @@ export class ViewRecipeComponent implements OnInit {
                                 'Italian cuisine',
                                 'Desert',
                                    'Breakfast',
-                                   45,
+                                   123,
                                    true,
                           '40 min.',
-                              6000,
-                        1567,
+                                         ranking,
                                 'Trevor Parker',
                               'Jan 16, 2020',
                                         recipeSection,
