@@ -3,9 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {Recipe} from '../shared/models/recipe/recipe.model';
 import {RecipeSection} from '../shared/models/recipe-section.model';
-import {Ingredient} from '../shared/models/recipe/ingredient.model';
-import {PreparationStep} from '../shared/models/recipe/preparation-step.model';
-import {Ranking} from '../shared/models/ranking.model';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../shared/services/recipe.service';
 
@@ -36,7 +33,7 @@ export class ViewRecipeComponent implements OnInit {
       recipe => {
         this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(recipe.videoURL);
         this.recipe = recipe;
-        
+
         const recipeSection = new RecipeSection('More delicious dishes', [
           new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Alice Norris'),
           // tslint:disable-next-line:max-line-length
