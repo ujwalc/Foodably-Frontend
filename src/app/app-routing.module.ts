@@ -22,7 +22,7 @@ const routes: Routes = [
     ]},
   { path: 'search', component: SearchComponent },
   { path: 'recipes', component: RecipesComponent },
-  { path: 'viewRecipe', component: ViewRecipeComponent }
+  { path: 'recipes/:id', component: ViewRecipeComponent }
 ];
 
 @NgModule({

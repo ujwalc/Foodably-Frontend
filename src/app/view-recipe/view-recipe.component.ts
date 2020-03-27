@@ -5,6 +5,7 @@ import {Recipe} from '../shared/models/recipe/recipe.model';
 import {RecipeSection} from '../shared/models/recipe-section.model';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../shared/services/recipe.service';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-view-recipe',
@@ -13,6 +14,7 @@ import {RecipeService} from '../shared/services/recipe.service';
 })
 export class ViewRecipeComponent implements OnInit {
 
+  recipeId: string;
   recipe: Recipe;
   error = null;
 
@@ -24,12 +26,22 @@ export class ViewRecipeComponent implements OnInit {
 
   safeSrc: SafeResourceUrl;
 
-  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private recipeService: RecipeService) {
+  constructor(private sanitizer: DomSanitizer,
+              private http: HttpClient,
+              private recipeService: RecipeService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.recipeId = params.id;
+      this.onFetchRecipe();
+    });
+  }
+
+  onFetchRecipe() {
     // Send Http request
-    this.recipeService.fetchRecipe('5e7d933180e20638e4a4c02e').subscribe(
+    this.recipeService.fetchRecipe(this.recipeId).subscribe(
       recipe => {
         this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(recipe.videoURL);
         this.recipe = recipe;
