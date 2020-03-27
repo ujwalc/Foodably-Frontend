@@ -6,6 +6,8 @@ import {RecipeSection} from '../shared/models/recipe-section.model';
 import {Ingredient} from '../shared/models/recipe/ingredient.model';
 import {PreparationStep} from '../shared/models/recipe/preparation-step.model';
 import {Ranking} from '../shared/models/ranking.model';
+import {HttpClient} from '@angular/common/http';
+import {RecipeService} from '../shared/services/recipe.service';
 
 @Component({
   selector: 'app-view-recipe',
@@ -15,6 +17,7 @@ import {Ranking} from '../shared/models/ranking.model';
 export class ViewRecipeComponent implements OnInit {
 
   recipe: Recipe;
+  error = null;
 
   get recipeInfo(): Array<{ image: string, text: string }> {
     const veg = this.recipe.isVeg ? [{ image: 'assets/img/veg.svg', text: 'Veg'}] : [];
@@ -24,8 +27,8 @@ export class ViewRecipeComponent implements OnInit {
 
   safeSrc: SafeResourceUrl;
 
-  constructor(private sanitizer: DomSanitizer) {
-    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/mvSNjWDQCAE");
+  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private recipeService: RecipeService) {
+    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/mvSNjWDQCAE');
 
     // tslint:disable-next-line:max-line-length
     const description = "Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.";
@@ -47,7 +50,7 @@ export class ViewRecipeComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     const step = new PreparationStep('Most of its text is made up from sections 1.10.32–3 of Cicero\'s De finibus bonorum et malorum (On the Boundaries of Goods and Evils; finibus may also be translated as purposes). Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit is the first known version.', ingredients.slice(0, 3));
 
-    this.recipe = new Recipe('',
+    this.recipe = new Recipe('https://www.youtube.com/embed/mvSNjWDQCAE',
                                   'Yellow birthday cake with chocolate frosting',
                                         description,
                                 'Italian cuisine',
@@ -66,5 +69,15 @@ export class ViewRecipeComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Send Http request
+    this.recipeService.fetchRecipe('5e7d7f9c05446b36117544f7').subscribe(
+      recipe => {
+        console.log(recipe);
+        // this.loadedPosts = posts;
+      },
+      error => {
+        this.error = error.message;
+      }
+    );
   }
 }

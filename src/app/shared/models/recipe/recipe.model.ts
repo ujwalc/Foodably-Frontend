@@ -21,10 +21,11 @@ export class Recipe {
               public preparationTime: string,
               public ranking: Ranking,
               public author: string,
-              public createDate: string,
+              public createdAt: string,
               public relatedRecipes: RecipeSection,
               public ingredients: Ingredient[],
               public instruction: PreparationStep[],
-              public comments: number) {
+              public comments: number,
+              public id?: string) {
   }
 }
