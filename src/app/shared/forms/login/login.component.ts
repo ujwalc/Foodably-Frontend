@@ -1,5 +1,12 @@
+
+
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from "@angular/forms";
+import { AuthService } from './../../auth.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-login',
@@ -7,25 +14,44 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['../profile-management.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  @ViewChild('loginForm') loginForm: NgForm;
+  
+   signinForm: FormGroup;;
 
   @Output()
   close = new EventEmitter<void>();
   @Output()
-  login = new EventEmitter<void>();
+  signin = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(
+    public fb: FormBuilder,
+    public authService: AuthService,
+    public router: Router
+   
+    
+  ) { 
+    this.signinForm = this.fb.group({
+      email: [''],
+      password: ['']
+    })
+  }
 
   ngOnInit() {
   }
 
   onClose() {
+    this.router.navigate(['']);
     this.close.emit();
   }
 
   onSubmit() {
-    console.log(this.loginForm);
-    this.login.emit();
+    
+    this.authService.signIn(this.signinForm.value);
+
+    this.onClose();
+    this.router.navigate(['']);
+    
+    
+    //console.log(this.signinForm);
+    this.signin.emit();
   }
 }

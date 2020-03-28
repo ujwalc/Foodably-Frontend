@@ -5,15 +5,15 @@
         <div class="profile-management__form--container">
             <h2 class="header-2">Log in to your account</h2>
             <div class="profile-management__form--content">
-                <button id="button-google" type="button">
+                <!--<button id="button-google" type="button">
           <img id="button-google--logo" src="assets/img/google_logo.svg" alt="Google logo">
-          <h4 id="button-google--text">Sign in with Google</h4>
+          <h4 id="button-google--text">Sign in with Google</h4> 
         </button>
-                <p class="paragraph">or use your email</p>
-                <form class="profile-management__form--fields" (ngSubmit)="onSubmit()" #loginForm="ngForm">
-                    <input id="email" type="email" placeholder="Email" name="email" ngModel required email>
-                    <input id="password" type="password" placeholder="Password" name="password" required ngModel minlength="8">
-                    <input class="button button-title red-back" [disabled]="!loginForm.valid" type="submit" value="Submit">
+                <p class="paragraph">or use your email</p>-->
+                <form class="profile-management__form--fields" (ngSubmit)="onSubmit()" [formGroup]="signinForm">
+                    <input id="email" type="email" placeholder="Email" class="form-control" formControlName="email" required email>
+                    <input id="password" type="password" placeholder="Password" class="form-control" formControlName="password" required minlength="8">
+                    <input class="button button-title red-back" type="submit" value="Submit">
                 </form>
             </div>
             <div class="divider"></div>
