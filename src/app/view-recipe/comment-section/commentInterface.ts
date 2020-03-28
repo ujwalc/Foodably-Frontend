@@ -3,4 +3,5 @@ export interface CommentInterface {
   comment: string;
   userId: string;
   userName: string;
+  commentDate: Date;
 }

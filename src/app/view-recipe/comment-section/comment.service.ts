@@ -25,12 +25,13 @@ export class CommentService {
       console.log(form.value);
       console.log('commentDesc' + this.commentDesc);
       const date = new Date();
+      console.log(date);
       const commentData = {
         comment: this.commentDesc,
         recipeId: this.recipeId,
         userId : this.userId,
-        userName : this.userName
-       // commentdate: date
+        userName : this.userName,
+        commentDate: date
       };
       this.http.post<CommentInterface>(`http://localhost:8080/userComments/comment`,
         commentData
