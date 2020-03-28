@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { RecipeItem } from '../shared/models/recipe-item.model';
-import {BlogItem} from "../shared/models/blog-item.model";
+import { BlogItem } from "../shared/models/blog-item.model";
 import { AdvSearchComponent } from '../shared/forms/adv-search/adv-search.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -68,7 +68,7 @@ export class LandingComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
+
     });
   }
 

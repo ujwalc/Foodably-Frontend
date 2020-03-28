@@ -1,52 +1,73 @@
-<section id=section-one>
-
-    <div class="grid">
-        <div class="box s1-a">
-            <div class="video">
-                <iframe [class.thumbnail]="" [src]="safeSrc" width="1200" height="550" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-            </div>
-        </div>
-        <div class="box s1-b">
-            <app-more-recipe-section *ngFor="let moreRecipeSection of moreRecipeSections" [moreRecipeSection]="moreRecipeSection"></app-more-recipe-section>
-        </div>
-        <div class="box s1-c">
-            <div class="container-fluid">
-                <div class="row">
-                    <h4>{{title}}</h4>
-                </div>
-                <div class="row">
-                    <p>{{overView}}</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="box s1-d">
-            <div class="container-fluid">
-                <div class="row">
-
-                    <h4>Ingredients</h4>
-                    <ul>
-                        <li *ngFor="let item of ingredients">{{item}}</li>
-
-                    </ul>
-
-                </div>
-                <div class="row">
-
-                    <h4>Steps</h4>
-                    <ul>
-                        <li *ngFor="let item of ingredients">{{item}}</li>
-
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="box s1-e">
-            <app-comment-section></app-comment-section>
-        </div>
-
+<div class="recipe__properties-container">
+  <div class="recipe__properties-content">
+    <div class="ranking__info">
+      <p class="annotation">{{ recipe.ranking.value }} based on {{ recipe.ranking.submissions }} ratings</p>
+      <app-ranking [ranking]="recipe.ranking.value"></app-ranking>
     </div>
-</section>
+    <div class="recipe__labels" *ngIf="recipeInfo.length > 0">
+      <div class="recipe__label" *ngFor="let info of recipeInfo; let isLast = last" [class.no-border]="isLast">
+        <img [src]="info.image" alt="Icons">
+        <p class="annotation">{{ info.text }}</p>
+      </div>
+    </div>
+    <div>
+      <p class="annotation">Preparation time</p>
+      <h3 class="header-3">{{ recipe.cookingTime }}</h3>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <section class="recipe__section">
+    <h1 class="header-1">{{ recipe.title }}</h1>
+    <div class="recipe__author">
+        <app-author [author]="recipe.author.name" [date]="recipe.createdAt"></app-author>
+        <div class="button red-back">
+          <img src="assets/img/bell.svg" alt="Bell">
+          <h4 class="button-title">Subscribe</h4>
+        </div>
+    </div>
+  </section>
+  <section class="recipe__section">
+    <div class="recipe__section--video">
+      <iframe [class.thumbnail]="" [src]="safeSrc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+  </section>
+  <section class="recipe__section">
+    <div class="recipe__annotations">
+      <app-recipe-annotation [annotation]="annotation" [hasBorder]="!isLast" *ngFor="let annotation of recipe.annotations; let isLast = last"></app-recipe-annotation>
+    </div>
+    <p class="paragraph">{{ recipe.description }}</p>
+  </section>
+  <section class="recipe__section">
+    <div class="ingredient__section-container">
+      <h2 class="header-2">Ingredients for one serving</h2>
+      <div class="recipe__ingredients-container">
+        <div class="recipe-ingredient" *ngFor="let ingrid of recipe.ingredients">
+          <h4 class="header-4">{{ ingrid.describeValue() }}</h4>
+          <h4 class="header-4">{{ ingrid.name }}</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="recipe__section">
+    <div class="step__section-container">
+      <h2 class="header-2">Preparation steps</h2>
+      <div class="recipe__instructions-container">
+        <app-preparation-step [step]="step" [currentIndex]="i + 1" [total]="recipe.instruction.length" *ngFor="let step of recipe.instruction; let i = index"></app-preparation-step>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div *ngIf="recipe.relatedRecipes !== null" class="recipe__section">
+      <div class="divider"></div>
+      <app-recipe-section [recipeSection]="recipe.relatedRecipes"></app-recipe-section>
+      <div class="divider"></div>
+    </div>
+  </section>
+  <div class="recipe__section recipe__comment--section">
+    <div class="button red-back">
+      <h4 class="button-title">See comments ({{ recipe.comments }})</h4>
+    </div>
+  </div>
+</div>
