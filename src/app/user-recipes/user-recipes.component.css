@@ -36,5 +36,8 @@
 .user-recipes__more h4 {
   margin: 0;
 }
+.user-recipes__more > .button {
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=user-recipes.component.css.map */

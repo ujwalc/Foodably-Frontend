@@ -10,16 +10,34 @@ import {Recipe} from '../models/recipe/recipe.model';
 })
 export class RecipeService {
 
+  baseURL = 'http://localhost:4000/';
+
   constructor(private http: HttpClient) {}
 
   fetchRecipe(id: string) {
     return this.http
-      .get('http://localhost:4000/recipe/' + id)
+      .get(this.baseURL + 'recipe/' + id)
       .pipe(
         map(responseData => {
           const key = 'data';
           if (responseData.hasOwnProperty(key)) {
-             return plainToClass(Recipe, responseData[key]);
+            return plainToClass(Recipe, responseData[key]);
+          }
+        }),
+        catchError(errorRes => {
+          return throwError(errorRes);
+        })
+      );
+  }
+
+  fetchUserRecipes() {
+    return this.http
+      .get(this.baseURL + 'profile/recipes/' + '5e7fe19b39d9462c9c04fcd5')
+      .pipe(
+        map(responseData => {
+          const key = 'data';
+          if (responseData.hasOwnProperty(key)) {
+            return plainToClass(Recipe, responseData[key]) as unknown as Array<Recipe>;
           }
         }),
         catchError(errorRes => {
