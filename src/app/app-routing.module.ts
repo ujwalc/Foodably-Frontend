@@ -9,6 +9,8 @@ import { BlogArticleComponent } from './blogs/blog-article/blog-article.componen
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SearchComponent } from './search/search.component';
 import {HttpClientModule} from '@angular/common/http';
+import {UserRecipesComponent} from './user-recipes/user-recipes.component';
+
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -19,7 +21,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'profile', component: ProfileComponent, children: [
-      { path: 'shoppinglist', component: ShoppingListComponent }
+      { path: 'shoppinglist', component: ShoppingListComponent },
+      { path: 'myrecipes', component: UserRecipesComponent }
     ]},
   { path: 'search', component: SearchComponent },
   { path: 'recipes', component: RecipesComponent },
