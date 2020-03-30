@@ -27,6 +27,7 @@ export class Recipe {
 
   // TOOD: Remove comments and load with comments request
   constructor(public videoURL: string,
+              public previewURL: string,
               public title: string,
               public description: string,
               public cuisine: string,
