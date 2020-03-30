@@ -45,7 +45,7 @@ import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
 import { StepperComponent } from './shared/controls/stepper/stepper.component';
-import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
+import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-recipe.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +86,7 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
     UserRecipeItemComponent,
     ButtonSquareComponent,
     StepperComponent,
-    CreateRecipeComponent
+    CreateEditRecipeComponent
   ],
   imports: [
     BrowserModule,

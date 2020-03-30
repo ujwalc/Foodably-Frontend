@@ -6,12 +6,15 @@
       <p class="paragraph">{{ recipeItem.description.substring(0,100) }} ...</p>
     </div>
     <div class="user-recipe__card--overlay" [style.display]="isOverlayHidden ? 'none' : 'grid'">
-      <app-button-square color="#4C3F54"
+      <app-button-square routerLink="/newrecipe"
+                         color="#4C3F54"
                          size="3.75"
                          icon="assets/img/pen.svg"></app-button-square>
-      <app-button-square color="#882426"
+      <app-button-square (click)="onDeleteRecipe()"
+                         color="#882426"
                          size="3.75"
                          icon="assets/img/trash_can.svg"></app-button-square>
     </div>
   </a>
 </li>
+

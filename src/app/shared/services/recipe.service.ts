@@ -45,4 +45,17 @@ export class RecipeService {
         })
       );
   }
+
+  deleteRecipe(id: string) {
+    return this.http
+      .delete(this.baseURL + 'recipe/' + id)
+      .pipe(
+        map(responseData => {
+          return true;
+        }),
+        catchError(errorRes => {
+          return throwError(errorRes);
+        })
+      );
+  }
 }
