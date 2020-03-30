@@ -45,6 +45,7 @@ import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
 import { StepperComponent } from './shared/controls/stepper/stepper.component';
+import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { StepperComponent } from './shared/controls/stepper/stepper.component';
     UserRecipesComponent,
     UserRecipeItemComponent,
     ButtonSquareComponent,
-    StepperComponent
+    StepperComponent,
+    CreateRecipeComponent
   ],
   imports: [
     BrowserModule,
