@@ -41,6 +41,10 @@ import { PreparationStepComponent } from './view-recipe/preparation-step/prepara
 import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
 import { RankingComponent } from './shared/utilities/ranking/ranking.component';
 import {HttpClientModule} from '@angular/common/http';
+import { UserRecipesComponent } from './user-recipes/user-recipes.component';
+import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
+import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
+import { StepperComponent } from './shared/controls/stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +80,11 @@ import {HttpClientModule} from '@angular/common/http';
     AdvSearchComponent,
     PreparationStepComponent,
     RecipeAnnotationComponent,
-    RankingComponent
+    RankingComponent,
+    UserRecipesComponent,
+    UserRecipeItemComponent,
+    ButtonSquareComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
