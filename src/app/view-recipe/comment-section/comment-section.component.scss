@@ -31,6 +31,15 @@
     letter-spacing: 1px;
     color: #888888;
 }
+.comment-edit-delete img{
+  height: 20px;
+  cursor: pointer;
+  width: 20px;
+  float: right;
+}
+.comment-edit-delete{
+  margin-right: 50px;
+}
 
 .comments-section .comment-post-reply .comment-content,
 .comments-section .comment-post-reply .comment-author {
@@ -38,7 +47,7 @@
 }
 
 .comments-section textarea {
-    width: 100%;
+    width: 80%;
     height: 80px;
     border: 1px solid #ccccccad;
     border-radius: 4px;
@@ -94,8 +103,10 @@
     line-height: 50px;
     color: #fff;
     float: right;
+    margin-right: 200px;
     border: none;
     text-decoration: none;
     margin-top: 10px;
+    cursor: pointer;
 
 }

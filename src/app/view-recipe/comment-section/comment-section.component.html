@@ -1,27 +1,29 @@
 <div class="user-comment">
     <div class="comments-section">
-        <div class="comment-post">
-            <div class="comment-img"><img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" /></div>
-            <div class="comment-details">
-                <p><span class="comment-author">Ravi</span><span class="comment-time">30 minutes ago</span>
-                  <span><i class="far fa-trash-alt"></i></span><span><i class="fas fa-edit"></i></span></p>
-                <p class="comment-content">Maecenas eu maximus tellus, vel placerat massa. Nullam neque magna, hendrerit ac lacinia in, consequat nec ipsum. Vivamus tincidunt fringilla diam et sagittis. Suspendisse tincidunt hendrerit nisi, sit amet aliquet enim ornare at.</p>
-                <div class="comment-like-unlike">
-                    <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
-                    <span><i class="fa fa-reply" aria-hidden="true"></i></span>
-                    <span><i class="far fa-trash-alt" aria-hidden="true"></i></span>
-                    <span><i class="fas fa-edit"></i></span>
-                </div>
-            </div>
-        </div>
+<!--        <div class="comment-post">-->
+<!--            <div class="comment-img"><img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" /></div>-->
+<!--            <div class="comment-details">-->
+<!--                <p><span class="comment-author">Ravi</span><span class="comment-time">30 minutes ago</span>-->
+<!--                  <span><i class="far fa-trash-alt"></i></span><span><i class="fas fa-edit"></i></span></p>-->
+<!--                <p class="comment-content">Maecenas eu maximus tellus, vel placerat massa. Nullam neque magna, hendrerit ac lacinia in, consequat nec ipsum. Vivamus tincidunt fringilla diam et sagittis. Suspendisse tincidunt hendrerit nisi, sit amet aliquet enim ornare at.</p>-->
+<!--                <div class="comment-like-unlike">-->
+<!--                    <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>-->
+<!--                    <span><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>-->
+<!--                    <span><i class="fa fa-reply" aria-hidden="true"></i></span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <div>
           <h2> Comments</h2>
-          <ul *ngFor="let com of comments">
+          <ul  *ngFor="let com of comments">
             <div class="comment-post">
               <div class="comment-img"><img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" /></div>
               <div class="comment-details">
-                <p><span class="comment-author">{{com.userName}}</span><span class="comment-time">{{com.commentDate}}</span></p>
+                <p><span class="comment-author">{{com.userName}}</span>
+                  <span class="comment-time">{{com.createdAt}}</span>
+                  <span class="comment-edit-delete"><img src="assets/img/Icons/delete.png" (click)="onDelete(com.id)"></span>
+                  <span class="comment-edit-delete"><img src="assets/img/Icons/edit.png" ></span>
+                </p>
                 <p class="comment-content">{{com.comment}}</p>
                 <div class="comment-like-unlike">
                   <span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>

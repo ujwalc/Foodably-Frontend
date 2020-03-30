@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { FormControl } from '@angular/forms';
 import {CommentService} from './comment.service';
-import {CommentInterface} from './commentInterface';
+import {Comment} from './comment.model';
 
 @Component({
   selector: 'app-comment-section',
@@ -10,9 +9,8 @@ import {CommentInterface} from './commentInterface';
   styleUrls: ['./comment-section.component.scss']
 })
 export class CommentSectionComponent implements OnInit {
-  public comments = [] ;
+  comments: Comment;
   commentDesc = '';
-  date = new Date();
   constructor(private commentService: CommentService) {}
 
   ngOnInit() {
@@ -25,6 +23,14 @@ export class CommentSectionComponent implements OnInit {
   }
   onComment(form: NgForm) {
     this.commentService.onComment(form);
+    this.ngOnInit();
+  }
+  onDelete(id) {
+    this.commentService.onDelete(id)
+      .subscribe(
+        responseData => {
+        console.log('Delete success');
+      });
     this.ngOnInit();
   }
 }
