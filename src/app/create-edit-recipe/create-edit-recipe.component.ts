@@ -8,6 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class CreateEditRecipeComponent implements OnInit {
 
   categories = ['Breakfast', 'Lunch', 'Dinner'];
+  cuisines = ['Indian', 'Ukrainian', 'Italian', 'French'];
+  dishTypes = ['Dessert', 'Soup', 'Curry', 'Pizza', 'Stew', 'Drinks'];
+
+  styleGuide = {
+    caretClass: 'dropdown__caret',
+    selectBoxClass: 'dropdown__content',
+    selectMenuClass: 'dropdown',
+    optionsClass: 'dropdown__option'
+  };
 
   constructor() { }
 

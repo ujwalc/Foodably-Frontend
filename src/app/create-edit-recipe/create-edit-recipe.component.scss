@@ -14,4 +14,47 @@
 
 #form__section--top {
   margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 2rem;
+  grid-row-gap: 1.5rem;
+  grid-auto-rows: minmax(5rem, auto);
+  grid-template-areas:
+    "tit tit tit ctg"
+    "vid vid img img"
+    "des des des cis"
+    "des des des type"
+    "des des des .";
 }
+
+/* form area construction */
+
+#title--container {
+  grid-area: tit;
+}
+
+#category--container {
+  grid-area: ctg;
+}
+
+#video--container {
+  grid-area: vid;
+}
+
+#image--container {
+  grid-area: img;
+}
+
+#description--container {
+  grid-area: des;
+}
+
+#cuisine--container {
+  grid-area: cis;
+}
+
+#type--container {
+  grid-area: type;
+}
+
+/* form area construction -- finish */

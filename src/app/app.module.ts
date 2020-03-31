@@ -46,6 +46,7 @@ import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-re
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
 import { StepperComponent } from './shared/controls/stepper/stepper.component';
 import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-recipe.component';
+import { NgSelectModule } from 'ng-custom-select';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-reci
     MatMenuModule,
     SidebarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgSelectModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
