@@ -1,5 +1,30 @@
 <div class="content-container">
   <form class="form__section">
     <h1 class="header-1">Create recipe</h1>
+    <section id="form__section--top">
+      <div class="text-field--regular">
+        <label class="header-4" for="title">Title</label>
+        <input id="title" type="text" placeholder="Recipe title" name="recipe_title">
+      </div>
+      <div class="dropdown--regular">
+        <label class="header-4" for="category">Category</label>
+        <select id="category">
+          <option disabled selected value>Select</option>
+          <option *ngFor="let category of categories" [value]="category.toLowerCase()">{{ category }}</option>
+        </select>
+      </div>
+      <div class="text-field--regular">
+        <label class="header-4" for="videoURL">Video presentation</label>
+        <input id="videoURL" type="text" placeholder="Youtube link to the recipe video" name="video_presentation">
+      </div>
+      <div class="text-field--regular">
+        <label class="header-4" for="previewURL">Preview image</label>
+        <input id="previewURL" type="text" placeholder="Link to the recipe preview image" name="preview_image">
+      </div>
+      <div class="text-field--regular">
+        <label class="header-4" for="description">Description</label>
+        <textarea rows="12" id="description" name="description" placeholder="Describe your recipe. Let people know how you found or created it. Share tips and your overall experience."></textarea>
+      </div>
+    </section>
   </form>
 </div>

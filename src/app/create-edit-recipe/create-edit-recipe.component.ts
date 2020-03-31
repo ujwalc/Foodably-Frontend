@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEditRecipeComponent implements OnInit {
 
+  categories = ['Breakfast', 'Lunch', 'Dinner'];
+
   constructor() { }
 
   ngOnInit(): void {
