@@ -21,6 +21,11 @@ constructor( private httpclient: HttpClient) {
     return this.httpclient.get(subURL);
   }
 
+  getAuthor(searchID): Observable<any> {
+    const subURL="http://"+this.hn+":4000/search/author/"+searchID;
+    return this.httpclient.get(subURL);
+  }
+
   getSortedRecipes(searchID,sortOrder): Observable<any> {
     if(sortOrder=="time"){
       const subURL="http://"+this.hn+":4000/search/asc/"+searchID+"/"+sortOrder;

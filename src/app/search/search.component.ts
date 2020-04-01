@@ -9,6 +9,7 @@ import {SearchApiService} from '../shared/services/search/search-api.service'
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { localizedString } from '@angular/compiler/src/output/output_ast';
 import {FilterData} from '../shared/forms/adv-search/filter.model';
+import { RecipeItems } from './search-recipe.model';
 
 @Component({
   selector: 'app-search',
@@ -22,21 +23,26 @@ export class SearchComponent implements OnInit {
   searchKeyA:any
   @Input()
   recipeSections = [{
+    recipes: []
+  }];
+  /*
+  recipeSections = [{
       recipes: [
-        new RecipeItem('assets/img/stock-img/eiliv-sonas-aceron-FoHTUTU8SzE-unsplash.jpg', '40 min', 'Petit beurre dessert',  'Made by Seth Carson'),
-        new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Made by Alice Norris'),
-        new RecipeItem('assets/img/stock-img/aigars-peda-HEG9RhlLKTY-unsplash.jpg', '15 min', 'Salmon rice soup with ginger and garlic', 'Made by Eunice Bush'),
-        new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Made by Randall Fisher')
+        new RecipeItems('assets/img/stock-img/eiliv-sonas-aceron-FoHTUTU8SzE-unsplash.jpg', '40 min', 'Petit beurre dessert',  'Made by Seth Carson'),
+        new RecipeItems('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Made by Alice Norris'),
+        new RecipeItems('assets/img/stock-img/aigars-peda-HEG9RhlLKTY-unsplash.jpg', '15 min', 'Salmon rice soup with ginger and garlic', 'Made by Eunice Bush'),
+        new RecipeItems('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Made by Randall Fisher')
 
       ]
     }
   ];
-
+*/
   router:Router
   data:any
   dataAgain:any
   searchAgain:any
   recipeItem: RecipeSearch[]
+  recipeID:any
   noOfItems:Number
 sortRating="ranking"
 sortDate="createdAt"
@@ -81,7 +87,11 @@ console.log(search.getFilterKey())
     this.recipeSections[0]["recipes"]=[]
     for (var index in data){
       console.log(data[index])
-      this.recipeSections[0]["recipes"].push(new RecipeItem(data[index].image,data[index].preparationTime,data[index].title,data[index].author.name))
+      this.searchAgain.getAuthor(data[index].author).subscribe(res => {
+        console.log(res[0].name)
+        this.recipeSections[0]["recipes"].push(new RecipeItems(data[index].previewURL,data[index].preparationTime+" min",data[index].title,res[0].name,data[index].id,data[index].author))
+
+      })
      }
      this.noOfItems=this.recipeSections[0]["recipes"].length
      console.log(this.noOfItems)
@@ -120,6 +130,14 @@ console.log(search.getFilterKey())
       })
 
     }
+  }
+
+  onClickRecipe(id){
+    console.log(id)
+  }
+
+  onClickAuthor(id){
+    console.log(id)
   }
 
 }
