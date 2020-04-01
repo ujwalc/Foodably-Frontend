@@ -48,6 +48,8 @@ import { StepperComponent } from './shared/controls/stepper/stepper.component';
 import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-recipe.component';
 import { NgSelectModule } from 'ng-custom-select';
 import { CreateEditIngredientComponent } from './create-edit-recipe/create-edit-ingredient/create-edit-ingredient.component';
+import { ButtonComponent } from './shared/controls/button/button.component';
+import { CreateEditPrepStepComponent } from './create-edit-recipe/create-edit-prep-step/create-edit-prep-step.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,9 @@ import { CreateEditIngredientComponent } from './create-edit-recipe/create-edit-
     ButtonSquareComponent,
     StepperComponent,
     CreateEditRecipeComponent,
-    CreateEditIngredientComponent
+    CreateEditIngredientComponent,
+    ButtonComponent,
+    CreateEditPrepStepComponent
   ],
   imports: [
     BrowserModule,

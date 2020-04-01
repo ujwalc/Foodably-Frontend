@@ -44,9 +44,43 @@
     </section>
     <div class="divider recipe--divider"></div>
     <section id="form__section--ingredients">
-      <h2 class="header-2">Ingredients for one serving</h2>
+      <div class="form__section--title">
+        <h2 class="header-2">Ingredients for one serving</h2>
+        <app-button icon="assets/img/plus_filled.svg"
+                    height="3.125"
+                    width="11.875"
+                    background="#486824"
+                    iconHeight="19"
+                    title="New ingredient"></app-button>
+      </div>
+
+      <app-create-edit-ingredient [isLast]="false"></app-create-edit-ingredient>
       <app-create-edit-ingredient></app-create-edit-ingredient>
+
     </section>
     <div class="divider recipe--divider"></div>
+    <section id="form__section--instruction">
+      <div class="form__section--title">
+        <h2 class="header-2">Preparation steps</h2>
+        <app-button icon="assets/img/plus_filled.svg"
+                    height="3.125"
+                    width="11.875"
+                    background="#486824"
+                    iconHeight="19"
+                    title="New step"></app-button>
+      </div>
+      <app-create-edit-prep-step></app-create-edit-prep-step>
+    </section>
+    <div class="divider"></div>
+    <section id="form__section--submit">
+      <app-button height="3.125"
+                  width="10.25"
+                  background="#9E9E9E"
+                  title="Cancel"></app-button>
+      <app-button height="3.125"
+                  width="10.25"
+                  background="#882426"
+                  title="Submit"></app-button>
+    </section>
   </form>
 </div>
