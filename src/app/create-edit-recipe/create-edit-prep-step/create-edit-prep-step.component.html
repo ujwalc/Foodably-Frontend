@@ -1,18 +1,30 @@
 <div class="prep-step--container">
-    <div id="description--container" class="text-field--regular">
-      <label class="header-4" for="description">Description</label>
-      <textarea rows="13" id="description" name="description" placeholder="Describe preparation step in details."></textarea>
+  <app-button-square (click)="onDeleteStep()"
+                     id="delete-step__button"
+                     color="#F2BF58"
+                     size="5"
+                     iconHeight="43"
+                     icon="assets/img/trash_can.svg"></app-button-square>
+  <div id="step-order--container">
+    <h3 class="header-3">{{ currentIndex }}/</h3>
+    <h2 class="header-2">{{ total }}</h2>
+  </div>
+
+  <div id="description--container" class="text-field--regular">
+    <label class="header-4" for="description">Description</label>
+    <textarea rows="13" id="description" name="description" placeholder="Describe preparation step in details."></textarea>
+  </div>
+  <div class="divider--vertical"></div>
+  <div id="step-ingredients--container">
+    <label class="header-4" for="ingredients">Ingredients</label>
+    <div id="ingredients" class="ingredients--container">
+      <app-create-edit-step-ingredient></app-create-edit-step-ingredient>
+      <app-create-edit-step-ingredient></app-create-edit-step-ingredient>
+      <app-button icon="assets/img/plus_filled.svg"
+                  height="2.75"
+                  background="#4C3F54"
+                  iconHeight="19"
+                  title="Add ingredient"></app-button>
     </div>
-    <div class="divider--vertical"></div>
-    <div id="step-ingredients--container">
-      <label class="header-4" for="ingredients">Ingredients</label>
-      <div id="ingredients" class="step-ingredients--container">
-        <app-create-edit-step-ingredient></app-create-edit-step-ingredient>
-        <app-button icon="assets/img/plus_filled.svg"
-                    height="2.75"
-                    background="#4C3F54"
-                    iconHeight="19"
-                    title="Add ingredient"></app-button>
-      </div>
-    </div>
+  </div>
 </div>

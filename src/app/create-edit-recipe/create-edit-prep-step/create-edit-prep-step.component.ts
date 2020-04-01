@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create-edit-prep-step',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEditPrepStepComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  currentIndex: number;
+
+  @Input()
+  total: number;
+
+  constructor() {
+    this.currentIndex = 1;
+    this.total = 2;
+  }
 
   ngOnInit(): void {
   }
+
+  onDeleteStep() {}
 
 }

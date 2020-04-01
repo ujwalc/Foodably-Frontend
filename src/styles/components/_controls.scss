@@ -24,8 +24,8 @@
 
   @extend .text-field--container;
 
-  > app-stepper {
-    margin-top: 0.75rem;
+  > .header-4 {
+    margin-bottom: 0.75rem;
   }
 }
 
@@ -85,11 +85,14 @@
 .dropdown--regular {
 
   @extend .text-field--container;
+
+  > .header-4 {
+    margin-bottom: 0.75rem;
+  }
 }
 
 .dropdown__content {
 
-  margin-top: 0.75rem;
   padding: $text-field-padding;
   border: 0.5px solid map_get($colors, golden);
   cursor: pointer;

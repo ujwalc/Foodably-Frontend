@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEditStepIngredientComponent implements OnInit {
 
+  ingredients = ['potato', 'onion', 'rice', 'cilantro'];
+
+  styleGuide = {
+    caretClass: 'dropdown__caret',
+    selectBoxClass: 'dropdown__content',
+    selectMenuClass: 'dropdown',
+    optionsClass: 'dropdown__option'
+  };
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onDelete() {
+
+  }
 }

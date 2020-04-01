@@ -88,8 +88,8 @@
   color: #9E9E9E;
 }
 
-.stepper--regular > app-stepper {
-  margin-top: 0.75rem;
+.stepper--regular > .header-4 {
+  margin-bottom: 0.75rem;
 }
 
 .checkbox--regular {
@@ -141,8 +141,11 @@
 }
 
 /* Dropdown styling */
+.dropdown--regular > .header-4 {
+  margin-bottom: 0.75rem;
+}
+
 .dropdown__content {
-  margin-top: 0.75rem;
   padding: 0.875rem 1rem 0.75rem 1.5rem;
   border: 0.5px solid #CDBEA7;
   cursor: pointer;
