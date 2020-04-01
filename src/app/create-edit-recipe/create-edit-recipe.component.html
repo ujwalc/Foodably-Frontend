@@ -27,9 +27,25 @@
         <ng-select id="cuisine" [options]="cuisines" [styleGuide]="styleGuide"></ng-select>
       </div>
       <div id="type--container" class="dropdown--regular">
-        <label class="header-4" for="dishType">Dish type</label>
-        <ng-select id="dishType" [options]="dishTypes" [styleGuide]="styleGuide"></ng-select>
+        <label class="header-4" for="dish-type">Dish type</label>
+        <ng-select id="dish-type" [options]="dishTypes" [styleGuide]="styleGuide"></ng-select>
+      </div>
+      <div id="time--container" class="stepper--regular">
+        <label class="header-4" for="preparation-time">How mach time does it take to prepare it?</label>
+        <app-stepper [step]="5" [annotation]="'.min'" id="preparation-time"></app-stepper>
+      </div>
+      <div id="veg--container" class="checkbox--regular">
+        <label for="veg">
+          <input id="veg" type="checkbox"/>
+          <span class="check-mark"></span>
+        </label>
+        <h4 class="checkbox--annotation header-4">Is this recipe vegetarian?</h4>
       </div>
     </section>
+    <div class="divider"></div>
+    <section id="form__section--ingredients">
+      <h2 class="header-2">Ingredients for one serving</h2>
+    </section>
+    <div class="divider"></div>
   </form>
 </div>

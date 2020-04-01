@@ -13,7 +13,12 @@
 }
 
 #form__section--top {
-  margin-top: 2.25rem;
+
+  margin: {
+    top: 2.25rem;
+    bottom: 2rem;
+  }
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 2rem;
@@ -24,7 +29,8 @@
     "vid vid img img"
     "des des des cis"
     "des des des type"
-    "des des des .";
+    "des des des ."
+    "time time veg veg";
 }
 
 /* form area construction */
@@ -57,4 +63,21 @@
   grid-area: type;
 }
 
+#time--container {
+  grid-area: time;
+}
+
+#veg--container {
+  grid-area: veg;
+  align-self: center;
+}
+
 /* form area construction -- finish */
+
+#form__section--ingredients {
+  margin: 2rem 0;
+
+  .header-2 {
+    margin-bottom: 2rem;
+  }
+}
