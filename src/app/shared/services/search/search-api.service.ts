@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
+import {FilterData} from '../../forms/adv-search/filter.model';
+import { RequestOptions} from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ import { HttpClientModule,HttpClient } from '@angular/common/http';
 export class SearchApiService {
 
   hn:any
-
+  filter:FilterData
 constructor( private httpclient: HttpClient) {
   this.hn = window.location.hostname
 
@@ -30,8 +32,11 @@ constructor( private httpclient: HttpClient) {
     }
   }
 
-  getFilteredRecipes(){
-
+  getFilteredRecipes(searchID,data){
+    this.filter=data
+    console.log(this.filter)
+    const subURL="http://"+this.hn+":4000/search/advSearch/"+searchID;
+    return this.httpclient.post(subURL,this.filter);
   }
 
 }

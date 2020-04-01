@@ -2,7 +2,7 @@
     <div>
         <div id="search-field">
             <a (click)="onSearch()">
-                <img src="assets/img/loop.svg" alt="Loop icon">
+                <img src="assets/img/loop.svg" alt="Loop icon" style="cursor: pointer;">
             </a>
             <input [(ngModel)]="searchKey" type="text" name="recipe" placeholder="What do you want to try today?">
         </div>
@@ -17,9 +17,11 @@
         <div>
             Showing {{noOfItems}} results
             <span style="float: right;">
-              Sort By:
+
                 <span class="sort" style="color: #4C4054;">
-                    <a class="backquote">{{sortedBy}}</a>
+                    <a class="backquote">
+                      <img id="sortMenu" src="../../assets/img/stock-img/menu-2.png">
+                    </a>
                     <div class="dropdown-sort" >
                         <a value="rating" (click)="onSort(sortRating)" class="main-sort">Rating</a>
                         <a value="likes" (click)="onSort(sortLikes)" class="main-sort">Likes</a>
@@ -33,8 +35,6 @@
         </app-recipe-section>
         <app-recipe-section *ngFor="let recipeSection of recipeItem" [recipeSection]="recipeSection">
         </app-recipe-section>
-        <div class="button red-back">
-            <h4 class="button-title">More</h4>
-        </div>
+
     </section>
 </section>

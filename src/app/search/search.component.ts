@@ -8,6 +8,8 @@ import {Router} from '@angular/router';
 import {SearchApiService} from '../shared/services/search/search-api.service'
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { localizedString } from '@angular/compiler/src/output/output_ast';
+import {FilterData} from '../shared/forms/adv-search/filter.model';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -36,20 +38,24 @@ export class SearchComponent implements OnInit {
   searchAgain:any
   recipeItem: RecipeSearch[]
   noOfItems:Number
-sortRating="rating"
-sortDate="date"
-sortTime="time"
+sortRating="ranking"
+sortDate="createdAt"
+sortTime="preparationTime"
 sortLikes="likes"
 sortedBy="Choose"
+filter:FilterData
 
  constructor( public dialog: MatDialog,public search: SearchService, _search: SearchApiService, _router: Router) {
   this.router=_router
   this.searchKey = search.getSearchKey()
   console.log(this.searchKey)
   this.searchAgain = _search
- this.searchAgain.getAllRecipes(this.searchKey).subscribe(res => {
-this.onGetData(res)
- })
+console.log(search.getFilterKey())
+
+  this.searchAgain.getAllRecipes(this.searchKey).subscribe(res => {
+    this.onGetData(res)
+     })
+
   }
 
   ngOnInit() {
@@ -74,22 +80,33 @@ this.onGetData(res)
   onGetData(data){
     this.recipeSections[0]["recipes"]=[]
     for (var index in data){
-      this.recipeSections[0]["recipes"].push(new RecipeItem(data[index].image,data[index].preparationTime,data[index].name,data[index].author))
+      console.log(data[index])
+      this.recipeSections[0]["recipes"].push(new RecipeItem(data[index].image,data[index].preparationTime,data[index].title,data[index].author.name))
      }
      this.noOfItems=this.recipeSections[0]["recipes"].length
      console.log(this.noOfItems)
   }
 
   onAdvSearch(){
-    const dialogRef = this.dialog.open(AdvSearchComponent, {
-      width: '250px',
-      height: '250px',
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+    if(!this.searchKey){
+      alert("Please Search Something")
+    }else{
+      this.search.putSearchKey(this.searchKey)
+      const dialogRef = this.dialog.open(AdvSearchComponent, {
+        width: '250px',
+        height: '250px',
+      });
 
-    });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The advance search was closed');
+        this.searchAgain.getFilteredRecipes(this.searchKey,this.search.getFilterData()).subscribe(res => {
+          this.onGetData(res)
+           })
+
+      });
+    }
+
   }
 
   onSort(order){

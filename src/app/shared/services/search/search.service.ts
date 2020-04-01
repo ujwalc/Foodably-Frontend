@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
-
+import {FilterData} from '../../forms/adv-search/filter.model';
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
   searchKey:any
+  filterKey:Boolean
+  filter:FilterData
+
 
   //constructor(private httpclient: HttpClient) {
-constructor(){}
+constructor(){
+
+}
 
 
   putSearchKey(searchKey){
@@ -19,10 +24,23 @@ constructor(){}
   getSearchKey(){
     return this.searchKey
   }
-  /*
-  getAllRecipes(hn,searchID): Observable<any> {
-    const subURL="http://"+hn+":4000/search/"+searchID;
-    return this.httpclient.get(subURL);
-}
-*/
+  setFilterKey(){
+    this.filterKey = true
+  }
+  unsetFilterKey(){
+    this.filterKey = false
+  }
+  getFilterKey(){
+    return this.filterKey
+  }
+
+  putFilterData(data){
+    this.filter = data
+
+  }
+  getFilterData(){
+    return this.filter
+  }
+
+
 }

@@ -52,6 +52,7 @@
 
 #advanced-search {
     padding-right: 1rem;
+    cursor: pointer;
 }
 
 #recipes-and-articles {
@@ -72,11 +73,13 @@
     color: white;
     font-size: 1rem;
     border: none;
+    cursor: pointer;
 }
 
 .sort {
     position: relative;
     display: inline-block;
+    cursor: pointer;
 }
 
 .dropdown-sort {
