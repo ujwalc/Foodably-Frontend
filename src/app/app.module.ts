@@ -40,6 +40,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import {AuthInterceptor} from './shared/authconfig.interceptor';
 import { EmailValidatorDirective } from './shared/email-validator.directive';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {RequestResetComponent} from './shared/forms/forgotpassword/requestreset.component';
+import {ResponseResetComponent} from './shared/forms/responseResetPassword/response-reset.component';
 
 
 @NgModule({
@@ -74,7 +77,9 @@ import { EmailValidatorDirective } from './shared/email-validator.directive';
     ShoppingListComponent,
     SearchComponent,
     AdvSearchComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    RequestResetComponent,
+    ResponseResetComponent
   ],
   imports: [
     BrowserModule,
@@ -86,14 +91,18 @@ import { EmailValidatorDirective } from './shared/email-validator.directive';
     SidebarModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
   ],
   providers: [DatePipe,
   {
     provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-  }],
+  },
+  EmailValidatorDirective,
+  MatSnackBar
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

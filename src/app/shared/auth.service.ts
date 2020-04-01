@@ -18,7 +18,7 @@ export class AuthService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   id='';
-
+  isAuthorized:boolean;
   constructor(
     private http: HttpClient,
     public router: Router
@@ -40,9 +40,11 @@ export class AuthService {
     console.log(user)
     return this.http.post<any>(`${this.endpoint}/signin`, user)
       .subscribe((res: any) => {
+        
         console.log(res._id);
         console.log(res.token);
         localStorage.setItem('access_token', res.token)
+       
         this.getUserProfile(res._id).subscribe((res) => {
           console.log(res);
           this.id=res.msg._id;
@@ -51,7 +53,15 @@ export class AuthService {
           //this.router.navigate(['']);
           
         })
-      })
+        
+      },
+      (error) => {                              //Error callback
+        console.error('error caught in component')
+        
+        window.alert("Invalid username or password")
+        this.router.navigate(['login']);
+      }
+      )
   }
 
   getToken() {
@@ -90,15 +100,22 @@ export class AuthService {
   validateEmail(email){
     console.log('http://localhost:4000/api/validateEmail/'+email);
     return this.http
-    .get('http://localhost:4000/api/validateEmail/'+email).pipe(
-      map(res=>{
-        
-        return {} || res
-      }),
-      catchError(this.handleError)
-    )
+    .get('http://localhost:4000/api/validateEmail/'+email);/* pipe(
+      map((response: Response) => response.json()
+      
+      ),catchError(this.handleError))  */
     
 }
+requestReset(body): Observable<any> {
+  return this.http.post(`${this.endpoint}/req-reset-password`, body);
+}
+newPassword(body): Observable<any> {
+  return this.http.post(`${this.endpoint}/new-password`, body);
+}
+ValidPasswordToken(body): Observable<any> {
+  return this.http.post(`${this.endpoint}/valid-password-token`, body);
+}
+
 
   
 
@@ -113,5 +130,18 @@ export class AuthService {
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(msg);
+  }
+
+  handleError2(error:HttpErrorResponse){
+    if(error.error instanceof ErrorEvent){
+      if(error.status===401){
+        window.alert('Invalid user name or password');
+        this.router.navigate(['login']);
+
+      }else{
+        console.error("some error happened");
+      }
+    }
+    return throwError(error);
   }
 }

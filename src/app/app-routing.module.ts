@@ -11,6 +11,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SearchComponent } from './search/search.component';
+import {RequestResetComponent} from './shared/forms/forgotpassword/requestreset.component';
+import {ResponseResetComponent} from './shared/forms/responseResetPassword/response-reset.component';
 
 
 
@@ -32,7 +34,15 @@ const routes: Routes = [
     ]},
   { path: 'search', component: SearchComponent },
   { path: 'recipes', component: RecipesComponent },
-  { path: 'viewRecipe', component: ViewRecipeComponent }
+  { path: 'viewRecipe', component: ViewRecipeComponent },
+  {
+    path: 'request-reset-password',
+    component: RequestResetComponent,
+  },
+  {
+    path: 'response-reset-password/:token',
+    component: ResponseResetComponent
+  }
 ];
 
 @NgModule({

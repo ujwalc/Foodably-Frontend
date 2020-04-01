@@ -1,4 +1,4 @@
-import { EmailValidator, EmailValidatorDirective } from './../../email-validator.directive';
+import {  EmailValidatorDirective } from './../../email-validator.directive';
 import { CustomValidators } from './custom-validators';
 import { AuthService } from './../../auth.service';
 import { Router } from '@angular/router';
@@ -23,6 +23,7 @@ export class SignUpComponent implements OnInit {
   submitted = false;
   emailAlredyExist = "";
   Emailcheck: any;
+  onInit;
   
 
  
@@ -32,10 +33,12 @@ export class SignUpComponent implements OnInit {
   constructor(
     public fb:FormBuilder,
     public authService:AuthService,
-    public router: Router
+    public router: Router,
+    public emailValidator:EmailValidatorDirective
    
 
   ) {
+    this.createSignUpForm();
     
     
   }
@@ -43,13 +46,13 @@ export class SignUpComponent implements OnInit {
   createSignUpForm(){
     this.signupForm=this.fb.group({
       name:['', Validators.required],
-      email:['', [Validators.required, Validators.email]],
-      password:['',[Validators.required, Validators.minLength(8)]]
+      email:['', Validators.compose ([Validators.required, Validators.email]),this.emailValidator.validateEmailId.bind(this.emailValidator)],
+      password:['',[Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
     });
   }
   get f() { return this.signupForm.controls; }
   ngOnInit() {
-    this.createSignUpForm();
+    this.onInit = false;
   }
   
 
@@ -65,8 +68,10 @@ export class SignUpComponent implements OnInit {
     
     this.submitted = true;
     if (this.signupForm.invalid) {
+      this.onInit = true;
       return;
   }
+  else{
 
     console.log(this.signupForm.value);
     this.authService.signUp(this.signupForm.value).subscribe((res) => {
@@ -82,5 +87,6 @@ export class SignUpComponent implements OnInit {
     })
     //console.log(this.signUpForm);
   }
+}
  
 }

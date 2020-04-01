@@ -14,27 +14,38 @@
 
                     <input formControlName="name" type="text" placeholder="Name" required>
 
+                    <input class="form-control" formControlName="email" type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
-
-
-
-                    <input formControlName="email" type="email" placeholder="Email" [ngClass]="{'is-invalid': signupForm.get('email').errors && signupForm.get('email').touched}
-                    || signupForm.get('email').touched && signupForm.hasError('emailExists')">
-
-                    <div *ngIf="  (f.email.invalid && f.email.touched) || f.email.dirty" class="invalid-feedback">
-                        <div class="errorRed" *ngIf="signupForm.get('email').touched && f.email.errors.required">Email is required</div>
-                        <div class="errorRed" *ngIf="f.email.errors.email">Email must be a valid email address</div>
-                        <div class="invalid-feedback" *ngIf="signupForm.get('email').touched && signupForm.get('email').hasError('emailExists')">
-                            Email address already in use
+                    <div *ngIf="(signupForm.get('email').invalid && onInit) || 
+                                (signupForm.get('email').invalid && (signupForm.get('email').dirty ||
+                                signupForm.get('email').touched))" class="alert alert-danger">
+                        <div *ngIf="signupForm.get('email').errors.required">
+                            Please provide Email address
                         </div>
-
-
-
-                        <!-- <div class="errorRed" *ngIf="signupForm.controls['email'].hasError('alreadyExist')">Email Id Already Exists</div> -->
+                        <div *ngIf="signupForm.get('email').errors.pattern">
+                            Please provide correct Email address
+                        </div>
+                        <div *ngIf="signupForm.get('email').hasError('EmailInUse')">
+                            Email already in use
+                        </div>
                     </div>
 
 
-                    <input formControlName="password" type="password" placeholder="Password" minlength="8">
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-control" formControlName="password">
+                    <div *ngIf="(signupForm.get('password').invalid && onInit) || 
+                            (signupForm.get('password').invalid && (signupForm.get('password').dirty ||
+                            signupForm.get('password').touched))" class="alert alert-danger">
+
+                        <div *ngIf="signupForm.get('password').errors.required">
+                            Password can't be empty
+                        </div>
+                        <div *ngIf="signupForm.get('password').errors.maxlength">
+                            Password can be maximum of 20 characters.
+                        </div>
+                        <div *ngIf="signupForm.get('password').errors.minlength">
+                            Password must be at least 6 characters long.
+                        </div>
+                    </div>
 
                     <!--<input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Enter password again" required minlength="8" > -->
                     <input class="button button-title red-back" type="submit" value="Submit">
