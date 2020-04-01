@@ -134,6 +134,7 @@ console.log(search.getFilterKey())
 
   onClickRecipe(id){
     console.log(id)
+    this.router.navigateByUrl("/recipes/"+id)
   }
 
   onClickAuthor(id){
