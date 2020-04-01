@@ -36,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
+
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import {AuthInterceptor} from './shared/authconfig.interceptor';
@@ -43,6 +44,17 @@ import { EmailValidatorDirective } from './shared/email-validator.directive';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {RequestResetComponent} from './shared/forms/forgotpassword/requestreset.component';
 import {ResponseResetComponent} from './shared/forms/responseResetPassword/response-reset.component';
+
+
+import { FormsModule } from '@angular/forms';
+import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
+import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
+import { RankingComponent } from './shared/utilities/ranking/ranking.component';
+import {HttpClientModule} from '@angular/common/http';
+import { UserRecipesComponent } from './user-recipes/user-recipes.component';
+import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
+import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
+import { StepperComponent } from './shared/controls/stepper/stepper.component';
 
 
 @NgModule({
@@ -77,9 +89,19 @@ import {ResponseResetComponent} from './shared/forms/responseResetPassword/respo
     ShoppingListComponent,
     SearchComponent,
     AdvSearchComponent,
+
     EmailValidatorDirective,
     RequestResetComponent,
     ResponseResetComponent
+
+    PreparationStepComponent,
+    RecipeAnnotationComponent,
+    RankingComponent,
+    UserRecipesComponent,
+    UserRecipeItemComponent,
+    ButtonSquareComponent,
+    StepperComponent
+
   ],
   imports: [
     BrowserModule,
@@ -90,9 +112,13 @@ import {ResponseResetComponent} from './shared/forms/responseResetPassword/respo
     MatMenuModule,
     SidebarModule,
     FormsModule,
+
     HttpClientModule,
     ReactiveFormsModule,
    
+
+    HttpClientModule
+
   ],
   providers: [DatePipe,
   {
