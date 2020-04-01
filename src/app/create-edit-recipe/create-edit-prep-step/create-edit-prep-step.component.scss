@@ -1,0 +1,23 @@
+.prep-step--container {
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 1px auto;
+  grid-column-gap: 1.3rem;
+
+  > .divider--vertical {
+    height: calc(100% - 2.125rem);
+    margin-top: 2.125rem;
+  }
+
+  > .step-ingredients--container {
+    display: grid;
+    grid-row-gap: 1.5rem;
+  }
+
+  #step-ingredients--container {
+    display: grid;
+    grid-row-gap: 0.75rem;
+    align-content: start;
+  }
+}
