@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   firstLetter:any;
   bio:any;
   updBio:any;
-  
+  id:any;
   isEditClicked:boolean;
   //isLogin=false
   
@@ -33,11 +33,17 @@ export class ProfileComponent implements OnInit {
       this.editBioForm=this.fb.group({
         editBio:['']
       })
+      this.id=sessionStorage.getItem('id');
+      console.log(this.id);
 
 
       //let id = this.actRoute.snapshot.paramMap.get('id');
-      let id=this.authService.id;
-      this.authService.getUserProfile(id).subscribe(res => {
+      
+     }
+
+  ngOnInit() {
+     //this.id=this.authService.id;
+      this.authService.getUserProfile(this.id).subscribe(res => {
       console.log(res);
       this.isEditClicked=false;
       this.currentUser = res.msg;
@@ -47,9 +53,6 @@ export class ProfileComponent implements OnInit {
 
         this.firstLetter=this.name.charAt(0);
     })
-     }
-
-  ngOnInit() {
   }
   onEdit(){
     //this.updBio=value;
@@ -64,10 +67,10 @@ export class ProfileComponent implements OnInit {
 
     
     
-    this.authService.updateBio(this.authService.id,this.updBio).subscribe(res=>{
+    this.authService.updateBio(this.id,this.updBio).subscribe(res=>{
       console.log(res);
       if(res!=null){
-        this.authService.getUserProfile(this.authService.id).subscribe(res => {
+        this.authService.getUserProfile(this.id).subscribe(res => {
           console.log(res);
           this.isEditClicked=false;
           this.currentUser = res.msg;
@@ -87,7 +90,7 @@ export class ProfileComponent implements OnInit {
     this.isEditClicked=false;
   }
   delete():void{
-    this.authService.deleteProfile(this.authService.id).subscribe(res=>{
+    this.authService.deleteProfile(this.id).subscribe(res=>{
       window.alert("Please Confirm that you are deleting your profile");
       this.route.navigate(['']);
     })

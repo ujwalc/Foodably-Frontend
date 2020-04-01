@@ -40,6 +40,8 @@ export class AuthService {
     console.log(user)
     return this.http.post<any>(`${this.endpoint}/signin`, user)
       .subscribe((res: any) => {
+
+        sessionStorage.setItem('id',res._id);
         
         console.log(res._id);
         console.log(res.token);
@@ -76,6 +78,7 @@ export class AuthService {
   }
 
   doLogout() {
+    let removeId=sessionStorage.removeItem('id');
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
       this.router.navigate(['']);

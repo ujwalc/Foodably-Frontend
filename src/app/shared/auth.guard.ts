@@ -1,3 +1,7 @@
+
+//author: Raviteja Kase
+//ID: B00823644
+
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, 
@@ -8,6 +12,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+//Authgurad to enable specific routes, if they are logged in or else not
 export class AuthGuard implements CanActivate {
 
   constructor(
