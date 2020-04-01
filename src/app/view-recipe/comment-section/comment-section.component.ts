@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {CommentService} from './comment.service';
-import {Comment} from './comment.model';
+import {Comment} from '../../shared/models/recipe/comment.model';
+
 
 @Component({
   selector: 'app-comment-section',
@@ -17,6 +18,7 @@ export class CommentSectionComponent implements OnInit {
     this.commentService.getComments()
       .subscribe(responseData => {
         this.comments = responseData;
+        console.log(this.comments);
       }, error => {
         console.log(error);
         });
@@ -31,6 +33,15 @@ export class CommentSectionComponent implements OnInit {
         responseData => {
         console.log('Delete success');
       });
+    this.ngOnInit();
+  }
+  like(com: Comment) {
+    console.log('entered') ;
+    this.commentService.onUpdate(com.id, com.comment, com.like)
+      .subscribe(
+        responseData => {
+          console.log('Update Success');
+        });
     this.ngOnInit();
   }
 }

@@ -6,15 +6,15 @@ import {Comment} from '../../shared/models/recipe/comment.model';
 import {NgForm} from '@angular/forms';
 import {catchError, map} from 'rxjs/operators';
 import {plainToClass} from 'class-transformer';
-import {Recipe} from '../../shared/models/recipe/recipe.model';
-
 
 @Injectable({ providedIn: 'root' })
 export class CommentService {
     commentDesc: string;
     recipeId: string;
     userId: string;
-    userName: string;
+    user: string;
+    id: string;
+    comment: string;
     constructor(private http: HttpClient) { }
 
     getComments() {
@@ -31,16 +31,15 @@ export class CommentService {
     }
     onComment(form: NgForm) {
       this.commentDesc = form.value.comment;
-      this.recipeId = '123Biryani';
-      this.userId = '2';
-      this.userName = 'Sneha Doguparthi';
+      this.recipeId = '5e81797306006038ad4e3c90';
+      this.userId = '5e7fe19b39d9462c9c04fcd5';
       console.log(form.value);
       console.log('commentDesc' + this.commentDesc);
       const commentData = {
         comment: this.commentDesc,
         recipeId: this.recipeId,
         userId : this.userId,
-        userName : this.userName
+        like: 0
       };
       this.http.post<Comment>(`http://localhost:4000/userComments/comment`,
         commentData
@@ -54,12 +53,17 @@ export class CommentService {
       }).catch(err => console.log(err));
       form.reset();
     }
-    // this method deletes the comments
+    // this method deletes the comment
     onDelete(commentId): Observable<any> {
-      const data = {
-        id: commentId
-      };
-      console.log(commentId);
       return this.http.delete(`http://localhost:4000/userComments/delete/` + commentId);
+    }
+    onUpdate(updateid, updatecomment, likecount) {
+      const data = {
+        id: updateid,
+        comment: updatecomment,
+        like: likecount + 1
+      };
+      console.log(data);
+      return this.http.put('http://localhost:4000/userComments/update', data );
     }
 }
