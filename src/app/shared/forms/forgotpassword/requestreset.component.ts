@@ -17,6 +17,8 @@ export class RequestResetComponent implements OnInit {
   forbiddenEmails: any;
   errorMessage: string;
   successMessage: string;
+  
+
   IsvalidForm = true;
   @Output()
   close = new EventEmitter<void>();
@@ -48,9 +50,10 @@ export class RequestResetComponent implements OnInit {
       this.IsvalidForm = true;
       this.authService.requestReset(this.RequestResetForm.value).subscribe(
         data => {
-        //window.alert("Please chech your mail to reset password");
+        window.alert("If your emailId is valid a reset password link send to email sucessfully.");
           this.RequestResetForm.reset();
-          this.successMessage = "Reset password link send to email sucessfully.";
+         
+          this.successMessage = " If your emailId is valid a reset password link send to email sucessfully.";
           setTimeout(() => {
             this.successMessage = null;
             this.router.navigate(['login']);
@@ -60,6 +63,7 @@ export class RequestResetComponent implements OnInit {
         err => {
 
           if (err.error.message) {
+             
             this.errorMessage = err.error.message;
           }
         }
