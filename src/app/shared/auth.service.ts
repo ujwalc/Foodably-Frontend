@@ -82,6 +82,9 @@ export class AuthService {
     }
   }
 
+  removeToken(){
+    localStorage.removeItem('access_token');
+  }
   // User profile
   getUserProfile(id): Observable<any> {
     console.log(id);
@@ -114,6 +117,20 @@ newPassword(body): Observable<any> {
 }
 ValidPasswordToken(body): Observable<any> {
   return this.http.post(`${this.endpoint}/valid-password-token`, body);
+}
+
+updateBio(id,bio):Observable<any>{
+  this.http.put('http://localhost:4000/api/updateBio/'+id+'/'+bio,null).subscribe(res=>{
+    console.log(res);
+  })
+  return this.http.put('http://localhost:4000/api/updateBio/'+id+'/'+bio,null);
+
+  
+}
+
+deleteProfile(id):Observable<any>{
+  this.removeToken();
+  return this.http.delete('http://localhost:4000/api/delete-user/'+id);
 }
 
 

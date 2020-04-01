@@ -8,7 +8,28 @@
             </div>
             <div class="profile--info">
                 <h1 class="header-1">{{name}}</h1>
-                <p class="paragraph">Biker, risk-taker, drummer, reclaimed wood collector and recent OCAD grad. Making at the sweet spot between art and computer science to create not just a logo, but a feeling. I prefer clear logic to decoration</p>
+
+                <div class="form-group">
+                    <div *ngIf="!isEditClicked">
+                        <p class="paragraph">{{bio}}</p>
+                    </div>
+                    <div *ngIf="isEditClicked">
+                        <textarea #editBio class="paragraph" [(ngModel)]="updBio" class="form-control" type="text"></textarea>
+                    </div>
+                    <div *ngIf="!isEditClicked">
+                        <input class="button button-title red-back" type="submit" (click)="onEdit()" value="Add/Edit Bio">
+                    </div>
+
+                    <div *ngIf="isEditClicked">
+                        <input class="button button-title red-back" (click)="update()" value="Update">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="delete" style="padding-left: 150px;
+            padding-top: 80px;">
+                <input class="button button-title red-back" (click)="delete()" value="Delete Profile">
             </div>
         </div>
     </section>

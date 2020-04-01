@@ -48,6 +48,7 @@ export class RequestResetComponent implements OnInit {
       this.IsvalidForm = true;
       this.authService.requestReset(this.RequestResetForm.value).subscribe(
         data => {
+        //window.alert("Please chech your mail to reset password");
           this.RequestResetForm.reset();
           this.successMessage = "Reset password link send to email sucessfully.";
           setTimeout(() => {
