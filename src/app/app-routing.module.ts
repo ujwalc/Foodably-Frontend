@@ -47,7 +47,7 @@ const routes: Routes = [
   {
     path: 'response-reset-password/:token',
     component: ResponseResetComponent
-  }
+  },
 
   { path: 'profile', component: ProfileComponent, children: [
       { path: 'shoppinglist', component: ShoppingListComponent },

@@ -46,11 +46,11 @@ import {RequestResetComponent} from './shared/forms/forgotpassword/requestreset.
 import {ResponseResetComponent} from './shared/forms/responseResetPassword/response-reset.component';
 
 
-import { FormsModule } from '@angular/forms';
+
 import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
 import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
 import { RankingComponent } from './shared/utilities/ranking/ranking.component';
-import {HttpClientModule} from '@angular/common/http';
+
 import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
@@ -92,7 +92,7 @@ import { StepperComponent } from './shared/controls/stepper/stepper.component';
 
     EmailValidatorDirective,
     RequestResetComponent,
-    ResponseResetComponent
+    ResponseResetComponent,
 
     PreparationStepComponent,
     RecipeAnnotationComponent,
