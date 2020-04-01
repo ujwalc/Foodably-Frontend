@@ -68,4 +68,8 @@
   margin-bottom: 2rem;
 }
 
+.recipe--divider {
+  width: 75%;
+}
+
 /*# sourceMappingURL=create-edit-recipe.component.css.map */
