@@ -1,3 +1,6 @@
+//author: Raviteja Kase
+//ID: B00823644
+
 import { AuthService } from './../../auth.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
@@ -11,6 +14,8 @@ import { EmailValidatorDirective } from './../../email-validator.directive';
   templateUrl: './request-reset.component.html',
   styleUrls: ['../profile-management.component.scss']
 })
+
+//Reset password component
 export class RequestResetComponent implements OnInit {
     onInit;
   RequestResetForm: FormGroup;
@@ -42,6 +47,7 @@ export class RequestResetComponent implements OnInit {
     });
   }
 
+  //requestReset method from authservice is used to achieve this functionality
 
   RequestResetUser(form) {
     console.log(form)
@@ -51,13 +57,13 @@ export class RequestResetComponent implements OnInit {
       this.authService.requestReset(this.RequestResetForm.value).subscribe(
         data => {
         window.alert("If your emailId is valid a reset password link send to email sucessfully.");
-          this.RequestResetForm.reset();
+          //this.RequestResetForm.reset();
          
           this.successMessage = " If your emailId is valid a reset password link send to email sucessfully.";
           setTimeout(() => {
             this.successMessage = null;
             this.router.navigate(['login']);
-          }, 3000);
+          }, 300);
           this.onClose();
         },
         err => {

@@ -1,4 +1,7 @@
 
+
+//author: Raviteja Kase
+//ID: B00823644
 import { Injectable } from '@angular/core';
 import {User} from './models/user';
 import { Observable, throwError } from 'rxjs';
@@ -26,7 +29,7 @@ export class AuthService {
   ) {
   }
 
-  // Sign-up
+  // New User registration
   signUp(user: User): Observable<any> {
     let api = `${this.endpoint}/register-user`;
     return this.http.post(api, user)
@@ -35,7 +38,7 @@ export class AuthService {
       )
   }
 
-  // Sign-in
+  // Sign in and setting the token in local storage and id in sessionstorage
   signIn(user: User) {
     console.log(user)
     return this.http.post<any>(`${this.endpoint}/signin`, user)
@@ -57,7 +60,8 @@ export class AuthService {
         })
         
       },
-      (error) => {                              //Error callback
+      (error) => { 
+        //Error handling for invalid username or password entered                            
         console.error('error caught in component')
         
         window.alert("Invalid username or password")
@@ -66,17 +70,20 @@ export class AuthService {
       )
   }
 
+  //Get the token set at localstorafe
   getToken() {
     console.log(localStorage.getItem('access_token'));
     return localStorage.getItem('access_token');
   }
   
-
+//Check whether the user is logged in or not
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
     return (authToken !== null) ? true : false;
   }
 
+
+//Logout Functionality
   doLogout() {
     let removeId=sessionStorage.removeItem('id');
     let removeToken = localStorage.removeItem('access_token');
@@ -84,11 +91,11 @@ export class AuthService {
       this.router.navigate(['']);
     }
   }
-
+//Remove token
   removeToken(){
     localStorage.removeItem('access_token');
   }
-  // User profile
+  // Get the user Profile details by Id
   getUserProfile(id): Observable<any> {
     console.log(id);
     let api = 'http://localhost:4000/api/user-profile/'+id;
@@ -103,6 +110,7 @@ export class AuthService {
     )
   }
 
+  //Validate if the email exists or not
   validateEmail(email){
     console.log('http://localhost:4000/api/validateEmail/'+email);
     return this.http
@@ -112,16 +120,20 @@ export class AuthService {
       ),catchError(this.handleError))  */
     
 }
+//To raise request to reset the password
 requestReset(body): Observable<any> {
   return this.http.post(`${this.endpoint}/req-reset-password`, body);
 }
+//Set the password for reset functionality
 newPassword(body): Observable<any> {
   return this.http.post(`${this.endpoint}/new-password`, body);
 }
+//Once the user raises reset password request , a token is generated at client side and it will be validated
 ValidPasswordToken(body): Observable<any> {
   return this.http.post(`${this.endpoint}/valid-password-token`, body);
 }
 
+//Updating the Bio from profile page
 updateBio(id,bio):Observable<any>{
   this.http.put('http://localhost:4000/api/updateBio/'+id+'/'+bio,null).subscribe(res=>{
     console.log(res);
@@ -131,6 +143,8 @@ updateBio(id,bio):Observable<any>{
   
 }
 
+//Deleting the profile from profile page
+
 deleteProfile(id):Observable<any>{
   this.removeToken();
   return this.http.delete('http://localhost:4000/api/delete-user/'+id);
@@ -139,19 +153,19 @@ deleteProfile(id):Observable<any>{
 
   
 
-  // Error 
+  // Error handling
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
-      // client-side error
+      
       msg = error.error.message;
     } else {
-      // server-side error
+      
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(msg);
   }
-
+//Error handling functionality for 401 requests
   handleError2(error:HttpErrorResponse){
     if(error.error instanceof ErrorEvent){
       if(error.status===401){

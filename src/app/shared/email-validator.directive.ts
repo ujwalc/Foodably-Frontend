@@ -1,4 +1,5 @@
-
+//author: Raviteja Kase
+//ID: B00823644
 
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
@@ -14,21 +15,14 @@ import { FormControl } from '@angular/forms';
   selector: '[EmailValidator]',
   providers:[{provide :NG_ASYNC_VALIDATORS, useExisting: EmailValidatorDirective, multi: true}]
 })
+// Custom AsyncValidator to check whether email exists in the records or not
 export class EmailValidatorDirective implements AsyncValidator {
 
   debouncer:any;
 
   constructor(private authService:AuthService) { }
   validate;
-  /* static createValidator(authService:AuthService) {
-    return (control: AbstractControl) => {
-      return authService.validateEmail(control.value).pipe(map(res => {
-        return res== null ? null: {emailExists:true};
-      }))
-      ;
-    };
-  } */
-
+  
   validateEmailId(control: FormControl): any {
 
     clearTimeout(this.debouncer);

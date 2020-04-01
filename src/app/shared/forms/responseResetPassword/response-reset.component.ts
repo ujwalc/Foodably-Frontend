@@ -1,3 +1,6 @@
+
+//author: Raviteja Kase
+//ID: B00823644
 import { AuthService } from './../../auth.service';
 import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -42,7 +45,7 @@ export class ResponseResetComponent implements OnInit {
     this.router.navigate(['']);
     this.close.emit();
   }
-
+//verification of token resettpasswordtoken generated at server side
   VerifyToken() {
     this.authService.ValidPasswordToken({ resettoken: this.resetToken }).subscribe(
       data => {
@@ -81,7 +84,7 @@ export class ResponseResetComponent implements OnInit {
     return null;
   }
 
-
+//Reset password if new password and confirmed password matches 
   ResetPassword(form) {
     console.log(form.get('confirmPassword'));
     if (form.valid) {
