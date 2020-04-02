@@ -2,6 +2,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RecipeFormService } from '../shared/services/recipe-form.service';
 import {Subscription} from 'rxjs';
+import {RecipeService} from '../shared/services/recipe.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RecipeSection} from '../shared/models/recipe-section.model';
+import {RecipeItem} from '../shared/models/recipe-item.model';
+import {Recipe} from '../shared/models/recipe/recipe.model';
 
 @Component({
   selector: 'app-create-edit-recipe',
@@ -23,11 +28,15 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
 
   recipeForm: FormGroup;
   recipeFormSub: Subscription;
+  recipeServiceSub: Subscription;
   ingredients: FormArray;
   instruction: FormArray;
   formInvalid = false;
+  error = null;
 
-  constructor(private recipeFormService: RecipeFormService) { }
+  constructor(private recipeFormService: RecipeFormService,
+              private recipeService: RecipeService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.recipeFormSub = this.recipeFormService.recipeForm$
@@ -39,12 +48,25 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log('recipe saved!');
-    console.log(this.recipeForm.value);
+    console.log('Recipe saved!');
+    console.log(this.recipeForm.value as Recipe);
+
+    const recipe = this.recipeForm.value as Recipe;
+    recipe.authorId = '5e7fe19b39d9462c9c04fcd5';
+    this.recipeServiceSub = this.recipeService.createRecipe(recipe).subscribe(
+      recipeId => {
+        console.log(recipeId);
+        this.router.navigate(['profile', 'myrecipes']);
+      },
+      error => {
+        this.error = error.message;
+      }
+    );
   }
 
   ngOnDestroy() {
     this.recipeFormSub.unsubscribe();
+    this.recipeServiceSub.unsubscribe();
   }
 
   /* ingredients */

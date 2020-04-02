@@ -40,6 +40,7 @@ export class Recipe {
               ranking?: Ranking,
               public likes?: number,
               public author?: { name: string },
+              public authorId?: string,
               public createdAt?: string,
               public relatedRecipes?: RecipeSection,
               public comments?: number,

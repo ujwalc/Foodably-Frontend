@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map } from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import { plainToClass } from 'class-transformer';
@@ -20,6 +20,26 @@ export class RecipeService {
       .pipe(
         map(responseData => {
           const key = 'data';
+          if (responseData.hasOwnProperty(key)) {
+            return plainToClass(Recipe, responseData[key]);
+          }
+        }),
+        catchError(errorRes => {
+          return throwError(errorRes);
+        })
+      );
+  }
+
+  createRecipe(recipe: Recipe) {
+    return this.http
+      .post(`${this.baseURL}recipe/`,
+        JSON.stringify(recipe),
+        {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      })
+      .pipe(
+        map((responseData) => {
+          const key = 'data.id';
           if (responseData.hasOwnProperty(key)) {
             return plainToClass(Recipe, responseData[key]);
           }
