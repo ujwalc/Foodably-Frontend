@@ -36,11 +36,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/authconfig.interceptor';
+import { EmailValidatorDirective } from './shared/email-validator.directive';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RequestResetComponent } from './shared/forms/forgotpassword/requestreset.component';
+import { ResponseResetComponent } from './shared/forms/responseResetPassword/response-reset.component';
 import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
 import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
 import { RankingComponent } from './shared/utilities/ranking/ranking.component';
-import {HttpClientModule} from '@angular/common/http';
+
 import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
@@ -51,6 +57,7 @@ import { CreateEditIngredientComponent } from './create-edit-recipe/create-edit-
 import { ButtonComponent } from './shared/controls/button/button.component';
 import { CreateEditPrepStepComponent } from './create-edit-recipe/create-edit-prep-step/create-edit-prep-step.component';
 import { CreateEditStepIngredientComponent } from './create-edit-recipe/create-edit-prep-step/create-edit-step-ingredient/create-edit-step-ingredient.component';
+
 
 @NgModule({
   declarations: [
@@ -84,18 +91,23 @@ import { CreateEditStepIngredientComponent } from './create-edit-recipe/create-e
     ShoppingListComponent,
     SearchComponent,
     AdvSearchComponent,
+
+    EmailValidatorDirective,
+    RequestResetComponent,
+    ResponseResetComponent,
+
     PreparationStepComponent,
     RecipeAnnotationComponent,
     RankingComponent,
     UserRecipesComponent,
     UserRecipeItemComponent,
     ButtonSquareComponent,
-    StepperComponent,
     CreateEditRecipeComponent,
     CreateEditIngredientComponent,
     ButtonComponent,
     CreateEditPrepStepComponent,
-    CreateEditStepIngredientComponent
+    CreateEditStepIngredientComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +122,15 @@ import { CreateEditStepIngredientComponent } from './create-edit-recipe/create-e
     NgSelectModule,
     ReactiveFormsModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+  {
+    provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  },
+  EmailValidatorDirective,
+  MatSnackBar
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
