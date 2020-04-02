@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RecipeFormService } from '../shared/services/recipe-form.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-create-edit-recipe',
   templateUrl: './create-edit-recipe.component.html',
   styleUrls: ['./create-edit-recipe.component.scss']
 })
-export class CreateEditRecipeComponent implements OnInit {
+export class CreateEditRecipeComponent implements OnInit, OnDestroy {
 
   categories = ['Breakfast', 'Lunch', 'Dinner'];
   cuisines = ['Indian', 'Ukrainian', 'Italian', 'French'];
@@ -18,9 +21,35 @@ export class CreateEditRecipeComponent implements OnInit {
     optionsClass: 'dropdown__option'
   };
 
-  constructor() { }
+  recipeForm: FormGroup;
+  recipeFormSub: Subscription;
+  ingredients: FormArray;
+  formInvalid = false;
+
+  constructor(private recipeFormService: RecipeFormService) { }
 
   ngOnInit(): void {
+    this.recipeFormSub = this.recipeFormService.recipeForm$
+      .subscribe(recipe => {
+        this.recipeForm = recipe;
+        this.ingredients = this.recipeForm.get('ingredients') as FormArray;
+      });
   }
 
+  onSubmit() {
+    console.log('recipe saved!');
+    console.log(this.recipeForm.value);
+  }
+
+  ngOnDestroy() {
+    this.recipeFormSub.unsubscribe();
+  }
+
+  addIngredient() {
+    this.recipeFormService.addIngredient();
+  }
+
+  deleteIngredient(index: number) {
+    this.recipeFormService.deleteIngredient(index);
+  }
 }

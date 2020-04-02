@@ -1,11 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+
+// https://alligator.io/angular/custom-form-control/ custom control
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.scss']
+  styleUrls: ['./stepper.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => StepperComponent),
+      multi: true
+    }
+  ]
 })
-export class StepperComponent {
+
+export class StepperComponent implements ControlValueAccessor {
+
+  value: number;
 
   @Input()
   annotation: string;
@@ -13,9 +26,27 @@ export class StepperComponent {
   @Input()
   step = 1;
 
-  value = 1;
+  onChange = (value: number) => {};
+  onTouched = () => {};
 
-  constructor() { }
+  constructor() {
+    this.value = 1;
+  }
+
+  writeValue(value: number): void {
+    this.value = value;
+    this.onChange(this.value);
+  }
+
+  registerOnChange(fn: (value: number) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {}
 
   onPlus() {
     if (this.value < this.step) {
@@ -23,6 +54,7 @@ export class StepperComponent {
     } else {
       this.value = this.value + this.step;
     }
+    this.onChange(this.value);
   }
 
   onMinus() {
@@ -33,5 +65,6 @@ export class StepperComponent {
     } else {
       this.value = reducedValue;
     }
+    this.onChange(this.value);
   }
 }
