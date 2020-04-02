@@ -11,13 +11,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SearchComponent } from './search/search.component';
-
-import {RequestResetComponent} from './shared/forms/forgotpassword/requestreset.component';
-import {ResponseResetComponent} from './shared/forms/responseResetPassword/response-reset.component';
-
-
-
-import {UserRecipesComponent} from './user-recipes/user-recipes.component';
+import { UserRecipesComponent } from './user-recipes/user-recipes.component';
+import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-recipe.component';
+import { RequestResetComponent } from './shared/forms/forgotpassword/requestreset.component';
+import { ResponseResetComponent } from './shared/forms/responseResetPassword/response-reset.component';
 
 
 const routes: Routes = [
@@ -51,8 +48,9 @@ const routes: Routes = [
 
   { path: 'profile', component: ProfileComponent, children: [
       { path: 'shoppinglist', component: ShoppingListComponent },
-      { path: 'myrecipes', component: UserRecipesComponent }
+      { path: 'myrecipes', component: UserRecipesComponent },
     ]},
+  { path: 'newrecipe', component: CreateEditRecipeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:id', component: ViewRecipeComponent }

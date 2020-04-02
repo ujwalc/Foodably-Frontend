@@ -28,6 +28,7 @@
     "class-transformer": "^0.2.3",
     "http": "0.0.1-security",
     "jquery": "^3.4.1",
+    "ng-custom-select": "^2.0.4",
     "ng-sidebar": "^9.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.5.4",

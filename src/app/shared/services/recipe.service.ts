@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, map } from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import { plainToClass } from 'class-transformer';
@@ -30,6 +30,26 @@ export class RecipeService {
       );
   }
 
+  createRecipe(recipe: Recipe) {
+    return this.http
+      .post(`${this.baseURL}recipe/`,
+        JSON.stringify(recipe),
+        {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      })
+      .pipe(
+        map((responseData) => {
+          const key = 'data.id';
+          if (responseData.hasOwnProperty(key)) {
+            return plainToClass(Recipe, responseData[key]);
+          }
+        }),
+        catchError(errorRes => {
+          return throwError(errorRes);
+        })
+      );
+  }
+
   fetchUserRecipes() {
     return this.http
       .get(this.baseURL + 'profile/recipes/' + '5e7fe19b39d9462c9c04fcd5')
@@ -39,6 +59,19 @@ export class RecipeService {
           if (responseData.hasOwnProperty(key)) {
             return plainToClass(Recipe, responseData[key]) as unknown as Array<Recipe>;
           }
+        }),
+        catchError(errorRes => {
+          return throwError(errorRes);
+        })
+      );
+  }
+
+  deleteRecipe(id: string) {
+    return this.http
+      .delete(this.baseURL + 'recipe/' + id)
+      .pipe(
+        map(responseData => {
+          return true;
         }),
         catchError(errorRes => {
           return throwError(errorRes);
