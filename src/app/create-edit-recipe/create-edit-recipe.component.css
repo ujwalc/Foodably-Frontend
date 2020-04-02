@@ -87,6 +87,10 @@
   grid-auto-flow: column;
   justify-content: end;
 }
+#form__section--submit button {
+  padding: 0;
+  border: none;
+}
 
 .recipe--divider {
   width: 75%;

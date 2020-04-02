@@ -22,7 +22,7 @@ export class RecipeFormService {
 
     currentIngredients.push(
       this.fb.group(
-        new IngredientForm(new Ingredient('', 1, ''))
+        new IngredientForm(new Ingredient('', 1, 'kg'))
       )
     );
 
