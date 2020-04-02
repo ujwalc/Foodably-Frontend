@@ -7,12 +7,13 @@ import { Ingredient } from '../models/recipe/ingredient.model';
 import { Recipe } from '../models/recipe/recipe.model';
 import {PrepStepForm} from '../../create-edit-recipe/create-edit-prep-step/models/prep-step-form.model';
 import {PreparationStep} from '../models/recipe/preparation-step.model';
+import {StepIngredientForm} from '../../create-edit-recipe/create-edit-prep-step/create-edit-step-ingredient/models/step-ingredient-form.model';
 
 @Injectable({ providedIn: 'root' })
 export class RecipeFormService {
   private recipeForm: BehaviorSubject<FormGroup | undefined> = new BehaviorSubject(
     this.fb.group(new RecipeForm(
-    new Recipe('', '', '', '', '', '', '', false, 1, [], [])
+    new Recipe('', '', '', '', 'Indian', 'Lunch', 'Soup', false, 1, [], [])
   )));
   recipeForm$: Observable<FormGroup> = this.recipeForm.asObservable();
 
@@ -62,6 +63,32 @@ export class RecipeFormService {
     const currentInstruction = currentRecipe.get('instruction') as FormArray;
 
     currentInstruction.removeAt(i);
+
+    this.recipeForm.next(currentRecipe);
+  }
+
+  /* instruction step */
+
+  addStepIngredient(i: number) {
+    const currentRecipe = this.recipeForm.getValue();
+    const currentInstruction = currentRecipe.get('instruction') as FormArray;
+    const currentStepIngredients = currentInstruction.at(i).get('ingredients') as FormArray;
+
+    currentStepIngredients.push(
+      this.fb.group(
+        new StepIngredientForm(new Ingredient('Rice', 1, 'kg'))
+      )
+    );
+
+    this.recipeForm.next(currentRecipe);
+  }
+
+  deleteStepIngredient(i: number, ingIndex: number) {
+    const currentRecipe = this.recipeForm.getValue();
+    const currentInstruction = currentRecipe.get('instruction') as FormArray;
+    const currentStepIngredients = currentInstruction.at(i).get('ingredients') as FormArray;
+
+    currentStepIngredients.removeAt(ingIndex);
 
     this.recipeForm.next(currentRecipe);
   }

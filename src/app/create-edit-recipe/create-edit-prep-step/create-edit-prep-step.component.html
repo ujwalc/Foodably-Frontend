@@ -22,9 +22,14 @@
   <div id="step-ingredients--container">
     <label class="header-4" for="ingredients">Ingredients</label>
     <div id="ingredients" class="ingredients--container">
-      <app-create-edit-step-ingredient></app-create-edit-step-ingredient>
-      <app-create-edit-step-ingredient></app-create-edit-step-ingredient>
-      <app-button icon="assets/img/plus_filled.svg"
+
+      <app-create-edit-step-ingredient *ngFor="let ingredient of ingredients?.controls; let i = index"
+                                 [index]="i"
+                                 [ingredientForm]="ingredient"
+                                 (deleteIngredient)="deleteIngredient($event)">
+      </app-create-edit-step-ingredient>
+      <app-button (click)="addIngredient()"
+                  icon="assets/img/plus_filled.svg"
                   height="2.75"
                   background="#4C3F54"
                   iconHeight="19"
