@@ -12,6 +12,11 @@
   grid-template-columns: 50% 1px auto;
   grid-column-gap: 1.3rem;
 
+  margin: {
+    top: 0.75rem;
+    bottom: 1.5rem;
+  }
+
   > .divider--vertical {
     height: calc(100% - 2.125rem);
     margin-top: 2.125rem;
@@ -42,3 +47,7 @@
   }
 }
 
+.step--divider {
+  opacity: 40%;
+  width: 80%;
+}

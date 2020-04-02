@@ -24,6 +24,7 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
   recipeForm: FormGroup;
   recipeFormSub: Subscription;
   ingredients: FormArray;
+  instruction: FormArray;
   formInvalid = false;
 
   constructor(private recipeFormService: RecipeFormService) { }
@@ -33,6 +34,7 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
       .subscribe(recipe => {
         this.recipeForm = recipe;
         this.ingredients = this.recipeForm.get('ingredients') as FormArray;
+        this.instruction = this.recipeForm.get('instruction') as FormArray;
       });
   }
 
@@ -45,11 +47,23 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
     this.recipeFormSub.unsubscribe();
   }
 
+  /* ingredients */
+
   addIngredient() {
     this.recipeFormService.addIngredient();
   }
 
   deleteIngredient(index: number) {
     this.recipeFormService.deleteIngredient(index);
+  }
+
+  /* instruction */
+
+  addInstructionStep() {
+    this.recipeFormService.addInstructionStep();
+  }
+
+  deleteInstructionStep(index: number) {
+    this.recipeFormService.deleteInstructionStep(index);
   }
 }

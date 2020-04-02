@@ -1,9 +1,12 @@
-<div class="ingredient--container">
+<form class="ingredient--container" [formGroup]="ingredientForm">
   <div class="dropdown--regular">
-    <ng-select [options]="ingredients" [styleGuide]="styleGuide"></ng-select>
+    <ng-select [options]="ingredients"
+               formControlName="name"
+               [styleGuide]="styleGuide"></ng-select>
   </div>
   <div class="stepper--regular">
-    <app-stepper id="quantity"></app-stepper>
+    <app-stepper id="quantity"
+                 formControlName="value"></app-stepper>
   </div>
   <app-button-square class="ingredient_remove--button"
                      (click)="onDelete()"
@@ -11,4 +14,4 @@
                      color="#F2BF58"
                      size="2.75"
                      icon="assets/img/trash_can.svg"></app-button-square>
-</div>
+</form>

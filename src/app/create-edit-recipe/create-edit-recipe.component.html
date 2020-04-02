@@ -65,8 +65,8 @@
       <div id="veg--container" class="checkbox--regular">
         <label for="veg">
           <input id="veg"
-                 type="checkbox"
-                 formControlName="isVeg"/>
+                 formControlName="isVeg"
+                 type="checkbox"/>
           <span class="check-mark"></span>
         </label>
         <h4 class="checkbox--annotation header-4">Is this recipe vegetarian?</h4>
@@ -94,15 +94,20 @@
     <section id="form__section--instruction">
       <div class="form__section--title">
         <h2 class="header-2">Preparation steps</h2>
-        <app-button icon="assets/img/plus_filled.svg"
+        <app-button (click)="addInstructionStep()"
+                    icon="assets/img/plus_filled.svg"
                     height="3.125"
                     width="11.875"
                     background="#486824"
                     iconHeight="19"
                     title="New step"></app-button>
       </div>
-
-      <app-create-edit-prep-step></app-create-edit-prep-step>
+      <app-create-edit-prep-step *ngFor="let step of instruction?.controls; let i = index; let isLastStep = last"
+                                  [index]="i"
+                                  [stepForm]="step"
+                                  (deleteStep)="deleteInstructionStep($event)"
+                                  [total]="instruction.length"
+                                  [isLast]="isLastStep"></app-create-edit-prep-step>
 
     </section>
     <div class="divider"></div>

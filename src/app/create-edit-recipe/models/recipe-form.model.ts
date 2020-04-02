@@ -13,6 +13,7 @@ export class RecipeForm {
   isVeg = new FormControl(false);
   preparationTime = new FormControl(1);
   ingredients = new FormArray([]);
+  instruction = new FormArray([]);
 
   constructor(recipe: Recipe) {
     if (recipe.title) {
@@ -53,6 +54,10 @@ export class RecipeForm {
 
     if (recipe.ingredients) {
       this.ingredients.setValue(recipe.ingredients);
+    }
+
+    if (recipe.instruction) {
+      this.instruction.setValue(recipe.instruction);
     }
   }
 }
