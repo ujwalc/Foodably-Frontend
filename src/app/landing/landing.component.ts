@@ -1,11 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecipeItem } from '../shared/models/recipe-item.model';
 import { BlogItem } from "../shared/models/blog-item.model";
-import { AdvSearchComponent } from '../shared/forms/adv-search/adv-search.component';
-import { MatDialog } from '@angular/material/dialog';
-import {SearchService} from '../shared/services/search/search.service'
-import { HttpClientModule,HttpClient } from '@angular/common/http';
-import {Router} from '@angular/router';
+import { SearchService } from '../shared/services/search/search.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',

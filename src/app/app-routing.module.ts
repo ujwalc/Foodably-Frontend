@@ -19,42 +19,29 @@ import { ResponseResetComponent } from './shared/forms/responseResetPassword/res
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
-  {path:'landing',component:LandingComponent},
+  { path: 'landing', component: LandingComponent},
   { path: 'blogs', component: BlogsComponent },
-  {path:'login', component:LoginComponent},
-  {path:'signup',component:SignUpComponent},
-  {path:'profile',component:ProfileComponent,canActivate:[AuthGuard]},
+  { path: 'login', component: LoginComponent},
+  { path: 'signup', component: SignUpComponent},
   { path: 'blogs/:id', component: BlogArticleComponent },
   { path: 'profile',
     redirectTo: '/profile/shoppinglist',
     pathMatch: 'full',
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
-
-  { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard], children: [
-      { path: 'shoppinglist', component: ShoppingListComponent , canActivate:[AuthGuard]}
-    ]},
   { path: 'search', component: SearchComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'viewRecipe', component: ViewRecipeComponent },
-  {
-    path: 'request-reset-password',
-    component: RequestResetComponent,
-  },
-  {
-    path: 'response-reset-password/:token',
-    component: ResponseResetComponent
-  },
-
-  { path: 'profile', component: ProfileComponent, children: [
+  { path: 'request-reset-password', component: RequestResetComponent },
+  { path: 'response-reset-password/:token', component: ResponseResetComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children: [
       { path: 'shoppinglist', component: ShoppingListComponent },
       { path: 'myrecipes', component: UserRecipesComponent },
     ]},
-  { path: 'newrecipe', component: CreateEditRecipeComponent },
+  { path: 'newrecipe', canActivate: [AuthGuard], component: CreateEditRecipeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'recipes', component: RecipesComponent },
   { path: 'recipes/:id', component: ViewRecipeComponent }
-
 ];
 
 @NgModule({

@@ -7,6 +7,7 @@ import {RecipeSection} from '../shared/models/recipe-section.model';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../shared/services/recipe.service';
 import {ActivatedRoute, Params} from '@angular/router';
+import {AuthService} from '../shared/auth.service';
 
 
 @Component({
@@ -21,6 +22,14 @@ export class ViewRecipeComponent implements OnInit {
   error = null;
   currentUserEmail:String;
   subscribed:boolean;
+
+  get isAuthor() {
+    return this.authService.userId === this.recipe.author.id;
+  }
+
+  get subscribeIsAvailable() {
+    return this.authService.isLoggedIn && !this.isAuthor;
+  }
 
   get recipeInfo(): Array<{ image: string, text: string }> {
     const veg = this.recipe.isVeg ? [{ image: 'assets/img/veg.svg', text: 'Veg'}] : [];

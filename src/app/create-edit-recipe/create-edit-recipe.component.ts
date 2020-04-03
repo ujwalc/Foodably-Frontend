@@ -15,9 +15,9 @@ import {Recipe} from '../shared/models/recipe/recipe.model';
 })
 export class CreateEditRecipeComponent implements OnInit, OnDestroy {
 
-  categories = ['Breakfast', 'Lunch', 'Dinner'];
-  cuisines = ['Indian', 'Ukrainian', 'Italian', 'French'];
-  dishTypes = ['Dessert', 'Soup', 'Curry', 'Pizza', 'Stew', 'Drinks'];
+  categories = ['Select', 'Breakfast', 'Lunch', 'Dinner'];
+  cuisines = ['Select', 'Indian', 'Ukrainian', 'Italian', 'French'];
+  dishTypes = ['Select', 'Dessert', 'Soup', 'Curry', 'Pizza', 'Stew', 'Drinks'];
 
   styleGuide = {
     caretClass: 'dropdown__caret',
@@ -52,11 +52,14 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
     console.log(this.recipeForm.value as Recipe);
 
     const recipe = this.recipeForm.value as Recipe;
+
     //recipe.authorId = '5e7fe19b39d9462c9c04fcd5';
     recipe.authorId=sessionStorage.getItem('id');
+
     this.recipeServiceSub = this.recipeService.createRecipe(recipe).subscribe(
       recipeId => {
         console.log(recipeId);
+        this.recipeForm.reset();
         this.router.navigate(['profile', 'myrecipes']);
       },
       error => {
