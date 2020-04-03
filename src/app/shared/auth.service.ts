@@ -25,8 +25,12 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     public router: Router
-    
+
   ) {
+  }
+
+  get userId() {
+    return sessionStorage.getItem('id');
   }
 
   // New User registration
@@ -44,26 +48,26 @@ export class AuthService {
     return this.http.post<any>(`${this.endpoint}/signin`, user)
       .subscribe((res: any) => {
 
-        sessionStorage.setItem('id',res._id);
-        
-        console.log(res._id);
+        sessionStorage.setItem('id',res.id);
+
+        console.log(res.id);
         console.log(res.token);
         localStorage.setItem('access_token', res.token)
-       
+
         this.getUserProfile(res._id).subscribe((res) => {
           console.log(res);
-          this.id=res.msg._id;
+          this.id=res.msg.id;
           this.currentUser = res;
-          
+
           //this.router.navigate(['']);
-          
+
         })
-        
+
       },
-      (error) => { 
-        //Error handling for invalid username or password entered                            
+      (error) => {
+        //Error handling for invalid username or password entered
         console.error('error caught in component')
-        
+
         window.alert("Invalid username or password")
         this.router.navigate(['login']);
       }
@@ -75,7 +79,7 @@ export class AuthService {
     console.log(localStorage.getItem('access_token'));
     return localStorage.getItem('access_token');
   }
-  
+
 //Check whether the user is logged in or not
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
@@ -101,10 +105,10 @@ export class AuthService {
     let api = 'http://localhost:4000/api/user-profile/'+id;
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res: Response) => {
-        
+
         console.log(res);
         return res || {}
-        
+
       }),
       catchError(this.handleError)
     )
@@ -116,9 +120,9 @@ export class AuthService {
     return this.http
     .get('http://localhost:4000/api/validateEmail/'+email);/* pipe(
       map((response: Response) => response.json()
-      
+
       ),catchError(this.handleError))  */
-    
+
 }
 //To raise request to reset the password
 requestReset(body): Observable<any> {
@@ -140,7 +144,7 @@ updateBio(id,bio):Observable<any>{
   })
   return this.http.put('http://localhost:4000/api/updateBio/'+id+'/'+bio,null);
 
-  
+
 }
 
 //Deleting the profile from profile page
@@ -151,16 +155,16 @@ deleteProfile(id):Observable<any>{
 }
 
 
-  
+
 
   // Error handling
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.error instanceof ErrorEvent) {
-      
+
       msg = error.error.message;
     } else {
-      
+
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(msg);

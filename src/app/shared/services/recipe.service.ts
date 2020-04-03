@@ -47,7 +47,6 @@ export class RecipeService {
   }
 
   createRecipe(recipe: Recipe) {
-    recipe.authorId = sessionStorage.getItem('id');
     return this.http
       .post(`${this.baseURL}recipe/`,
         JSON.stringify(recipe),

@@ -1,6 +1,6 @@
 <div class="recipe__properties-container">
   <div class="recipe__properties-content">
-    <div class="ranking__info">
+    <div class="ranking__info" *ngIf="recipe.ranking.submissions > 0">
       <p class="annotation">{{ recipe.ranking.value }} based on {{ recipe.ranking.submissions }} ratings</p>
       <app-ranking [ranking]="recipe.ranking.value"></app-ranking>
     </div>
@@ -22,7 +22,7 @@
     <h1 class="header-1">{{ recipe.title }}</h1>
     <div class="recipe__author">
         <app-author [author]="recipe.author.name" [date]="recipe.createdAt"></app-author>
-        <div class="button red-back">
+        <div class="button red-back" *ngIf="authService.isLoggedIn && !isAuthor">
           <img src="assets/img/bell.svg" alt="Bell">
           <h4 class="button-title">Subscribe</h4>
         </div>
