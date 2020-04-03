@@ -13,7 +13,7 @@ import {StepIngredientForm} from '../../create-edit-recipe/create-edit-prep-step
 export class RecipeFormService {
   private recipeForm: BehaviorSubject<FormGroup | undefined> = new BehaviorSubject(
     this.fb.group(new RecipeForm(
-    new Recipe('', '', '', '', 'Indian', 'Lunch', 'Soup', false, 1, [], [])
+    new Recipe('', '', '', '', 'Select', 'Select', 'Select', false, 1, [], [])
   )));
   recipeForm$: Observable<FormGroup> = this.recipeForm.asObservable();
 
@@ -27,7 +27,7 @@ export class RecipeFormService {
 
     currentIngredients.push(
       this.fb.group(
-        new IngredientForm(new Ingredient('', 1, 'kg'))
+        new IngredientForm(new Ingredient('', 1, 'Select'))
       )
     );
 
@@ -76,7 +76,7 @@ export class RecipeFormService {
 
     currentStepIngredients.push(
       this.fb.group(
-        new StepIngredientForm(new Ingredient('Rice', 1, 'kg'))
+        new StepIngredientForm(new Ingredient('Select', 1, ''))
       )
     );
 

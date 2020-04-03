@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnIn
 import {Form, FormArray, FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs';
 import {RecipeFormService} from '../../shared/services/recipe-form.service';
+import {Ingredient} from '../../shared/models/recipe/ingredient.model';
 
 @Component({
   selector: 'app-create-edit-prep-step',

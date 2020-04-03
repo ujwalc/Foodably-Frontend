@@ -15,9 +15,9 @@ import {Recipe} from '../shared/models/recipe/recipe.model';
 })
 export class CreateEditRecipeComponent implements OnInit, OnDestroy {
 
-  categories = ['Breakfast', 'Lunch', 'Dinner'];
-  cuisines = ['Indian', 'Ukrainian', 'Italian', 'French'];
-  dishTypes = ['Dessert', 'Soup', 'Curry', 'Pizza', 'Stew', 'Drinks'];
+  categories = ['Select', 'Breakfast', 'Lunch', 'Dinner'];
+  cuisines = ['Select', 'Indian', 'Ukrainian', 'Italian', 'French'];
+  dishTypes = ['Select', 'Dessert', 'Soup', 'Curry', 'Pizza', 'Stew', 'Drinks'];
 
   styleGuide = {
     caretClass: 'dropdown__caret',
