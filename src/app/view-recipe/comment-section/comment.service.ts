@@ -6,6 +6,7 @@ import {Comment} from '../../shared/models/recipe/comment.model';
 import {NgForm} from '@angular/forms';
 import {catchError, map} from 'rxjs/operators';
 import {plainToClass} from 'class-transformer';
+import {AuthService} from '../../shared/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class CommentService {
@@ -15,7 +16,7 @@ export class CommentService {
     user: string;
     id: string;
     // comment: string;
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private authService: AuthService) {
     }
     getComments() {
       return this.http
@@ -31,7 +32,7 @@ export class CommentService {
     }
     onComment(form: NgForm) {
       this.commentDesc = form.value.comment;
-      this.userId = '5e7fe19b39d9462c9c04fcd5';
+      this.userId = this.authService.userId;
       console.log(form.value);
       console.log('commentDesc' + this.commentDesc);
       const commentData = {
