@@ -7,6 +7,7 @@ import {NgForm} from '@angular/forms';
 import {catchError, map} from 'rxjs/operators';
 import {plainToClass} from 'class-transformer';
 import {AuthService} from '../../shared/auth.service';
+import {Recipe} from '../../shared/models/recipe/recipe.model';
 
 @Injectable({ providedIn: 'root' })
 export class CommentService {
@@ -36,27 +37,36 @@ export class CommentService {
     }
 
     onComment(form: NgForm) {
+
       this.commentDesc = form.value.comment;
       this.userId = this.authService.userId;
       console.log(form.value);
       console.log('commentDesc' + this.commentDesc);
+
       const commentData = {
         comment: this.commentDesc,
         recipeId: this.recipeId,
         userId : this.userId,
         like: 0
       };
-      this.http.post<Comment>(this.baseURL + `userComments/comment`,
-        commentData
-      , {
+
+      return this.http.post<Comment>(this.baseURL + `userComments/comment`,
+        commentData, {
         headers: new  HttpHeaders({
           'Content-Type': 'application/json'
         })
-      }).toPromise()
-      .then(data => {
-        console.log(data);
-      }).catch(err => console.log(err));
-      form.reset();
+      }).pipe(
+        map((responseData) => {
+          form.reset();
+          const key = 'message';
+          if (responseData.hasOwnProperty(key)) {
+            return plainToClass(Comment, responseData[key]);
+          }
+        }),
+        catchError(errorRes => {
+          return throwError(errorRes);
+        })
+      );
     }
     // this method deletes the comment
     onDelete(commentId): Observable<any> {

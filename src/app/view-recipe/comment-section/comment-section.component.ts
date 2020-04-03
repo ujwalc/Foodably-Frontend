@@ -20,18 +20,13 @@ export class CommentSectionComponent implements OnInit {
       console.log('param id is' + params.id);
       this.commentService.recipeId = params.id;
     });
-    // get comments on load of the page
-    this.commentService.getComments()
-      .subscribe(responseData => {
-        this.comments = responseData;
-        console.log(this.comments);
-      }, error => {
-        console.log(error);
-        });
+
+    this.onLoadComments();
   }
   onComment(form: NgForm) {
-    this.commentService.onComment(form);
-    this.ngOnInit();
+    this.commentService.onComment(form).subscribe(() => {
+      this.ngOnInit();
+    });
   }
   onDelete(id) {
     this.commentService.onDelete(id)
@@ -49,5 +44,16 @@ export class CommentSectionComponent implements OnInit {
           console.log('Update Success');
         });
     this.ngOnInit();
+  }
+
+  onLoadComments() {
+    // get comments on load of the page
+    this.commentService.getComments()
+      .subscribe(responseData => {
+        this.comments = responseData;
+        console.log(this.comments);
+      }, error => {
+        console.log(error);
+      });
   }
 }
