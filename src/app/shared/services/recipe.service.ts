@@ -14,6 +14,22 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
+  fetchRecipes() {
+    return this.http
+      .get(this.baseURL + 'recipe/all')
+      .pipe(
+        map(responseData => {
+          const key = 'data';
+          if (responseData.hasOwnProperty(key)) {
+            return plainToClass(Recipe, responseData[key]) as unknown as Array<Recipe>;
+          }
+        }),
+        catchError(errorRes => {
+          return throwError(errorRes);
+        })
+      );
+  }
+
   fetchRecipe(id: string) {
     return this.http
       .get(this.baseURL + 'recipe/' + id)
@@ -52,7 +68,7 @@ export class RecipeService {
 
   fetchUserRecipes() {
     return this.http
-      .get(this.baseURL + 'profile/recipes/' + '5e7fe19b39d9462c9c04fcd5')
+      .get(this.baseURL + 'profile/recipes/' + sessionStorage.getItem('id'))
       .pipe(
         map(responseData => {
           const key = 'data';

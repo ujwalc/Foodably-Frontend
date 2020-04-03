@@ -6,6 +6,7 @@ import {RecipeSection} from '../shared/models/recipe-section.model';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../shared/services/recipe.service';
 import {ActivatedRoute, Params} from '@angular/router';
+import {AuthService} from '../shared/auth.service';
 
 @Component({
   selector: 'app-view-recipe',
@@ -18,6 +19,10 @@ export class ViewRecipeComponent implements OnInit {
   recipe: Recipe;
   error = null;
 
+  get isAuthor() {
+    return this.authService.userId === this.recipe.author.id;
+  }
+
   get recipeInfo(): Array<{ image: string, text: string }> {
     const veg = this.recipe.isVeg ? [{ image: 'assets/img/veg.svg', text: 'Veg'}] : [];
     const like = this.recipe.likes > 0 ? [{image: 'assets/img/like.svg', text: this.recipe.likes.toString()}] : [];
@@ -29,7 +34,8 @@ export class ViewRecipeComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer,
               private http: HttpClient,
               private recipeService: RecipeService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
