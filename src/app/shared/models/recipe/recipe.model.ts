@@ -39,7 +39,7 @@ export class Recipe {
               instruction: PreparationStep[],
               ranking?: Ranking,
               public likes?: number,
-              public author?: { name: string },
+              public author?: { name: string ,_id:any},
               public authorId?: string,
               public createdAt?: string,
               public relatedRecipes?: RecipeSection,

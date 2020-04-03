@@ -78,4 +78,8 @@ export class RecipeService {
         })
       );
   }
+
+  subscribeRecipe(subscriberId :String,subscriberdTo:String){
+    return this.http.post(this.baseURL+'recipe/subscribe/'+subscriberId+'/'+subscriberdTo,null);
+  }
 }

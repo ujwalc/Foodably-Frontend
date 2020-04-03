@@ -39,12 +39,19 @@ export class ViewRecipeComponent implements OnInit {
     });
   }
 
+
   onFetchRecipe() {
     // Send Http request
     this.recipeService.fetchRecipe(this.recipeId).subscribe(
       recipe => {
+
+              
         this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(recipe.videoURL);
         this.recipe = recipe;
+        console.log(this.recipe.author._id);
+        console.log(sessionStorage.getItem('id'));
+        console.log(this.recipeId);
+        
 
         const recipeSection = new RecipeSection('More delicious dishes', [
           new RecipeItem('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Alice Norris'),
@@ -59,5 +66,12 @@ export class ViewRecipeComponent implements OnInit {
         this.error = error.message;
       }
     );
+  }
+
+
+  subcription(){
+    this.recipeService.subscribeRecipe(sessionStorage.getItem('id'),this.recipe.author._id).subscribe(res=>{
+      console.log(res);
+    })
   }
 }
