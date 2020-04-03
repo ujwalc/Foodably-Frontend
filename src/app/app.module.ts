@@ -36,17 +36,30 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
-import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {CommentService} from './view-recipe/comment-section/comment.service';
+import { CommentService } from './view-recipe/comment-section/comment.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './shared/authconfig.interceptor';
+import { EmailValidatorDirective } from './shared/email-validator.directive';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RequestResetComponent } from './shared/forms/forgotpassword/requestreset.component';
+import { ResponseResetComponent } from './shared/forms/responseResetPassword/response-reset.component';
 import { PreparationStepComponent } from './view-recipe/preparation-step/preparation-step.component';
 import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
 import { RankingComponent } from './shared/utilities/ranking/ranking.component';
+
 import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
 import { StepperComponent } from './shared/controls/stepper/stepper.component';
 import { RatingComponent } from './view-recipe/rating/rating.component';
+
+import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-recipe.component';
+import { NgSelectModule } from 'ng-custom-select';
+import { CreateEditIngredientComponent } from './create-edit-recipe/create-edit-ingredient/create-edit-ingredient.component';
+import { ButtonComponent } from './shared/controls/button/button.component';
+import { CreateEditPrepStepComponent } from './create-edit-recipe/create-edit-prep-step/create-edit-prep-step.component';
+import { CreateEditStepIngredientComponent } from './create-edit-recipe/create-edit-prep-step/create-edit-step-ingredient/create-edit-step-ingredient.component';
 
 
 @NgModule({
@@ -81,6 +94,11 @@ import { RatingComponent } from './view-recipe/rating/rating.component';
     ShoppingListComponent,
     SearchComponent,
     AdvSearchComponent,
+
+    EmailValidatorDirective,
+    RequestResetComponent,
+    ResponseResetComponent,
+
     PreparationStepComponent,
     RecipeAnnotationComponent,
     RankingComponent,
@@ -88,7 +106,12 @@ import { RatingComponent } from './view-recipe/rating/rating.component';
     UserRecipeItemComponent,
     ButtonSquareComponent,
     StepperComponent,
-    RatingComponent
+    RatingComponent,
+    CreateEditRecipeComponent,
+    CreateEditIngredientComponent,
+    ButtonComponent,
+    CreateEditPrepStepComponent,
+    CreateEditStepIngredientComponent
   ],
   imports: [
     BrowserModule,
@@ -100,8 +123,18 @@ import { RatingComponent } from './view-recipe/rating/rating.component';
     SidebarModule,
     FormsModule,
     HttpClientModule,
+    NgSelectModule,
+    ReactiveFormsModule
   ],
-  providers: [DatePipe, CommentService],
+  providers: [CommentService, DatePipe,
+  {
+    provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+  },
+  EmailValidatorDirective,
+  MatSnackBar
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

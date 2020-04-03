@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* button */
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,500,600,700,800&display=swap&subset=cyrillic");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap&subset=cyrillic");
@@ -58,6 +59,129 @@
   width: 100%;
 }
 
+.text-field--container, .dropdown--regular, .stepper--regular, .text-field--regular {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-field--regular > input {
+  margin-top: 0.75rem;
+  border: 0.5px solid #CDBEA7;
+  padding: 0.875rem 1rem 0.75rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.text-field--regular > input::placeholder {
+  color: #9E9E9E;
+}
+.text-field--regular > textarea {
+  margin-top: 0.75rem;
+  border: 0.5px solid #CDBEA7;
+  padding: 0.875rem 1rem 0.75rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  resize: none;
+}
+.text-field--regular > textarea::placeholder {
+  color: #9E9E9E;
+}
+
+.stepper--regular > .header-4 {
+  margin-bottom: 0.75rem;
+}
+
+.checkbox--regular {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 2.75rem;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkbox--regular input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkbox--regular .check-mark {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2.75rem;
+  width: 2.75rem;
+  border: 0.5px solid #CDBEA7;
+}
+.checkbox--regular .check-mark:after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  content: "";
+  display: none;
+  width: 65%;
+  height: 65%;
+  background: url("/../../assets/img/marker.svg") no-repeat center center/cover;
+}
+
+.checkbox--annotation {
+  padding-left: 3.75rem;
+}
+
+.checkbox--regular input:checked ~ .check-mark:after {
+  display: block;
+}
+
+/* Dropdown styling */
+.dropdown--regular > .header-4 {
+  margin-bottom: 0.75rem;
+}
+
+.dropdown__content {
+  padding: 0.875rem 1rem 0.75rem 1.5rem;
+  border: 0.5px solid #CDBEA7;
+  cursor: pointer;
+  outline: none;
+}
+.dropdown__content > input {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0;
+}
+.dropdown__content .dropdown {
+  /* Styles */
+  background: white;
+  margin: 0.125rem 0 0 0;
+  padding: 0;
+  border: 0.5px solid #CDBEA7;
+  /* Hover state */
+}
+.dropdown__content .dropdown .dropdown__option:hover {
+  background: #e1ddd9;
+}
+.dropdown__content .dropdown .dropdown__option {
+  padding: 0.875rem 1rem 0.75rem 1.5rem;
+  text-decoration: none;
+  list-style: none;
+  color: #646260;
+}
+
+.dropdown__caret::after {
+  content: "▼";
+  color: #882426;
+  text-align: center;
+}
+
+/* -- Dropdown finish -- */
 /* text configuration */
 .header, .header-3, .header-2, .header-1 {
   font-family: "Playfair Display", sans-serif;

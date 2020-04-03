@@ -21,6 +21,10 @@ export class UserRecipesComponent implements OnInit {
     this.onFetchUserRecipes();
   }
 
+  onRecipeDeleted(recipeId) {
+    this.recipes = this.recipes.filter(item => item.id !== recipeId);
+  }
+
   onFetchUserRecipes() {
     // Send Http request
     this.recipeService.fetchUserRecipes().subscribe(
