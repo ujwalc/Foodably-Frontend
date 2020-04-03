@@ -11,7 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogArticleComponent } from './blogs/blog-article/blog-article.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SearchComponent } from './search/search.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-recipe.component';
 import { RequestResetComponent } from './shared/forms/forgotpassword/requestreset.component';
@@ -49,4 +49,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), HttpClientModule],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

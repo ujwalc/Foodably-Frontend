@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {plainToClass} from 'class-transformer';
+import {Recipe} from '../shared/models/recipe/recipe.model';
+import {Ingredient} from '../shared/models/recipe/ingredient.model';
 
 
 interface Location{
@@ -10,7 +14,10 @@ interface Location{
 @Injectable({
   providedIn: 'root'
 })
-export class ShoppinglistserviceService {
+export class ShoppingListService {
+
+  baseURL = 'http://localhost:4000/';
+
   private google = (<any>window).google;
   private googleMap;
   private googlePlacesService;
@@ -24,9 +31,24 @@ export class ShoppinglistserviceService {
     // getlocation(){
     //   return this.http.get<Location>('http://api.ipapi.co/api/check?access_key=AIzaSyC6vmA4psalFEBizEQjiEeP1aNjDdizflc')
     // }
-    getCookingList() {
-      return this.http.get( 'http://localhost:3000/cookinglist');
+
+    fetchUserCookingList() {
+      return this.http
+        .get(this.baseURL + '\cookinglist')
+        .pipe(
+          map(responseData => {
+            const key = 'data';
+            const shoppingListKey = 'shoppingList';
+            if (responseData.hasOwnProperty(key)) {
+              return plainToClass(Ingredient, responseData[key][shoppingListKey]) as unknown as Array<Ingredient>;
+            }
+          }),
+          catchError(errorRes => {
+            return throwError(errorRes);
+          })
+        );
     }
+
     getLocation():Observable<any>{
       return Observable.create(observer => {
         if (navigator.geolocation) {
