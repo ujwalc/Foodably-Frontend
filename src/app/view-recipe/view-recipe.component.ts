@@ -50,9 +50,7 @@ export class ViewRecipeComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.recipeId = params.id;
       this.onFetchRecipe();
-
     });
-
   }
 
   onFetchRecipe() {
