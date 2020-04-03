@@ -16,7 +16,6 @@ export class CommentService {
     id: string;
     // comment: string;
     constructor(private http: HttpClient) {
-      this.recipeId = '5e817aeedf95d939aac2f619';
     }
     getComments() {
       return this.http

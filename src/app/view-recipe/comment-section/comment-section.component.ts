@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {CommentService} from './comment.service';
 import {Comment} from '../../shared/models/recipe/comment.model';
-
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-comment-section',
@@ -12,9 +12,15 @@ import {Comment} from '../../shared/models/recipe/comment.model';
 export class CommentSectionComponent implements OnInit {
   comments: Comment;
   commentDesc = '';
-  constructor(private commentService: CommentService) {}
+  constructor(private commentService: CommentService,
+              private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      console.log('param id is' + params.id);
+      this.commentService.recipeId = params.id;
+    });
+    // get comments on load of the page
     this.commentService.getComments()
       .subscribe(responseData => {
         this.comments = responseData;
