@@ -52,6 +52,10 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
     console.log(this.recipeForm.value as Recipe);
 
     const recipe = this.recipeForm.value as Recipe;
+
+    //recipe.authorId = '5e7fe19b39d9462c9c04fcd5';
+    recipe.authorId=sessionStorage.getItem('id');
+
     this.recipeServiceSub = this.recipeService.createRecipe(recipe).subscribe(
       recipeId => {
         console.log(recipeId);

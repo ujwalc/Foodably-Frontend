@@ -49,12 +49,13 @@ export class AuthService {
       .subscribe((res: any) => {
 
         sessionStorage.setItem('id',res.id);
-
+        sessionStorage.setItem('email',res.email);
+        
         console.log(res.id);
         console.log(res.token);
         localStorage.setItem('access_token', res.token)
-
-        this.getUserProfile(res._id).subscribe((res) => {
+       
+        this.getUserProfile(res.id).subscribe((res) => {
           console.log(res);
           this.id=res.msg.id;
           this.currentUser = res;
@@ -90,6 +91,7 @@ export class AuthService {
 //Logout Functionality
   doLogout() {
     let removeId=sessionStorage.removeItem('id');
+    sessionStorage.removeItem('email');
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
       this.router.navigate(['']);
@@ -152,6 +154,9 @@ updateBio(id,bio):Observable<any>{
 deleteProfile(id):Observable<any>{
   this.removeToken();
   return this.http.delete('http://localhost:4000/api/delete-user/'+id);
+}
+getSubscribers(subscribedTo:String):Observable<any>{
+  return this.http.get('http://localhost:4000/api/sub/'+subscribedTo);
 }
 
 
