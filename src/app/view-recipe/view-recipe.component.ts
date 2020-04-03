@@ -56,7 +56,7 @@ export class ViewRecipeComponent implements OnInit {
               
         this.safeSrc = this.sanitizer.bypassSecurityTrustResourceUrl(recipe.videoURL);
         this.recipe = recipe;
-        console.log(this.recipe.author._id);
+        console.log(this.recipe.author.id);
         console.log(sessionStorage.getItem('id'));
         console.log(this.recipeId);
         
@@ -66,7 +66,7 @@ export class ViewRecipeComponent implements OnInit {
           // tslint:disable-next-line:max-line-length
           new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Randall Fisher')
         ]);
-        this.authService.getSubscribers(this.recipe.author._id).subscribe(res=>{
+        this.authService.getSubscribers(this.recipe.author.id).subscribe(res=>{
           console.log(res.includes(sessionStorage.getItem('email')));
           if(res.includes(sessionStorage.getItem('email'))){
             this.subscribed=true;
@@ -88,7 +88,7 @@ export class ViewRecipeComponent implements OnInit {
 
   subcription(){
     
-    this.recipeService.subscribeRecipe(sessionStorage.getItem('id'),this.recipe.author._id).subscribe(res=>{
+    this.recipeService.subscribeRecipe(sessionStorage.getItem('id'),this.recipe.author.id).subscribe(res=>{
       console.log(res);
     })
     this.subscribed=true;
@@ -105,7 +105,7 @@ export class ViewRecipeComponent implements OnInit {
     })
   } */
   unsubcription(){
-    this.recipeService.unSubscribeUser(sessionStorage.getItem('id'),this.recipe.author._id).subscribe(res=>{
+    this.recipeService.unSubscribeUser(sessionStorage.getItem('id'),this.recipe.author.id).subscribe(res=>{
       console.log(res);
     })
     this.subscribed=false;
