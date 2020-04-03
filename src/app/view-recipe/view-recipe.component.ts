@@ -118,4 +118,14 @@ export class ViewRecipeComponent implements OnInit {
     this.subscribed=false;
   }
 
+  onShop(ingredients){
+
+    if(sessionStorage){
+      this.recipeService.createCookingList(sessionStorage.getItem('id'),{shoppingList: ingredients}).subscribe(res => console.log(res))
+  }else
+    {
+      alert("Please Login")
+    }
+  }
+
 }

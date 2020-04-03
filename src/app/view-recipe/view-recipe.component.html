@@ -57,7 +57,9 @@
                     <h4 class="header-4">{{ ingrid.describeValue() }}</h4>
                     <h4 class="header-4">{{ ingrid.name }}</h4>
                 </div>
+                <h4><button   class="button button-title red-back" style="cursor: pointer;" (click)="onShop(recipe.ingredients)">Export</button></h4>
             </div>
+
         </div>
     </section>
     <section class="recipe__section" *ngIf="recipe.ingredients.length > 0">
