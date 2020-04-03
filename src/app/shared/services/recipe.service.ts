@@ -112,5 +112,11 @@ export class RecipeService {
   unSubscribeUser(subscriberId :String,subscriberdTo:String){
     return this.http.post(this.baseURL+'recipe/unsubscribe/'+subscriberId+'/'+subscriberdTo,null);
   }
-  
+
+  createCookingList(id:String,ingredients:any){
+
+    return this.http.post(this.baseURL+'cookinglist/'+id+'/',ingredients);
+
+  }
+
 }
