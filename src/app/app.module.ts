@@ -41,6 +41,9 @@ import { PreparationStepComponent } from './view-recipe/preparation-step/prepara
 import { RecipeAnnotationComponent } from './view-recipe/recipe-annotation/recipe-annotation.component';
 import { RankingComponent } from './shared/utilities/ranking/ranking.component';
 import {HttpClientModule} from '@angular/common/http';
+import {AgmCoreModule} from '@agm/core';
+
+
 
 @NgModule({
   declarations: [
@@ -87,7 +90,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatMenuModule,
     SidebarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({apiKey:'AIzaSyC6vmA4psalFEBizEQjiEeP1aNjDdizflc'})
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
