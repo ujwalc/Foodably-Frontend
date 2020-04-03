@@ -27,21 +27,23 @@ export class Recipe {
 
   // TOOD: Remove comments and load with comments request
   constructor(public videoURL: string,
+              public previewURL: string,
               public title: string,
               public description: string,
               public cuisine: string,
               public category: string,
               public type: string,
-              public likes: number,
               public isVeg: boolean,
               public preparationTime: number,
-              ranking: Ranking,
-              public author: { name: string },
-              public createdAt: string,
-              public relatedRecipes: RecipeSection,
               ingredients: Ingredient[],
               instruction: PreparationStep[],
-              public comments: number,
+              ranking?: Ranking,
+              public likes?: number,
+              public author?: { name: string , id:any},
+              public authorId?: string,
+              public createdAt?: string,
+              public relatedRecipes?: RecipeSection,
+              public comments?: number,
               public id?: string) {
 
     this.ranking = ranking;
