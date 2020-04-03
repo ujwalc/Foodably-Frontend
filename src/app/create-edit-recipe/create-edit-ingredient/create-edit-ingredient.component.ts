@@ -14,7 +14,7 @@ export class CreateEditIngredientComponent implements OnInit {
   @Input() index: number;
   @Output() deleteIngredient: EventEmitter<number> = new EventEmitter();
 
-  units = ['kg', 't. sp.', 'g'];
+  units = ['Select', 'g', 'kg', 'tbsp', 'tsp', 'pc.', 'ml', 'l', 'pkg.'];
 
   styleGuide = {
     caretClass: 'dropdown__caret',
