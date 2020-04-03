@@ -14,12 +14,13 @@ export class CommentService {
     userId: string;
     user: string;
     id: string;
-    comment: string;
-    constructor(private http: HttpClient) { }
-
+    // comment: string;
+    constructor(private http: HttpClient) {
+      this.recipeId = '5e817aeedf95d939aac2f619';
+    }
     getComments() {
       return this.http
-        .get('http://localhost:4000/userComments/allComments')
+        .get('http://localhost:4000/userComments/allComments/' + this.recipeId)
         .pipe(
           map(responseData => {
               return plainToClass(Comment, responseData);
@@ -31,7 +32,6 @@ export class CommentService {
     }
     onComment(form: NgForm) {
       this.commentDesc = form.value.comment;
-      this.recipeId = '5e81797306006038ad4e3c90';
       this.userId = '5e7fe19b39d9462c9c04fcd5';
       console.log(form.value);
       console.log('commentDesc' + this.commentDesc);

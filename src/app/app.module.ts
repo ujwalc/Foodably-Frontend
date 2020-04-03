@@ -46,6 +46,7 @@ import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
 import { StepperComponent } from './shared/controls/stepper/stepper.component';
+import { RatingComponent } from './view-recipe/rating/rating.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { StepperComponent } from './shared/controls/stepper/stepper.component';
     UserRecipesComponent,
     UserRecipeItemComponent,
     ButtonSquareComponent,
-    StepperComponent
+    StepperComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,7 @@ import { StepperComponent } from './shared/controls/stepper/stepper.component';
     MatMenuModule,
     SidebarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [DatePipe, CommentService],
   bootstrap: [AppComponent]
