@@ -3,6 +3,7 @@
         <div class="ranking__info" *ngIf="recipe.ranking.submissions > 0">
             <p class="annotation">{{ recipe.ranking.value }} based on {{ recipe.ranking.submissions }} ratings</p>
             <app-ranking [ranking]="recipe.ranking.value"></app-ranking>
+			<app-rating></app-rating>
         </div>
         <div class="recipe__labels" *ngIf="recipeInfo.length > 0">
             <div class="recipe__label" *ngFor="let info of recipeInfo; let isLast = last" [class.no-border]="isLast">
@@ -74,9 +75,10 @@
             <div class="divider"></div>
         </div>
     </section>
-    <div class="recipe__section recipe__comment--section">
-        <div class="button red-back">
-            <h4 class="button-title">See comments ({{ recipe.comments }})</h4>
-        </div>
-    </div>
+<!--    <div class="recipe__section recipe__comment&#45;&#45;section">-->
+<!--        <div class="button red-back">-->
+<!--            <h4 class="button-title">See comments ({{ recipe.comments }})</h4>-->
+<!--        </div>-->
+<!--    </div>-->
+  <app-comment-section></app-comment-section>
 </div>

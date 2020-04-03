@@ -36,6 +36,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import { SidebarModule } from 'ng-sidebar';
+import { CommentService } from './view-recipe/comment-section/comment.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/authconfig.interceptor';
@@ -51,6 +52,8 @@ import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { UserRecipeItemComponent } from './user-recipes/user-recipe-item/user-recipe-item.component';
 import { ButtonSquareComponent } from './shared/controls/button-square/button-square.component';
 import { StepperComponent } from './shared/controls/stepper/stepper.component';
+import { RatingComponent } from './view-recipe/rating/rating.component';
+
 import { CreateEditRecipeComponent } from './create-edit-recipe/create-edit-recipe.component';
 import { NgSelectModule } from 'ng-custom-select';
 import { CreateEditIngredientComponent } from './create-edit-recipe/create-edit-ingredient/create-edit-ingredient.component';
@@ -102,12 +105,13 @@ import { CreateEditStepIngredientComponent } from './create-edit-recipe/create-e
     UserRecipesComponent,
     UserRecipeItemComponent,
     ButtonSquareComponent,
+    StepperComponent,
+    RatingComponent,
     CreateEditRecipeComponent,
     CreateEditIngredientComponent,
     ButtonComponent,
     CreateEditPrepStepComponent,
-    CreateEditStepIngredientComponent,
-    StepperComponent
+    CreateEditStepIngredientComponent
   ],
   imports: [
     BrowserModule,
@@ -122,7 +126,7 @@ import { CreateEditStepIngredientComponent } from './create-edit-recipe/create-e
     NgSelectModule,
     ReactiveFormsModule
   ],
-  providers: [DatePipe,
+  providers: [CommentService, DatePipe,
   {
     provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
