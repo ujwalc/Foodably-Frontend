@@ -31,6 +31,7 @@ export class RecipeService {
   }
 
   createRecipe(recipe: Recipe) {
+    recipe.authorId = sessionStorage.getItem('id');
     return this.http
       .post(`${this.baseURL}recipe/`,
         JSON.stringify(recipe),
@@ -52,7 +53,7 @@ export class RecipeService {
 
   fetchUserRecipes() {
     return this.http
-      .get(this.baseURL + 'profile/recipes/' + '5e7fe19b39d9462c9c04fcd5')
+      .get(this.baseURL + 'profile/recipes/' + sessionStorage.getItem('id'))
       .pipe(
         map(responseData => {
           const key = 'data';
