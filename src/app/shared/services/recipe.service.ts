@@ -47,6 +47,16 @@ export class RecipeService {
   }
 
   createRecipe(recipe: Recipe) {
+
+    // enter units for preselected items in steps
+    const ingredients = recipe.ingredients;
+    recipe.instruction.forEach(item => {
+      item.ingredients.forEach(ing => {
+        const ingredient = ingredients.find(x => x.name === ing.name);
+        ing.units = ingredient.units;
+      });
+    });
+
     return this.http
       .post(`${this.baseURL}recipe/`,
         JSON.stringify(recipe),

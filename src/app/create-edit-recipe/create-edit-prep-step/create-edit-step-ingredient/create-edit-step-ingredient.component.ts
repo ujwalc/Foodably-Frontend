@@ -1,5 +1,8 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {FormArray, FormGroup} from '@angular/forms';
+import {Ingredient} from '../../../shared/models/recipe/ingredient.model';
+import {RecipeFormService} from '../../../shared/services/recipe-form.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-create-edit-step-ingredient',
@@ -7,13 +10,15 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./create-edit-step-ingredient.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CreateEditStepIngredientComponent implements OnInit {
-
-  ingredients = ['potato', 'onion', 'rice', 'cilantro'];
+export class CreateEditStepIngredientComponent implements OnInit, OnDestroy {
 
   @Input() ingredientForm: FormGroup;
   @Input() index: number;
   @Output() deleteIngredient: EventEmitter<number> = new EventEmitter();
+
+  availableIngredients: Array<string>;
+
+  recipeFormSub: Subscription;
 
   styleGuide = {
     caretClass: 'dropdown__caret',
@@ -22,9 +27,20 @@ export class CreateEditStepIngredientComponent implements OnInit {
     optionsClass: 'dropdown__option'
   };
 
-  constructor() { }
+  constructor(private recipeFormService: RecipeFormService) { }
 
   ngOnInit(): void {
+    this.recipeFormSub = this.recipeFormService.recipeForm$
+      .subscribe(recipeForm => {
+        const availableIngredients = recipeForm.get('ingredients') as FormArray;
+        const items = (availableIngredients.value as Array<Ingredient>).map(item => item.name);
+        this.availableIngredients = ['Select'].concat(items);
+        console.log(this.availableIngredients);
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.recipeFormSub.unsubscribe();
   }
 
   onDelete() {
