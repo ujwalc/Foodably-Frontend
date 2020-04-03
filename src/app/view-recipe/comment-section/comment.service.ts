@@ -10,17 +10,21 @@ import {AuthService} from '../../shared/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class CommentService {
+
+    baseURL = 'http://localhost:4000/';
+
     commentDesc: string;
     recipeId: string;
     userId: string;
     user: string;
     id: string;
     // comment: string;
-    constructor(private http: HttpClient, private authService: AuthService) {
-    }
+
+    constructor(private http: HttpClient, private authService: AuthService) {}
+
     getComments() {
       return this.http
-        .get('http://localhost:4000/userComments/allComments/' + this.recipeId)
+        .get(this.baseURL + 'userComments/allComments/' + this.recipeId)
         .pipe(
           map(responseData => {
               return plainToClass(Comment, responseData);
@@ -30,6 +34,7 @@ export class CommentService {
           })
         );
     }
+
     onComment(form: NgForm) {
       this.commentDesc = form.value.comment;
       this.userId = this.authService.userId;
@@ -41,7 +46,7 @@ export class CommentService {
         userId : this.userId,
         like: 0
       };
-      this.http.post<Comment>(`http://localhost:4000/userComments/comment`,
+      this.http.post<Comment>(this.baseURL + `userComments/comment`,
         commentData
       , {
         headers: new  HttpHeaders({
@@ -55,8 +60,9 @@ export class CommentService {
     }
     // this method deletes the comment
     onDelete(commentId): Observable<any> {
-      return this.http.delete(`http://localhost:4000/userComments/delete/` + commentId);
+      return this.http.delete(this.baseURL + `userComments/delete/` + commentId);
     }
+
     onUpdate(updateid, updatecomment, likecount) {
       const data = {
         id: updateid,
@@ -64,6 +70,6 @@ export class CommentService {
         like: likecount + 1
       };
       console.log(data);
-      return this.http.put('http://localhost:4000/userComments/update', data );
+      return this.http.put(this.baseURL + 'userComments/update', data);
     }
 }
