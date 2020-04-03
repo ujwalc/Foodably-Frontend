@@ -91,12 +91,13 @@ export class ResponseResetComponent implements OnInit {
       this.IsResetFormValid = true;
       this.authService.newPassword(this.ResponseResetForm.value).subscribe(
         data => {
+          alert("Password reset succesfull, Please login to continue")
           this.ResponseResetForm.reset();
           this.successMessage = data.message;
           setTimeout(() => {
             this.successMessage = null;
             this.router.navigate(['login']);
-          }, 3000);
+          }, 300);
           this.onClose();
 
         },

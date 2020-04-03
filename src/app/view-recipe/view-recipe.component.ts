@@ -7,7 +7,7 @@ import {RecipeSection} from '../shared/models/recipe-section.model';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../shared/services/recipe.service';
 import {ActivatedRoute, Params} from '@angular/router';
-import {AuthService} from '../shared/auth.service';
+
 
 
 @Component({
