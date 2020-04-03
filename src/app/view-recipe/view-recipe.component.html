@@ -22,9 +22,13 @@
         <h1 class="header-1">{{ recipe.title }}</h1>
         <div class="recipe__author">
             <app-author [author]="recipe.author.name" [date]="recipe.createdAt"></app-author>
-            <div class="button red-back">
+            <div *ngIf="!subscribed" class="button red-back">
                 <img src="assets/img/bell.svg" alt="Bell">
                 <h4 class="button-title" (click)='subcription()'>Subscribe</h4>
+            </div>
+            <div *ngIf="subscribed" class="button red-back">
+                <img src="assets/img/bell.svg" alt="Bell">
+                <h4 class="button-title" (click)='unsubcription()'>UnSubscribe</h4>
             </div>
         </div>
     </section>

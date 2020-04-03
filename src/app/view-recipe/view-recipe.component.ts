@@ -1,3 +1,4 @@
+import { AuthService } from './../shared/auth.service';
 import { RecipeItem } from '../shared/models/recipe-item.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -6,6 +7,7 @@ import {RecipeSection} from '../shared/models/recipe-section.model';
 import {HttpClient} from '@angular/common/http';
 import {RecipeService} from '../shared/services/recipe.service';
 import {ActivatedRoute, Params} from '@angular/router';
+
 
 @Component({
   selector: 'app-view-recipe',
@@ -17,6 +19,8 @@ export class ViewRecipeComponent implements OnInit {
   recipeId: string;
   recipe: Recipe;
   error = null;
+  currentUserEmail:String;
+  subscribed:boolean;
 
   get recipeInfo(): Array<{ image: string, text: string }> {
     const veg = this.recipe.isVeg ? [{ image: 'assets/img/veg.svg', text: 'Veg'}] : [];
@@ -29,6 +33,7 @@ export class ViewRecipeComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer,
               private http: HttpClient,
               private recipeService: RecipeService,
+              private authService:AuthService,
               private route: ActivatedRoute) {
   }
 
@@ -36,9 +41,12 @@ export class ViewRecipeComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.recipeId = params.id;
       this.onFetchRecipe();
+      
     });
+    
   }
 
+  
 
   onFetchRecipe() {
     // Send Http request
@@ -58,6 +66,15 @@ export class ViewRecipeComponent implements OnInit {
           // tslint:disable-next-line:max-line-length
           new RecipeItem('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Randall Fisher')
         ]);
+        this.authService.getSubscribers(this.recipe.author._id).subscribe(res=>{
+          console.log(res.includes(sessionStorage.getItem('email')));
+          if(res.includes(sessionStorage.getItem('email'))){
+            this.subscribed=true;
+          }
+          else{
+            this.subscribed=false;
+          }
+        })
 
         this.recipe.relatedRecipes = recipeSection;
         this.recipe.comments = 234;
@@ -70,8 +87,28 @@ export class ViewRecipeComponent implements OnInit {
 
 
   subcription(){
+    
     this.recipeService.subscribeRecipe(sessionStorage.getItem('id'),this.recipe.author._id).subscribe(res=>{
       console.log(res);
     })
+    this.subscribed=true;
   }
+  /* checkSubscribed(authorId){
+    this.authService.getSubscribers(authorId).subscribe(res=>{
+      console.log(res.includes(sessionStorage.getItem('email')));
+      if(res.includes(sessionStorage.getItem('email'))){
+        this.subscribed=true;
+      }
+      else{
+        this.subscribed=false;
+      }
+    })
+  } */
+  unsubcription(){
+    this.recipeService.unSubscribeUser(sessionStorage.getItem('id'),this.recipe.author._id).subscribe(res=>{
+      console.log(res);
+    })
+    this.subscribed=false;
+  }
+
 }
