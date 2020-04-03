@@ -55,6 +55,7 @@ export class CreateEditRecipeComponent implements OnInit, OnDestroy {
     this.recipeServiceSub = this.recipeService.createRecipe(recipe).subscribe(
       recipeId => {
         console.log(recipeId);
+        this.recipeForm.reset();
         this.router.navigate(['profile', 'myrecipes']);
       },
       error => {
