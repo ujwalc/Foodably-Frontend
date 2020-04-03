@@ -23,6 +23,10 @@ export class ViewRecipeComponent implements OnInit {
     return this.authService.userId === this.recipe.author.id;
   }
 
+  get subscribeIsAvailable() {
+    return this.authService.isLoggedIn && !this.isAuthor;
+  }
+
   get recipeInfo(): Array<{ image: string, text: string }> {
     const veg = this.recipe.isVeg ? [{ image: 'assets/img/veg.svg', text: 'Veg'}] : [];
     const like = this.recipe.likes > 0 ? [{image: 'assets/img/like.svg', text: this.recipe.likes.toString()}] : [];
