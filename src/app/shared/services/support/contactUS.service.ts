@@ -1,3 +1,4 @@
+//Author: Ujwal Vikas Chanda, uj225642@dal.ca
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
@@ -14,7 +15,7 @@ constructor( private httpclient: HttpClient) {
 this.httpcli = httpclient
 }
 
-
+//Send Mail request to API
 
   contactUS(name,mail,body){
     const subURL="http://"+this.hn+":4000/search/contact/"+name+"/"+mail+"/"+body;
