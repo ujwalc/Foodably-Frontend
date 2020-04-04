@@ -1,3 +1,4 @@
+// @author: SNEHA JAYAVARDHINI
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {CommentService} from './comment.service';
@@ -23,11 +24,17 @@ export class CommentSectionComponent implements OnInit {
 
     this.onLoadComments();
   }
+  // function to send the comment given by the user to the server, the form is sent as a parameter
+  // to the onComment() of Comment Service 
+  
   onComment(form: NgForm) {
     this.commentService.onComment(form).subscribe(() => {
       this.ngOnInit();
     });
   }
+  
+  // this function deletes the comment, it takes the id of the comment  as a parameter to delete
+  // and calls the onDelete() of Comment Service
   onDelete(id) {
     this.commentService.onDelete(id)
       .subscribe(
@@ -36,6 +43,7 @@ export class CommentSectionComponent implements OnInit {
       });
     this.ngOnInit();
   }
+  //increase the count of the like button under the comment
   like(com: Comment) {
     console.log('entered') ;
     this.commentService.onUpdate(com.id, com.comment, com.like)
