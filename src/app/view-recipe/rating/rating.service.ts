@@ -1,3 +1,5 @@
+//@author : SNEHA JAYAVARDHINI
+
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
@@ -7,6 +9,8 @@ export class RatingService {
   usrId: string;
   recipeId: string;
   constructor(private http: HttpClient) { }
+  
+  //sends the rating to the server
   onRate(starrate) {
     this.usrId = '5e7fe19b39d9462c9c04fcd5';
     this.recipeId = '5e81797306006038ad4e3c90';
@@ -26,6 +30,7 @@ export class RatingService {
         console.log(data);
       }).catch(err => console.log(err));
   }
+  //updates the rating given by the user
   onRateUpdate(starrate) {
     console.log('entered');
     const data = {
