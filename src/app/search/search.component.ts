@@ -1,3 +1,5 @@
+//Author: Ujwal Vikas Chanda, uj225642@dal.ca
+
 import { Component, Input, OnInit, } from '@angular/core';
 import { RecipeItem } from '../shared/models/recipe-item.model';
 import { AdvSearchComponent } from '../shared/forms/adv-search/adv-search.component';
@@ -25,18 +27,7 @@ export class SearchComponent implements OnInit {
   recipeSections = [{
     recipes: []
   }];
-  /*
-  recipeSections = [{
-      recipes: [
-        new RecipeItems('assets/img/stock-img/eiliv-sonas-aceron-FoHTUTU8SzE-unsplash.jpg', '40 min', 'Petit beurre dessert',  'Made by Seth Carson'),
-        new RecipeItems('assets/img/stock-img/baiq-daling-ykThMylLsbY-unsplash.jpg', '30 min', 'Eggs en Cocotte', 'Made by Alice Norris'),
-        new RecipeItems('assets/img/stock-img/aigars-peda-HEG9RhlLKTY-unsplash.jpg', '15 min', 'Salmon rice soup with ginger and garlic', 'Made by Eunice Bush'),
-        new RecipeItems('assets/img/stock-img/martin-widenka-tkfRSPt-jdk-unsplash.jpg', '20 min', 'Petit beurre dessert', 'Made by Randall Fisher')
-
-      ]
-    }
-  ];
-*/
+  /*variables declaration*/
   router:Router
   data:any
   dataAgain:any
@@ -57,7 +48,6 @@ filter:FilterData
   console.log(this.searchKey)
   this.searchAgain = _search
 console.log(search.getFilterKey())
-
   this.searchAgain.getAllRecipes(this.searchKey).subscribe(res => {
     this.onGetData(res)
      })
@@ -68,6 +58,7 @@ console.log(search.getFilterKey())
     //if(location.pathname != "/"){location.replace("/")}
   }
 
+//Search method called after clicked on search
   onSearch(){
     this.recipeSections[0]["recipes"]=[]
     console.log(this.searchKey)
@@ -83,6 +74,7 @@ console.log(search.getFilterKey())
     }
   }
 
+//Method to get data from api service file
   onGetData(data){
     this.recipeSections[0]["recipes"]=[]
     for (var index in data){
@@ -97,8 +89,8 @@ console.log(search.getFilterKey())
      console.log(this.noOfItems)
   }
 
+//Opens advance search component
   onAdvSearch(){
-
     if(!this.searchKey){
       alert("Please Search Something")
     }else{
@@ -113,12 +105,11 @@ console.log(search.getFilterKey())
         this.searchAgain.getFilteredRecipes(this.searchKey,this.search.getFilterData()).subscribe(res => {
           this.onGetData(res)
            })
-
       });
     }
-
   }
 
+//Sort component
   onSort(order){
     this.sortedBy=order
     if(!this.searchKey){
@@ -128,7 +119,6 @@ console.log(search.getFilterKey())
       this.searchAgain.getSortedRecipes(this.searchKey,order).subscribe(res => {
         this.onGetData(res)
       })
-
     }
   }
 

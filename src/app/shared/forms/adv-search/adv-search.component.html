@@ -1,10 +1,11 @@
+<!--//Author: Ujwal Vikas Chanda, uj225642@dal.ca-->
 <div class="backdrop">
     <div class="adv-search__form">
         <img class="adv-search__logo" src="assets/img/logo_small.svg" alt="Foodably logo">
         <div class="close-button" (click)="onClose()"></div>
         <img class="adv-search__illustration" src="assets/img/undraw_enter_uhqk.svg" alt="Form illustration logo">
 
-
+        <!--Category column-->
         <div class="adv-search__categories">
             <li class="food-type" (click)="onFilter()">Type of dish</li><br>
             <li class="food-type" (click)="onFilterA()">Diet</li><br>
@@ -12,6 +13,7 @@
             <li class="food-type" (click)="onFilterD()">Cusine</li><br>
         </div>
 
+<!--Category Fields-->
         <form>
             <div class="adv-search__contents" *ngIf="showup">
 

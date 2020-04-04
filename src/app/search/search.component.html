@@ -1,5 +1,9 @@
+<!--
+Author: Ujwal Vikas Chanda, uj225642@dal.ca
+-->
 <section id="search">
     <div>
+        <!--Search Bar-->
         <div id="search-field">
             <a (click)="onSearch()">
                 <img src="assets/img/loop.svg" alt="Loop icon" style="cursor: pointer;">
@@ -14,10 +18,11 @@
 
 <section>
     <section id="recipes-and-articles">
+        <!--Display number of records after search-->
         <div>
             Showing {{noOfItems}} results
             <span style="float: right;">
-
+                <!--Sort Menu-->
                 <span class="sort" style="color: #4C4054;">
                     <a class="backquote">
                       <img id="sortMenu" src="../../assets/img/stock-img/menu-2.png">
@@ -31,7 +36,7 @@
             </span>
             </span>
         </div>
-
+    <!--Display list of searched record-->
         <div *ngFor="let recipeSection of recipeSections">
             <div class="section">
                 <ul class="recipe__cards">

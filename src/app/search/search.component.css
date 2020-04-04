@@ -1,3 +1,4 @@
+/* Author: Ujwal Vikas Chanda, uj225642@dal.ca */
 /* search section */
 #search {
   padding: 4rem 0;
@@ -8,6 +9,7 @@
   margin-right: auto;
 }
 
+/* search records */
 #search > div:first-of-type {
   height: 12rem;
   width: 37.5rem;
@@ -19,6 +21,7 @@
   padding-bottom: 3.5rem;
 }
 
+/* search cards */
 #search-field {
   height: 4.625rem;
   width: 100%;
@@ -34,6 +37,7 @@
   margin-right: auto;
 }
 
+/* search input */
 #search-field > input {
   border: none;
   margin-left: 1.5rem;
@@ -48,11 +52,13 @@
   color: #9E9E9E;
 }
 
+/* advanced search component*/
 #advanced-search {
   padding-right: 1rem;
   cursor: pointer;
 }
 
+/* recipes display section */
 #recipes-and-articles {
   width: 80%;
   margin: 3rem auto 4.625rem auto;
@@ -74,6 +80,7 @@
   cursor: pointer;
 }
 
+/* sort component */
 .sort {
   position: relative;
   display: inline-block;
@@ -101,6 +108,7 @@
   background-color: transparent;
 }
 
+/* search recipe order */
 .recipe__card {
   background-color: white;
   box-shadow: 4px 10px 25px -16px #4C4054;

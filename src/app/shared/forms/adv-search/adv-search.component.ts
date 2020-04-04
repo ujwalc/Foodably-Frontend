@@ -1,3 +1,4 @@
+//Author: Ujwal Vikas Chanda, uj225642@dal.ca
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { SearchComponent } from 'src/app/search/search.component';
@@ -16,15 +17,15 @@ export class AdvSearchComponent implements OnInit {
 searchKey:any
 
   constructor(public dialog: MatDialog,public search: SearchService, _search: SearchApiService, public dialogRef: MatDialogRef<SearchComponent>) {
+    // Get Search key word on loading advace search component
     this.searchKey = this.search.getSearchKey()
 
   }
 
-
-
   ngOnInit() {
   }
 
+// On closing advance search
   onClose() {
     this.search.unsetFilterKey()
    this.dialogRef.close();
@@ -48,7 +49,7 @@ searchKey:any
   cusinesAgain=[]
   filter:FilterData
 
-
+//Swithcing between filters
   onFilter() {
     this.showup = !this.showup;
     this.showupA = false;
@@ -154,7 +155,7 @@ searchKey:any
   }
 
 
-
+//To clear filters
   onClear(){
     this.search.unsetFilterKey()
     this.dialogRef.close()
@@ -164,6 +165,7 @@ searchKey:any
     });
   }
 
+//To submit applied filters
   onSubmit(){
 
     if(this.typesAgain.length == 0){

@@ -1,3 +1,6 @@
+//Author: Ujwal Vikas Chanda, uj225642@dal.ca
+//API integration file with backend
+
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
@@ -7,6 +10,7 @@ import { RequestOptions} from '@angular/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SearchApiService {
 
   hn:any
@@ -16,16 +20,19 @@ constructor( private httpclient: HttpClient) {
 
 }
 
+//To get all recipes with specific search keyword
   getAllRecipes(searchID): Observable<any> {
     const subURL="http://"+this.hn+":4000/search/"+searchID;
     return this.httpclient.get(subURL);
   }
 
+//To get author of the specific recipe
   getAuthor(searchID): Observable<any> {
     const subURL="http://"+this.hn+":4000/search/author/"+searchID;
     return this.httpclient.get(subURL);
   }
 
+//Sorted list of recipes in ascending order based on selected field
   getSortedRecipes(searchID,sortOrder): Observable<any> {
     if(sortOrder=="time"){
       const subURL="http://"+this.hn+":4000/search/asc/"+searchID+"/"+sortOrder;
@@ -37,6 +44,7 @@ constructor( private httpclient: HttpClient) {
     }
   }
 
+//Advance Search API
   getFilteredRecipes(searchID,data){
     this.filter=data
     console.log(this.filter)

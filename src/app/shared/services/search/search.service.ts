@@ -1,3 +1,4 @@
+//Author: Ujwal Vikas Chanda, uj225642@dal.ca
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
@@ -7,23 +8,24 @@ import {FilterData} from '../../forms/adv-search/filter.model';
 })
 export class SearchService {
 
+//Variables
   searchKey:any
   filterKey:Boolean
   filter:FilterData
 
-
-  //constructor(private httpclient: HttpClient) {
 constructor(){
 
 }
 
-
+//search key adapters
   putSearchKey(searchKey){
     this.searchKey = searchKey
   }
   getSearchKey(){
     return this.searchKey
   }
+
+  //Filter key adapters
   setFilterKey(){
     this.filterKey = true
   }

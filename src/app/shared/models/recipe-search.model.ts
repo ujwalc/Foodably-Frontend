@@ -1,3 +1,5 @@
+//Author: Ujwal Vikas Chanda, uj225642@dal.ca
+//Search Model
 export class RecipeSearch{
 
   public image: any
