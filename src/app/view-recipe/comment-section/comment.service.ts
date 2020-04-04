@@ -1,3 +1,4 @@
+// @author: SNEHA JAYAVARDHINI
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
@@ -22,7 +23,8 @@ export class CommentService {
     // comment: string;
 
     constructor(private http: HttpClient, private authService: AuthService) {}
-
+    
+    // gets the comments from the backend using GET request
     getComments() {
       return this.http
         .get(this.baseURL + 'userComments/allComments/' + this.recipeId)
@@ -35,7 +37,9 @@ export class CommentService {
           })
         );
     }
-
+    
+    // takes the form sent by user as a parameter and sends th POST requst to store the comment
+    
     onComment(form: NgForm) {
 
       this.commentDesc = form.value.comment;
@@ -72,7 +76,7 @@ export class CommentService {
     onDelete(commentId): Observable<any> {
       return this.http.delete(this.baseURL + `userComments/delete/` + commentId);
     }
-
+    // updates the like and comment 
     onUpdate(updateid, updatecomment, likecount) {
       const data = {
         id: updateid,
