@@ -1,3 +1,4 @@
+//@author : SNEHA JAYAVARDHINI
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import {RatingService} from './rating.service';
 
@@ -18,6 +19,7 @@ export class RatingComponent implements OnInit {
   ngOnInit() {
     this.inputName = this.itemId + '_rating';
   }
+  // calls the onRate() of Rating service
   onClick(starrating: number): void {
     this.count = this.count + 1;
     this.rating = starrating;
