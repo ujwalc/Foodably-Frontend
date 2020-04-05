@@ -87,10 +87,7 @@ export class ShoppingListService {
           scale: 8
         }
       });
-      marker.addListener('click', () => {
-        marker.setAnimation(this.google.maps.Animation.BOUNCE);
-        setTimeout(() => marker.setAnimation(null), 2000);
-      });
+      
     }
 
 
