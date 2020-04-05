@@ -23,15 +23,8 @@ export class ShoppingListService {
   private googlePlacesService;
   private apiUrl = 'https://ipapi.co/json/';
   constructor(private http: HttpClient){}
-    // list(): Observable<any>
-    // {
-
-    //   return this.http.get(url)
-    // }
-    // getlocation(){
-    //   return this.http.get<Location>('http://api.ipapi.co/api/check?access_key=AIzaSyC6vmA4psalFEBizEQjiEeP1aNjDdizflc')
-    // }
-
+  
+//fetchUserCookingList makes a get request
     fetchUserCookingList() {
       return this.http
         .get(this.baseURL + '\cookinglist')
@@ -48,7 +41,8 @@ export class ShoppingListService {
           })
         );
     }
-
+//NewtonJoshua, “NewtonJoshua/RestaurantFinder,” GitHub. [Online]. Available: https://github.com/NewtonJoshua/RestaurantFinder. [Accessed: 04-Apr-2020].
+//Maps to get current location coordinates, create map and add listeners.
     getLocation():Observable<any>{
       return Observable.create(observer => {
         if (navigator.geolocation) {
